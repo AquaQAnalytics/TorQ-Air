@@ -17,7 +17,7 @@ Currently throws error when no flights are available at an airport
 /- load ReQ library
 system "l req_0.1.4.q";
 
-config:flip "|" vs ' read0 `:config.txt;
+config:flip "|" vs ' read0 hsym `$getenv[`TORQHOME],"/appconfig/passwords/lufthansa.txt";
 config: config[0]!config[1];
 
 client_secret: config "secret";
