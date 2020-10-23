@@ -15,8 +15,6 @@ Currently throws error when no flights are available at an airport
 \
 
 /- load ReQ library
-system "l req_0.1.4.q";
-
 config:flip "|" vs ' read0 hsym `$getenv[`TORQHOME],"/appconfig/passwords/lufthansa.txt";
 config: config[0]!config[1];
 
@@ -30,7 +28,7 @@ LH2KDB:{  "Z"$(-1 _ x)  };
 
 /- This will need to be renewed on an ongoing basis
 /- Used bash here for a complex curl call
-gen_key:{("\"" vs (system "bash authtoken.sh ",client_id," ",client_secret)[0])[3]};
+gen_key:{("\"" vs (system "bash code/flightlibraries/authtoken.sh ",client_id," ",client_secret)[0])[3]};
 auth_key: gen_key[];
 
 /- Generates url and headers for retrieving flight information
@@ -46,5 +44,21 @@ niceDict:{ [ dat  ]  (`depAirport`depTime`arivTime`arivAirport`Airline`FlightNum
 
 extractFlights:{[time;airport;typ]  (((.req.get[ gen_reqUrl[time;airport;typ] ; headers]`FlightStatusResource)`Flights)`Flight)  };
 
-niceFlights:{ [time;airport;typ]  niceDict'[extractFlights[time;airport;typ]]  };
+niceFlights:{ [time;airport;typ] 
+  a: niceDict'[extractFlights[time;airport;typ]]; 
+  a:update `$depAirport,`$arivAirport,`$Airline,"J"$FlightNumber,`$Type,`$Registration,`$Status from a;
+  `sym xcol a
+ }
+
+
+/- Streaming to tickerplant
+sendtotp:{[]
+  h:.servers.gethandlebytype[`tickerplant;`any];
+  h(`.u.upd;`flights;value flip niceFlights[.z.Z;"FRA";"departures"]);
+  h(`.u.upd;`flights;value flip niceFlights[.z.Z;"FRA";"arrivals"]);
+ }
+
+.servers.startup[]
+.servers.CONNECTIONS:`tickerplant;
+.timer.repeat[.proc.cp[];0Wp;0D00:01:00.000;(`sendtotp;`);"Publish Feed"];
 
