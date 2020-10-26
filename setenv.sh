@@ -22,14 +22,9 @@ export KDBHDB=${TORQDATA}/hdb
 export KDBWDB=${TORQDATA}/wdbhdb
 export KDBTPLOG=${TORQDATA}/tplogs
 
-export KDBBASEPORT=6578                                                                             # set KDBBASEPORT to the default value for a TorQ Installation
+export KDBBASEPORT=6978                                                                             # set KDBBASEPORT to the default value for a TorQ Installation
 export KDBSTACKID="-stackid ${KDBBASEPORT}"
 export TORQPROCESSES=${KDBAPPCONFIG}/process.csv                                                    # set TORQPROCESSES to the default process csv
-
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$KDBLIB/l32
-
-export DOGSTATSD_PORT=8125                                                                          # set DOGSTATSD_PORT to the default value for datadog daemon
-export DOGSTATSD_APIKEY=4f8c4802645g2d21t38622e76w5f4905					    # set DGSTATSD_APIKEY to default value
 
 export TORQMONIT=${TORQHOME}/logs/monit                                                             # set the folder for monit outputs
 
