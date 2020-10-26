@@ -38,15 +38,15 @@ gen_reqUrl:{  [time;airport;typ]  "https://api.lufthansa.com/v1/operations/fligh
 /- Extracting data from nested tables
 extractTime:{[dat;status]  LH2KDB[((dat@status)`ScheduledTimeUTC)`DateTime]  }
 
-niceDict:{ [ dat  ]  (`depAirport`depTime`arivTime`arivAirport`Airline`FlightNumber`Type`Registration`Status)!((dat`Departure)`AirportCode ;
-	 extractTime[dat;`Departure]; extractTime[dat;`Arrival]; (dat`Arrival)`AirportCode ; (dat`OperatingCarrier)`AirlineID ;
-	 (dat`OperatingCarrier)`FlightNumber ; (dat`Equipment)`AircraftCode ; (dat`Equipment)`AircraftRegistration; (dat`FlightStatus)`Code   )}
+niceDict:{ [ dat  ]  (`Airline`depAirport`depTime`arivTime`arivAirport`FlightNumber`Type`Registration`Status)!( (dat`OperatingCarrier)`AirlineID;
+  (dat`Departure)`AirportCode ; extractTime[dat;`Departure]; extractTime[dat;`Arrival]; (dat`Arrival)`AirportCode  ;
+  (dat`OperatingCarrier)`FlightNumber ; (dat`Equipment)`AircraftCode ; (dat`Equipment)`AircraftRegistration; (dat`FlightStatus)`Code   )}
 
 extractFlights:{[time;airport;typ]  (((.req.get[ gen_reqUrl[time;airport;typ] ; headers]`FlightStatusResource)`Flights)`Flight)  };
 
 niceFlights:{ [time;airport;typ] 
   a: niceDict'[extractFlights[time;airport;typ]]; 
-  a:update `$depAirport,`$arivAirport,`$Airline,"J"$FlightNumber,`$Type,`$Registration,`$Status from a;
+  a:update `$Airline,`$depAirport,`$arivAirport,"J"$FlightNumber,`$Type,"C"$Registration,`$Status from a;
   `sym xcol a
  }
 
