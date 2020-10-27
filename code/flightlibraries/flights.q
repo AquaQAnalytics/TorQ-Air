@@ -18,6 +18,8 @@ Currently throws error when no flights are available at an airport
 config:flip "|" vs ' read0 hsym `$getenv[`TORQHOME],"/appconfig/passwords/lufthansa.txt";
 config: config[0]!config[1];
 
+flights_per_request:"100";
+
 client_secret: config "secret";
 client_id: config "clientID";
 
@@ -33,7 +35,8 @@ auth_key: gen_key[];
 
 /- Generates url and headers for retrieving flight information
 headers: ("Accept";"Authorization";"X-Originating-IP")!("application/json"; "Bearer ",auth_key; " " sv string `int$0x0 vs .z.a);
-gen_reqUrl:{  [time;airport;typ]  "https://api.lufthansa.com/v1/operations/flightstatus/",typ,"/",airport,"/",KDB2LH[time],"?serviceType=passenger"  }
+gen_reqUrl:{  [time;airport;typ]  "https://api.lufthansa.com/v1/operations/flightstatus/"
+  ,typ,"/",airport,"/",KDB2LH[time],"?serviceType=passenger&limit=",flights_per_request  }
 
 /- Extracting data from nested tables
 extractTime:{[dat;status]  LH2KDB[((dat@status)`ScheduledTimeUTC)`DateTime]  }
