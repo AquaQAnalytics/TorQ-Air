@@ -14,6 +14,8 @@ Currently throws error when no flights are available at an airport
 
 \
 
+syms:exec sym from (" *";enlist ",") 0:hsym first .proc.getconfigfile["symconfig.csv"];
+
 /- Load user authorization details from config
 config:flip "|" vs ' read0 hsym `$getenv[`TORQHOME],"/appconfig/passwords/lufthansa.txt";
 config: config[0]!config[1];
@@ -49,19 +51,36 @@ extractFlights:{[time;airport;typ]  (((.req.get[ gen_reqUrl[time;airport;typ] ; 
 
 niceFlights:{ [time;airport;typ] 
   a: niceDict'[extractFlights[time;airport;typ]]; 
-  a:update `$Airline,`$depAirport,`$arivAirport,"J"$FlightNumber,`$Type,"C"$Registration,`$Status from a;
+  a:update `$Airline,`$depAirport,`$arivAirport,"J"$FlightNumber,`$Type,`$Status from a;
   `sym xcol a
  }
 
 
 /- Streaming to tickerplant
-sendtotp:{[]
-  h:.servers.gethandlebytype[`tickerplant;`any];
-  h(`.u.upd;`flights;value flip niceFlights[.z.Z;"FRA";"departures"]);
-  h(`.u.upd;`flights;value flip niceFlights[.z.Z;"FRA";"arrivals"]);
+sendtotp:{[sy]
+  a:@[niceFlights[.z.Z;;"arrivals"];sy;"No flights"];
+  d:@[niceFlights[.z.Z;;"departures"];sy;"No flights"];
+  if[98h~type a;
+    if [98h~type d;
+      h:.servers.gethandlebytype[`tickerplant;`any];
+      h(`.u.upd;`flights;value flip d except  raze (raze each prevdata)'[`$syms]);
+      h(`.u.upd;`flights;value flip a except raze (raze each prevdata)'[`$syms]);
+      `prevdata upsert select by airport from  ([]airport:`$sy; departures:enlist d; arrivals:enlist a)
+      ]
+      ]
+
+
  }
+
+flightbysym:{[]
+  {sendtotp[x]}'[`.[`syms]]
+ }
+
+prevdata:([airport:`$()]; departures:([]sym:`symbol$(); depAirport :`symbol$();depTime :`datetime$();arivTime :`datetime$(); arivAirport: `symbol$(); FlightNumber:`long$(); Type:`symbol$(); Registration:"C"$(); Status:`symbol$()); arrivals:([]sym:`symbol$(); depAirport :`symbol$();depTime :`datetime$();arivTime :`datetime$(); arivAirport: `symbol$(); FlightNumber:`long$(); Type:`symbol$(); Registration:"C"$(); Status:`symbol$()));
+
+
 
 .servers.startup[]
 .servers.CONNECTIONS:`tickerplant;
-.timer.repeat[.proc.cp[];0Wp;0D00:01:00.000;(`sendtotp;`);"Publish Feed"];
+.timer.repeat[.proc.cp[];0Wp;0D00:01:00.000;(`flightbysym;`);"Publish Feed"];
 
