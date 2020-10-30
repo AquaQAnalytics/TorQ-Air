@@ -14,7 +14,16 @@ Currently throws error when no flights are available at an airport
 
 \
 
-syms:exec sym from (" *";enlist ",") 0:hsym first .proc.getconfigfile["symconfig.csv"];
+
+numsyms:@[value;`numsyms;5];
+
+syms:`.[`numsyms]#exec sym from ("* ";enlist ",") 0:hsym first .proc.getconfigfile["symconfig.csv"];
+callstimestosyms:{[]
+  0D+`time$3.6e+6%1000%`.[`numsyms]
+	
+	}
+
+
 
 /- Load user authorization details from config
 config:flip "|" vs ' read0 hsym `$getenv[`TORQHOME],"/appconfig/passwords/lufthansa.txt";
@@ -82,5 +91,5 @@ prevdata:([airport:`$()]; departures:([]sym:`symbol$(); depAirport :`symbol$();d
 
 .servers.startup[]
 .servers.CONNECTIONS:`tickerplant;
-.timer.repeat[.proc.cp[];0Wp;0D00:01:00.000;(`flightbysym;`);"Publish Feed"];
+.timer.repeat[.proc.cp[];0Wp;callstimestosyms[];(`flightbysym;`);"Publish Feed"];
 
