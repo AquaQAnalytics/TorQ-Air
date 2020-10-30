@@ -1,4 +1,4 @@
-U2:easyjet
+U2:Easyjet
 1T:BulgarianAirCharter
 Q5:40-MileAir
 4O:Interjet
@@ -430,7 +430,7 @@ EA:EuropeanAirExpress
 T3:EasternAirways
 QF:SunstateAirlines
 DK:EastlandAir
-MS:Egyptair
+MS:EgyptAir
 LY:ElAlIsraelAirlines
 UZ:El-BuraqAirTransport
 EK:EmiratesAirlines
@@ -580,7 +580,7 @@ MT:ThomasCookAirlines
 1M:JSCTransportAutomatedInformationSystems
 JI:MidwayAirlines(1993–2003)
 3X:JapanAirCommuter
-JL:JapanAirlinesDomestic
+JL:JapanAirlines
 EG:JapanAsiaAirways
 NU:JapanTransoceanAir
 O2:LinearAir
@@ -645,7 +645,7 @@ LM:Livingston
 LB:LloydAéreoBoliviano
 LC:VarigLogística
 HE:LuftfahrtgesellschaftWalter
-LH:LufthansaCargo
+LH:Lufthansa
 CL:LufthansaCityLine
 L1:LufthansaSystems
 DV:NantucketAirlines
@@ -819,10 +819,10 @@ SV:Saudia
 WN:SouthwestAirlines
 A4:SouthernWindsAirlines
 WG:SunwingAirlines
-LX:SwissInternationalAirLines
+LX:Swiss International Air Lines
 SR:Swissair
 WV:SweFly
-XQ:SunExpress
+XQ:Sun Express
 AL:TransAVIAexportAirlines
 E5:SamaraAirlines
 SC:ShandongAirlines
@@ -856,7 +856,7 @@ S5:TrastAero
 R1:Sirin
 O3:SFAirlines
 EQ:TAME
-TP:TAPPortugal
+TP:TAP Portugal
 TU:Tunisair
 3V:TNTAirways
 T2:ThaiAirCargo

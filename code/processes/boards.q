@@ -34,8 +34,16 @@ sub:{[]
 coords: ("SSS"; enlist ",") 0: `:docs/allAirportCoords.csv;
 coords: `depAirport xcol coords;
 
-getDeps:{select Airline:sym, depAirport, depTime:"u"$depTime, arivTime: "u"$arivTime, arivAirport, FlightNumber  from flights where depAirport=x, depTime > .z.z}
-getArivs:{select Airline:sym, depAirport, depTime:"u"$depTime, arivTime: "u"$arivTime, arivAirport, FlightNumber  from flights where arivAirport=x, arivTime > .z.z}
+//Retrieves Airline Codes for translation later
+codes: ("SS"; ":") 0: `:docs/allAirlineCodes.txt;
+codes: (string codes[0])!(string codes[1]);
+
+
+getDeps:{select Airline:`$codes[string sym], depAirport, depTime:"u"$depTime, arivTime: "u"$arivTime, 
+  arivAirport, FlightNumber  from flights where depAirport=x, depTime > .z.z}
+
+getArivs:{select Airline:`$codes[string sym], depAirport, depTime:"u"$depTime, arivTime: "u"$arivTime, 
+  arivAirport, FlightNumber  from flights where arivAirport=x, arivTime > .z.z}
 
 ndept:{[airport; n] (distinct getDeps[airport])[n]}
 nariv:{[airport; n] (distinct getArivs[airport])[n]}
@@ -53,7 +61,7 @@ nallDep:{[n]
 nallAriv:{[n]
   u:string n;
   (`depAirport;(`$u,"Airlineq");  (`$u,"depTimeq"); (`$u,"arivTimeq"); (`$u,"arivAirportq"); (`$u,"FlightNumberq"))
-     xcol select Airline, depTime, arivTime, depAirport, FlightNumber by arivAirport from nariv[;n]'[allSyms]
+     xcol select  Airline, depTime, arivTime, depAirport, FlightNumber by arivAirport from nariv[;n]'[allSyms]
  }
 
 
