@@ -19,7 +19,7 @@ numsyms:@[value;`numsyms;5];
 
 syms:`.[`numsyms]#exec sym from ("* ";enlist ",") 0:hsym first .proc.getconfigfile["symconfig.csv"];
 callstimestosyms:{[]
-  0D+`time$3.6e+6%1000%`.[`numsyms]
+  0D+`time$3.6e+6%1000%2*`.[`numsyms]
 	
 	}
 
