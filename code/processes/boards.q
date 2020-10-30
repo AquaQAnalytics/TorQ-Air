@@ -34,8 +34,8 @@ sub:{[]
 coords: ("SSS"; enlist ",") 0: `:docs/allAirportCoords.csv;
 coords: `depAirport xcol coords;
 
-getDeps:{select Airline:sym, depAirport, depTime:"u"$depTime, arivTime: "u"$arivTime, arivAirport, FlightNumber  from flights where depAirport=x}
-getArivs:{select Airline:sym, depAirport, depTime:"u"$depTime, arivTime: "u"$arivTime, arivAirport, FlightNumber  from flights where arivAirport=x}
+getDeps:{select Airline:sym, depAirport, depTime:"u"$depTime, arivTime: "u"$arivTime, arivAirport, FlightNumber  from flights where depAirport=x, depTime > .z.z}
+getArivs:{select Airline:sym, depAirport, depTime:"u"$depTime, arivTime: "u"$arivTime, arivAirport, FlightNumber  from flights where arivAirport=x, arivTime > .z.z}
 
 ndept:{[airport; n] (distinct getDeps[airport])[n]}
 nariv:{[airport; n] (distinct getArivs[airport])[n]}
