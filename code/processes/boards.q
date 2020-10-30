@@ -38,6 +38,10 @@ coords: `depAirport xcol coords;
 codes: ("SS"; ":") 0: `:docs/allAirlineCodes.txt;
 codes: (string codes[0])!(string codes[1]);
 
+// Get airports codes as a dictionary
+airports: ("  SS"; enlist ",") 0: `:docs/allAirportCodes.csv;
+airports: ( airports`code)!(airports`Airport);
+
 
 getDeps:{select Airline:`$codes[string sym], depAirport, depTime:"u"$depTime, arivTime: "u"$arivTime, 
   arivAirport, FlightNumber  from flights where depAirport=x, depTime > .z.z}
@@ -78,13 +82,9 @@ calcBoards:{
   
   `final set 0!coords;
 
-  `final set  update color: `$"#ff0000" from final;	
+  `final set  update depAirport: airports[depAirport],color: `$"#ff0000" from final;	
 
   }
-
-
-
-
 
 ////////// Tickerplant stuff
 .servers.startup[]
