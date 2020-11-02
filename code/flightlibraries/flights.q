@@ -44,6 +44,8 @@ LH2KDB:{  "Z"$(-1 _ x)  };
 gen_key:{("\"" vs (system "bash code/flightlibraries/authtoken.sh ",client_id," ",client_secret)[0])[3]};
 auth_key: gen_key[];
 
+set_key:{ `auth_key set gen_key[]}
+
 /- Generates url and headers for retrieving flight information
 headers: ("Accept";"Authorization";"X-Originating-IP")!("application/json"; "Bearer ",auth_key; " " sv string `int$0x0 vs .z.a);
 gen_reqUrl:{  [time;airport;typ]  "https://api.lufthansa.com/v1/operations/flightstatus/"
@@ -92,4 +94,4 @@ prevdata:([airport:`$()]; departures:([]sym:`symbol$(); depAirport :`symbol$();d
 .servers.startup[]
 .servers.CONNECTIONS:`tickerplant;
 .timer.repeat[.proc.cp[];0Wp;callstimestosyms[];(`flightbysym;`);"Publish Feed"];
-
+.timer.repeat[.proc.cp[];0Wp;1D00:00:00.000;(`set_key;`);"Generating new auth key"];
