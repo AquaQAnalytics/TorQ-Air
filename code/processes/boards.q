@@ -1,7 +1,4 @@
 
-
-/////////////////////////////////////////
-
 \d .boards
 
 replay:@[value;`replay;1b];                                             // whether or not to replay the log file (becomes 0b once log is replayed)
@@ -24,7 +21,6 @@ sub:{[]
 \d .
 
 // calculating boards
-// lots of code duplication here, needs refactoring
 coords: ("SSS"; enlist ",") 0: `:docs/allAirportCoords.csv;
 coords: `depAirport xcol coords;
 
@@ -39,58 +35,58 @@ airports: ( airports`code)!(airports`Airport);
 final:();
 allSyms: key airports;
 
+// For direction takes `depAirport or `arivAirport
+getRaw:{ [direction;airport]
+  tab:?[`flights; enlist (=;direction;enlist airport); 0b; ()];
+  distinct select Airline:`$codes[string sym], depAirport, depTime:"u"$depTime, arivTime: "u"$arivTime,arivAirport, FlightNumber from tab where arivTime > .z.z
+ }
 
-// helper functions to get and format data from flights
-getDeps:{select Airline:`$codes[string sym], depAirport, depTime:"u"$depTime, arivTime: "u"$arivTime, 
-  arivAirport, FlightNumber  from flights where depAirport=x, depTime > .z.z}
-
-getArivs:{select Airline:`$codes[string sym], depAirport, depTime:"u"$depTime, arivTime: "u"$arivTime, 
-  arivAirport, FlightNumber  from flights where arivAirport=x, arivTime > .z.z}
-
-ndept:{[airport; n] (distinct getDeps[airport])[n]}
-nariv:{[airport; n] (distinct getArivs[airport])[n]}
+// select a particular flight, used for departure board entries
+nflight:{ [direction;airport; n] (getRaw[direction;airport])[n]  }
 
 
+// Renames the columns as necessary so they're all unique and can be lj'ed onto final
+// requests the nth departure / arrival as necessary from all syms
 nallDep:{[n]
   u:string n; 
-  (`depAirport;(`$u,"Airline");  (`$u,"depTime"); (`$u,"arivTime"); (`$u,"arivAirport"); (`$u,"FlightNumber"))
-     xcol select Airline, depTime, arivTime, arivAirport, FlightNumber by depAirport from ndept[;n]'[allSyms] 
+  tab: select Airline, depTime, arivTime, arivAirport, FlightNumber by depAirport from nflight[`depAirport;;n]'[allSyms]; 
+  (`depAirport;(`$u,"Airline");  (`$u,"depTime"); (`$u,"arivTime"); (`$u,"arivAirport"); (`$u,"FlightNumber")) xcol tab
  }
-
 
 // The "Departing airport" and "Arriving Airport" are swapped here so the LJ will work and data will be placed properly on the map
-// The q on the end of the names is to distinguish them from the departures when doing the html tables. 
+// The q on the end of the names is to distinguish them from the departures when doing the html tables in kx dashboards. 
 nallAriv:{[n]
   u:string n;
-  (`depAirport;(`$u,"Airlineq");  (`$u,"depTimeq"); (`$u,"arivTimeq"); (`$u,"arivAirportq"); (`$u,"FlightNumberq"))
-     xcol select  Airline, depTime, arivTime, depAirport, FlightNumber by arivAirport from nariv[;n]'[allSyms]
+  tab:select  Airline, depTime, arivTime, depAirport, FlightNumber by arivAirport from nflight[`arivAirport;;n]'[allSyms];
+  (`depAirport;(`$u,"Airlineq");  (`$u,"depTimeq"); (`$u,"arivTimeq"); (`$u,"arivAirportq"); (`$u,"FlightNumberq")) xcol tab 
  }
 
+resetFinal:{ `final set coords }
 
-prepDep:{ `coords set (value `coords) lj nallDep[x] }
-prepAriv:{ `coords set (value `coords) lj nallAriv[x] }
+// adds a set of columns representing the nth arrival / departure to the 
+addFlight:{
+  `final set (value `final) lj nallDep[x];
+  `final set (value `final) lj nallAriv[x];
+ }
 
+// adds color coding to airports depending on how busy they are
 calcColors:{
   symsInUse: exec sym from final;
-  counts: {count getDeps[x]}'[symsInUse] + {count getArivs[x]}'[symsInUse];
+  counts: {count getRaw[`depAirport;x]}'[symsInUse] + {count getRaw[`arivAirport;x]}'[symsInUse];
   colors: { $[x > 5; $[ x>15;`$"#ff0000"; `$"#d48c19"]; `$"#39a105"] }'[counts];
   `final set update color: colors from final;
  }
 
 // actually calculates departures and arrival boards
 calcBoards:{
-  prepDep'[0 1 2 3 4];
-  prepAriv'[0 1 2 3 4];
-  
-  `final set 0!coords;
-
+  resetFinal[];
+  addFlight'[ til 5];
+  `final set 0!final;
   `final set  update sym:depAirport, depAirport: airports[depAirport] from final;
-
   calcColors[];	
-
   }
 
-////////// Tickerplant stuff
+// Tickerplant stuff
 .servers.startup[]
 .servers.CONNECTIONS:`tickerplant;
 
@@ -104,6 +100,4 @@ upd:.boards.upd;
 
 // subscribe to the quotes table
 .boards.sub[];
-
-
 .timer.repeat[.proc.cp[];0Wp;0D00:01:00.000;(`calcBoards;`);"Calculate Boards"];
