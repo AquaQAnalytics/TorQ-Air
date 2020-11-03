@@ -21,12 +21,6 @@ sub:{[]
     @[`.boards;;:;]'[key subinfo;value subinfo]]
  }
 
-
-
-
-
-
-
 \d .
 
 // calculating boards
@@ -42,7 +36,11 @@ codes: (string codes[0])!(string codes[1]);
 airports: ("  SS"; enlist ",") 0: `:docs/allAirportCodes.csv;
 airports: ( airports`code)!(airports`Airport);
 
+final:();
+allSyms: key airports;
 
+
+// helper functions to get and format data from flights
 getDeps:{select Airline:`$codes[string sym], depAirport, depTime:"u"$depTime, arivTime: "u"$arivTime, 
   arivAirport, FlightNumber  from flights where depAirport=x, depTime > .z.z}
 
@@ -72,17 +70,23 @@ nallAriv:{[n]
 prepDep:{ `coords set (value `coords) lj nallDep[x] }
 prepAriv:{ `coords set (value `coords) lj nallAriv[x] }
 
-final:();
-allSyms:();
+calcColors:{
+  symsInUse: exec sym from final;
+  counts: {count getDeps[x]}'[symsInUse] + {count getArivs[x]}'[symsInUse];
+  colors: { $[x > 5; $[ x>15;`$"#ff0000"; `$"#d48c19"]; `$"#39a105"] }'[counts];
+  `final set update color: colors from final;
+ }
 
+// actually calculates departures and arrival boards
 calcBoards:{
-  `allSyms set (value flip key select by depAirport from flights)[0];
   prepDep'[0 1 2 3 4];
   prepAriv'[0 1 2 3 4];
   
   `final set 0!coords;
 
-  `final set  update depAirport: airports[depAirport],color: `$"#ff0000" from final;	
+  `final set  update sym:depAirport, depAirport: airports[depAirport] from final;
+
+  calcColors[];	
 
   }
 
