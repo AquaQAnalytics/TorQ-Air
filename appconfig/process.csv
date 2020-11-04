@@ -8,6 +8,5 @@ localhost,{KDBBASEPORT}+5,sort,sort1,${TORQHOME}/appconfig/passwords/accesslist.
 localhost,{KDBBASEPORT}+6,gateway,gateway1,${TORQHOME}/appconfig/passwords/accesslist.txt,1,1,,4000,${KDBCODE}/processes/gateway.q,1,,q
 localhost,{KDBBASEPORT}+7,monitor,monitor1,,1,0,,,${KDBCODE}/processes/monitor.q,1,,q
 localhost,{KDBBASEPORT}+8,housekeeping,housekeeping1,${TORQHOME}/appconfig/passwords/accesslist.txt,1,0,,,${KDBCODE}/processes/housekeeping.q,1,,q
-localhost,{KDBBASEPORT}+9,reporter,reporter1,${TORQHOME}/appconfig/passwords/accesslist.txt,1,0,,,${KDBCODE}/processes/reporter.q,1,,q
-localhost,{KDBBASEPORT}+10,lhflight,lhflight1,${TORQHOME}/appconfig/passwords/accesslist.txt,1,0,,,${KDBCODE}/flightlibraries/flights.q,1,,q
-localhost,{KDBBASEPORT}+11,boards,boards1,${TORQHOME}/appconfig/passwords/accesslist.txt,1,0,,,${KDBCODE}/processes/boards.q,1,,q
+localhost,{KDBBASEPORT}+9,lhflight,lhflight1,${TORQHOME}/appconfig/passwords/accesslist.txt,1,0,,,${KDBCODE}/flightlibraries/flights.q,1,,q
+localhost,{KDBBASEPORT}+10,boards,boards1,${TORQHOME}/appconfig/passwords/accesslist.txt,1,0,,,${KDBCODE}/processes/boards.q,1,,q

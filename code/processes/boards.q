@@ -21,15 +21,15 @@ sub:{[]
 \d .
 
 // calculating boards
-coords: ("SSS"; enlist ",") 0: `:docs/allAirportCoords.csv;
+coords: ("SSS"; enlist ",") 0: first .proc.getconfigfile["allAirportCoords.csv"];
 coords: `depAirport xcol coords;
 
 //Retrieves Airline Codes for translation later
-codes: ("SS"; ":") 0: `:docs/allAirlineCodes.txt;
+codes: ("SS"; ":") 0: first .proc.getconfigfile["allAirlineCodes.txt"];
 codes: (string codes[0])!(string codes[1]);
 
 // Get airports codes as a dictionary
-airports: ("  SS"; enlist ",") 0: `:docs/allAirportCodes.csv;
+airports: ("  SS"; enlist ",") 0: first .proc.getconfigfile["allAirportCodes.csv"];
 airports: ( airports`code)!(airports`Airport);
 
 final:();
