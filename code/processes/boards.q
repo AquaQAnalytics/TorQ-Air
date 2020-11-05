@@ -73,8 +73,8 @@ addFlight:{
 calcColors:{
   symsInUse: exec sym from final;
   counts: {count getRaw[`depAirport;x]}'[symsInUse] + {count getRaw[`arivAirport;x]}'[symsInUse];
-  colors: { $[x > 5; $[ x>15;`$"#ff0000"; `$"#d48c19"]; `$"#39a105"] }'[counts];
-  `final set update color: colors from final;
+  c:`s#0 6 16!`$("#39a105";"#d48c19";"#ff0000"); 
+  `final set update color: c[counts] from final;
  }
 
 // actually calculates departures and arrival boards
