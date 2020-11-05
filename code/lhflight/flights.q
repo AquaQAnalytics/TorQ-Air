@@ -15,7 +15,7 @@ numSyms:@[value;`numSyms;5];
 
 syms:numSyms#exec sym from ("* ";enlist ",") 0:hsym first .proc.getconfigfile["symconfig.csv"];
 callsTimesToSyms:{[]
-  0D+`time$3.6e+6%1000%2*`.[`numSyms]
+  0D+`time$3.6e+6%1000%2*numSyms
  }
 
 /- Load user authorization details from config
