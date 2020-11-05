@@ -16,16 +16,15 @@ numSyms:@[value;`numSyms;5];
 syms:`.[`numSyms]#exec sym from ("* ";enlist ",") 0:hsym first .proc.getconfigfile["symconfig.csv"];
 callsTimesToSyms:{[]
   0D+`time$3.6e+6%1000%2*`.[`numSyms]
-	}
+ }
 
 /- Load user authorization details from config
-config:flip "|" vs ' read0 hsym `$getenv[`TORQHOME],"/appconfig/lufthansa.txt";
-config: config[0]!config[1];
+config:(!).("S*";"|")0:hsym first .proc.getconfigfile["lufthansa.txt"];
 
 flightsPerRequest: 100;
 
-clientSecret: config "secret";
-clientId: config "clientID";
+clientSecret: config[`secret];
+clientId: config[`clientID];
 
 
 /- Date time conversion
