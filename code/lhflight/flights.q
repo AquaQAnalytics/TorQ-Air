@@ -35,7 +35,7 @@ LH2KDB:{  "Z"$(-1 _ x)  };
 /- Used bash here for a complex curl call
 genKey:{
 	url:"https://api.lufthansa.com/v1/oauth/token";
-	body:"client_id=",config[`clientID],"&client_secret=",config[`secret],"&grant_type=client_credentials";
+	body:.url.enc `client_id`client_secret`grant_type!(config[`clientID];config[`secret];"client_credentials");
 	headers:(enlist "Content-Type")!(enlist "application/x-www-form-urlencoded");
 	.req.post[url;headers;body][`access_token]
 	};
@@ -71,8 +71,8 @@ sendToTp:{[sy]
   if[98h~type a;
     if [98h~type d;
       h:.servers.gethandlebytype[`tickerplant;`any];
-      h(`.u.upd;`flights;value flip d except  raze (raze each prevdata)'[`$syms]);
-      h(`.u.upd;`flights;value flip a except raze (raze each prevdata)'[`$syms]);
+      h(`.u.upd;`flights;value flip d except raze raze each prevdata);
+      h(`.u.upd;`flights;value flip a except raze raze each prevdata);
       `prevdata upsert select by airport from  ([]airport:`$sy; departures:enlist d; arrivals:enlist a)
         ]
       ]
