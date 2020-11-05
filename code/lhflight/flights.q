@@ -33,7 +33,12 @@ LH2KDB:{  "Z"$(-1 _ x)  };
 
 /- This will need to be renewed on an ongoing basis
 /- Used bash here for a complex curl call
-genKey:{("\"" vs (system "bash code/lhflight/authtoken.sh ",clientId," ",clientSecret)[0])[3]};
+genKey:{
+	url:"https://api.lufthansa.com/v1/oauth/token";
+	body:"client_id=",config[`clientID],"&client_secret=",config[`secret],"&grant_type=client_credentials";
+	headers:(enlist "Content-Type")!(enlist "application/x-www-form-urlencoded");
+	.req.post[url;headers;body][`access_token]
+	};
 authKey: genKey[];
 
 setKey:{ `authKey set genKey[]}
