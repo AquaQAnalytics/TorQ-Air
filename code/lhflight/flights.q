@@ -13,7 +13,7 @@ example: niceFlights[.z.Z;"FRA";"departures"];
 // The amount of syms from "symconfig.csv" that you want to include
 numSyms:@[value;`numSyms;5];
 
-syms:`.[`numSyms]#exec sym from ("* ";enlist ",") 0:hsym first .proc.getconfigfile["symconfig.csv"];
+syms:numSyms#exec sym from ("* ";enlist ",") 0:hsym first .proc.getconfigfile["symconfig.csv"];
 callsTimesToSyms:{[]
   0D+`time$3.6e+6%1000%2*`.[`numSyms]
  }
