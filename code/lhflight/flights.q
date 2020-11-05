@@ -41,7 +41,7 @@ LH2KDB:{  "Z"$(-1 _ x)  };
 
 /- This will need to be renewed on an ongoing basis
 /- Used bash here for a complex curl call
-gen_key:{("\"" vs (system "bash code/flightlibraries/authtoken.sh ",client_id," ",client_secret)[0])[3]};
+gen_key:{("\"" vs (system "bash code/lhflight/authtoken.sh ",client_id," ",client_secret)[0])[3]};
 auth_key: gen_key[];
 
 set_key:{ `auth_key set gen_key[]}
