@@ -1,7 +1,6 @@
 /
 USAGE
 
-
 The main function here is niceFlights[], taking as its arguments:
 a dateTime (between yesterday and 5 days from now),
 a three letter IATA airport code as a string
@@ -9,27 +8,21 @@ either "departures" or "arrivals"
 
 example: niceFlights[.z.Z;"FRA";"departures"];
 
-
-Currently throws error when no flights are available at an airport
-
 \
 
-
+// The amount of syms from "symconfig.csv" that you want to include
 numsyms:@[value;`numsyms;5];
 
 syms:`.[`numsyms]#exec sym from ("* ";enlist ",") 0:hsym first .proc.getconfigfile["symconfig.csv"];
 callstimestosyms:{[]
   0D+`time$3.6e+6%1000%2*`.[`numsyms]
-	
 	}
-
-
 
 /- Load user authorization details from config
 config:flip "|" vs ' read0 hsym `$getenv[`TORQHOME],"/appconfig/lufthansa.txt";
 config: config[0]!config[1];
 
-flights_per_request:"100";
+flightsPerRequest: 100;
 
 client_secret: config "secret";
 client_id: config "clientID";
@@ -49,7 +42,7 @@ set_key:{ `auth_key set gen_key[]}
 /- Generates url and headers for retrieving flight information
 headers: ("Accept";"Authorization";"X-Originating-IP")!("application/json"; "Bearer ",auth_key; " " sv string `int$0x0 vs .z.a);
 gen_reqUrl:{  [time;airport;typ]  "https://api.lufthansa.com/v1/operations/flightstatus/"
-  ,typ,"/",airport,"/",KDB2LH[time],"?serviceType=passenger&limit=",flights_per_request  }
+  ,typ,"/",airport,"/",KDB2LH[time],"?",.url.enc[`serviceType`limit!("passenger";flightsPerRequest)]  }
 
 /- Extracting data from nested tables
 extractTime:{[dat;status]  LH2KDB[((dat@status)`ScheduledTimeUTC)`DateTime]  }
