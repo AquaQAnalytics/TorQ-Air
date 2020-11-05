@@ -64,10 +64,7 @@ nallAriv:{[n]
 resetFinal:{ `final set coords }
 
 // adds a set of columns representing the nth arrival / departure to the 
-addFlight:{
-  `final set (value `final) lj nallDep[x];
-  `final set (value `final) lj nallAriv[x];
- }
+addFlight:{ `final set (lj/)(value`final;nallDep x;nallAriv x) }
 
 // adds color coding to airports depending on how busy they are
 calcColors:{
