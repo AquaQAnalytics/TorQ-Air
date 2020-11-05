@@ -19,13 +19,12 @@ callstimestosyms:{[]
 	}
 
 /- Load user authorization details from config
-config:flip "|" vs ' read0 hsym `$getenv[`TORQHOME],"/appconfig/lufthansa.txt";
-config: config[0]!config[1];
+config:(!).("S*";"|")0:hsym first .proc.getconfigfile["lufthansa.txt"];
 
 flightsPerRequest: 100;
 
-client_secret: config "secret";
-client_id: config "clientID";
+client_secret: config[`secret];
+client_id: config[`clientID];
 
 
 /- Date time conversion
