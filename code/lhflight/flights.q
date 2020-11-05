@@ -70,19 +70,13 @@ sendtotp:{[sy]
       h(`.u.upd;`flights;value flip d except  raze (raze each prevdata)'[`$syms]);
       h(`.u.upd;`flights;value flip a except raze (raze each prevdata)'[`$syms]);
       `prevdata upsert select by airport from  ([]airport:`$sy; departures:enlist d; arrivals:enlist a)
+        ]
       ]
-      ]
-
-
  }
 
-flightbysym:{[]
-  {sendtotp[x]}'[`.[`syms]]
- }
+flightbysym:{sendtotp'[`.[`syms]]}
 
 prevdata:([airport:`$()]; departures:([]sym:`symbol$(); depAirport :`symbol$();depTime :`datetime$();arivTime :`datetime$(); arivAirport: `symbol$(); FlightNumber:`long$(); Type:`symbol$(); Registration:"C"$(); Status:`symbol$()); arrivals:([]sym:`symbol$(); depAirport :`symbol$();depTime :`datetime$();arivTime :`datetime$(); arivAirport: `symbol$(); FlightNumber:`long$(); Type:`symbol$(); Registration:"C"$(); Status:`symbol$()));
-
-
 
 .servers.startup[]
 .servers.CONNECTIONS:`tickerplant;
