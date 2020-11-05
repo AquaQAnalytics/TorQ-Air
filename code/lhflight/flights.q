@@ -11,11 +11,11 @@ example: niceFlights[.z.Z;"FRA";"departures"];
 \
 
 // The amount of syms from "symconfig.csv" that you want to include
-numsyms:@[value;`numsyms;5];
+numSyms:@[value;`numSyms;5];
 
-syms:`.[`numsyms]#exec sym from ("* ";enlist ",") 0:hsym first .proc.getconfigfile["symconfig.csv"];
-callstimestosyms:{[]
-  0D+`time$3.6e+6%1000%2*`.[`numsyms]
+syms:`.[`numSyms]#exec sym from ("* ";enlist ",") 0:hsym first .proc.getconfigfile["symconfig.csv"];
+callsTimesToSyms:{[]
+  0D+`time$3.6e+6%1000%2*`.[`numSyms]
 	}
 
 /- Load user authorization details from config
@@ -24,8 +24,8 @@ config: config[0]!config[1];
 
 flightsPerRequest: 100;
 
-client_secret: config "secret";
-client_id: config "clientID";
+clientSecret: config "secret";
+clientId: config "clientID";
 
 
 /- Date time conversion
@@ -34,14 +34,14 @@ LH2KDB:{  "Z"$(-1 _ x)  };
 
 /- This will need to be renewed on an ongoing basis
 /- Used bash here for a complex curl call
-gen_key:{("\"" vs (system "bash code/lhflight/authtoken.sh ",client_id," ",client_secret)[0])[3]};
-auth_key: gen_key[];
+genKey:{("\"" vs (system "bash code/lhflight/authtoken.sh ",clientId," ",clientSecret)[0])[3]};
+authKey: genKey[];
 
-set_key:{ `auth_key set gen_key[]}
+setKey:{ `authKey set genKey[]}
 
 /- Generates url and headers for retrieving flight information
-headers: ("Accept";"Authorization";"X-Originating-IP")!("application/json"; "Bearer ",auth_key; " " sv string `int$0x0 vs .z.a);
-gen_reqUrl:{  [time;airport;typ]  "https://api.lufthansa.com/v1/operations/flightstatus/"
+headers: ("Accept";"Authorization";"X-Originating-IP")!("application/json"; "Bearer ",authKey; " " sv string `int$0x0 vs .z.a);
+genReqUrl:{  [time;airport;typ]  "https://api.lufthansa.com/v1/operations/flightstatus/"
   ,typ,"/",airport,"/",KDB2LH[time],"?",.url.enc[`serviceType`limit!("passenger";flightsPerRequest)]  }
 
 /- Extracting data from nested tables
@@ -51,7 +51,7 @@ niceDict:{ [ dat  ]  (`Airline`depAirport`depTime`arivTime`arivAirport`FlightNum
   (dat`Departure)`AirportCode ; extractTime[dat;`Departure]; extractTime[dat;`Arrival]; (dat`Arrival)`AirportCode  ;
   (dat`OperatingCarrier)`FlightNumber ; (dat`Equipment)`AircraftCode ; (dat`Equipment)`AircraftRegistration; (dat`FlightStatus)`Code   )}
 
-extractFlights:{[time;airport;typ]  (((.req.get[ gen_reqUrl[time;airport;typ] ; headers]`FlightStatusResource)`Flights)`Flight)  };
+extractFlights:{[time;airport;typ]  (((.req.get[ genReqUrl[time;airport;typ] ; headers]`FlightStatusResource)`Flights)`Flight)  };
 
 niceFlights:{ [time;airport;typ] 
   a: niceDict'[extractFlights[time;airport;typ]]; 
@@ -61,7 +61,7 @@ niceFlights:{ [time;airport;typ]
 
 
 /- Streaming to tickerplant
-sendtotp:{[sy]
+sendToTp:{[sy]
   a:@[niceFlights[.z.Z;;"arrivals"];sy;"No flights"];
   d:@[niceFlights[.z.Z;;"departures"];sy;"No flights"];
   if[98h~type a;
@@ -74,11 +74,11 @@ sendtotp:{[sy]
       ]
  }
 
-flightbysym:{sendtotp'[`.[`syms]]}
+flightBySym:{sendToTp'[`.[`syms]]}
 
 prevdata:([airport:`$()]; departures:([]sym:`symbol$(); depAirport :`symbol$();depTime :`datetime$();arivTime :`datetime$(); arivAirport: `symbol$(); FlightNumber:`long$(); Type:`symbol$(); Registration:"C"$(); Status:`symbol$()); arrivals:([]sym:`symbol$(); depAirport :`symbol$();depTime :`datetime$();arivTime :`datetime$(); arivAirport: `symbol$(); FlightNumber:`long$(); Type:`symbol$(); Registration:"C"$(); Status:`symbol$()));
 
 .servers.startup[]
 .servers.CONNECTIONS:`tickerplant;
-.timer.repeat[.proc.cp[];0Wp;callstimestosyms[];(`flightbysym;`);"Publish Feed"];
-.timer.repeat[.proc.cp[];0Wp;1D00:00:00.000;(`set_key;`);"Generating new auth key"];
+.timer.repeat[.proc.cp[];0Wp;callsTimesToSyms[];(`flightBySym;`);"Publish Feed"];
+.timer.repeat[.proc.cp[];0Wp;1D00:00:00.000;(`setKey;`);"Generating new auth key"];
