@@ -81,8 +81,7 @@ calcColors:{
 calcBoards:{
   resetFinal[];
   addFlight'[ til 5];
-  `final set 0!final;
-  `final set  update sym:depAirport, depAirport: airports[depAirport] from final;
+  `final set update sym:depAirport, depAirport: airports[depAirport] from 0!final;
   calcColors[];	
   }
 
