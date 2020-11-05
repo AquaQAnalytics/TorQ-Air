@@ -26,7 +26,7 @@ callstimestosyms:{[]
 
 
 /- Load user authorization details from config
-config:flip "|" vs ' read0 hsym `$getenv[`TORQHOME],"/appconfig/passwords/lufthansa.txt";
+config:flip "|" vs ' read0 hsym `$getenv[`TORQHOME],"/appconfig/lufthansa.txt";
 config: config[0]!config[1];
 
 flights_per_request:"100";
