@@ -23,10 +23,6 @@ config:(!).("S*";"|")0:hsym first .proc.getconfigfile["lufthansa.txt"];
 
 flightsPerRequest: 100;
 
-clientSecret: config[`secret];
-clientId: config[`clientID];
-
-
 /- Date time conversion
 KDB2LH:{ ssr[16 # string .z.z;".";"-"]  };
 LH2KDB:{  "Z"$(-1 _ x)  };
@@ -78,7 +74,7 @@ sendToTp:{[sy]
       ]
  }
 
-flightBySym:{sendToTp'[`.[`syms]]}
+flightBySym:{sendToTp'[`. `syms]}
 
 prevdata:([airport:`$()]; departures:([]sym:`symbol$(); depAirport :`symbol$();depTime :`datetime$();arivTime :`datetime$(); arivAirport: `symbol$(); FlightNumber:`long$(); Type:`symbol$(); Registration:"C"$(); Status:`symbol$()); arrivals:([]sym:`symbol$(); depAirport :`symbol$();depTime :`datetime$();arivTime :`datetime$(); arivAirport: `symbol$(); FlightNumber:`long$(); Type:`symbol$(); Registration:"C"$(); Status:`symbol$()));
 
