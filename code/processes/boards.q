@@ -25,12 +25,13 @@ coords: ("SSS"; enlist ",") 0: first .proc.getconfigfile["allAirportCoords.csv"]
 coords: `depAirport xcol coords;
 
 //Retrieves Airline Codes for translation later
-codes: ("SS"; ":") 0: first .proc.getconfigfile["allAirlineCodes.txt"];
-codes: (string codes[0])!(string codes[1]);
+codes: (!).("SS";":")0: first .proc.getconfigfile["allAirlineCodes.txt"];
+
 
 // Get airports codes as a dictionary
 airports: ("  SS"; enlist ",") 0: first .proc.getconfigfile["allAirportCodes.csv"];
 airports: ( airports`code)!(airports`Airport);
+
 
 final:();
 allSyms: key airports;
@@ -38,7 +39,7 @@ allSyms: key airports;
 // For direction takes `depAirport or `arivAirport
 getRaw:{ [direction;airport]
   tab:?[`flights; enlist (=;direction;enlist airport); 0b; ()];
-  distinct select Airline:`$codes[string sym], depAirport, depTime:"u"$depTime, arivTime: "u"$arivTime,arivAirport, FlightNumber from tab where arivTime > .z.z
+  distinct select Airline:codes[sym], depAirport, depTime:"u"$depTime, arivTime: "u"$arivTime,arivAirport, FlightNumber from tab where arivTime > .z.z
  }
 
 // select a particular flight, used for departure board entries
