@@ -24,31 +24,30 @@ config:(!).("S*";"|")0:hsym first .proc.getconfigfile["lufthansa.txt"];
 flightsPerRequest: 100;
 
 /- Date time conversion
-KDB2LH:{ ssr[16 # string .z.z;".";"-"]  };
-LH2KDB:{  "Z"$(-1 _ x)  };
+KDB2LH:{ssr[16 # string .z.z;".";"-"]};
+LH2KDB:{"Z"$(-1 _ x)};
 
 /- This will need to be renewed on an ongoing basis
-/- Used bash here for a complex curl call
 genKey:{
 	url:"https://api.lufthansa.com/v1/oauth/token";
 	body:.url.enc `client_id`client_secret`grant_type!(config[`clientID];config[`secret];"client_credentials");
 	headers:(enlist "Content-Type")!(enlist "application/x-www-form-urlencoded");
 	.req.post[url;headers;body][`access_token]
 	};
-authKey: genKey[];
+authKey:genKey[];
 
-setKey:{ `authKey set genKey[]}
+setKey:{`authKey set genKey[]}
 
 /- Generates url and headers for retrieving flight information
 headers: ("Accept";"Authorization";"X-Originating-IP")!("application/json"; "Bearer ",authKey; " " sv string `int$0x0 vs .z.a);
-genReqUrl:{  [time;airport;typ]  "https://api.lufthansa.com/v1/operations/flightstatus/"
+genReqUrl:{[time;airport;typ] "https://api.lufthansa.com/v1/operations/flightstatus/"
   ,typ,"/",airport,"/",KDB2LH[time],"?",.url.enc[`serviceType`limit!("passenger";flightsPerRequest)]  }
 
 /- Extracting data from nested tables
 extractTime:{[dat;status]  LH2KDB[((dat@status)`ScheduledTimeUTC)`DateTime]  }
 
 
-niceDict:{ [dat] (!) . flip (
+niceDict:{[dat] (!) . flip (
   (`Airline; (dat`OperatingCarrier)`AirlineID);
   (`depAirport; (dat `Departure)`AirportCode);
   (`depTime; extractTime[dat;`Departure]);
@@ -61,9 +60,10 @@ niceDict:{ [dat] (!) . flip (
  }
 
 
-extractFlights:{[time;airport;typ]  (((.req.get[ genReqUrl[time;airport;typ] ; headers]`FlightStatusResource)`Flights)`Flight)  };
+extractFlights:{[time;airport;typ].req.get[ genReqUrl[time;airport;typ];headers][`FlightStatusResource;`Flights;`Flight]};
 
-niceFlights:{ [time;airport;typ] 
+
+niceFlights:{[time;airport;typ] 
   a: niceDict'[extractFlights[time;airport;typ]]; 
   a:@[a;`Airline`depAirport`arivAirport`Type`Status;`$];
   `sym xcol update"J"$FlightNumber from a
@@ -84,7 +84,7 @@ sendToTp:{[sy]
       ]
  }
 
-flightBySym:{sendToTp'[`. `syms]}
+flightBySym:{sendToTp'[syms]}
 
 prevdata:([airport:`$()]; departures:([]sym:`symbol$(); depAirport :`symbol$();depTime :`datetime$();arivTime :`datetime$(); arivAirport: `symbol$(); FlightNumber:`long$(); Type:`symbol$(); Registration:"C"$(); Status:`symbol$()); arrivals:([]sym:`symbol$(); depAirport :`symbol$();depTime :`datetime$();arivTime :`datetime$(); arivAirport: `symbol$(); FlightNumber:`long$(); Type:`symbol$(); Registration:"C"$(); Status:`symbol$()));
 
