@@ -65,8 +65,8 @@ extractFlights:{[time;airport;typ]  (((.req.get[ genReqUrl[time;airport;typ] ; h
 
 niceFlights:{ [time;airport;typ] 
   a: niceDict'[extractFlights[time;airport;typ]]; 
-  a:update `$Airline,`$depAirport,`$arivAirport,"J"$FlightNumber,`$Type,`$Status from a;
-  `sym xcol a
+  a:@[a;`Airline`depAirport`arivAirport`Type`Status;`$];
+  `sym xcol update"J"$FlightNumber from a
  }
 
 
