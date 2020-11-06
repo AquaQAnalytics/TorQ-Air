@@ -47,9 +47,19 @@ genReqUrl:{  [time;airport;typ]  "https://api.lufthansa.com/v1/operations/flight
 /- Extracting data from nested tables
 extractTime:{[dat;status]  LH2KDB[((dat@status)`ScheduledTimeUTC)`DateTime]  }
 
-niceDict:{ [ dat  ]  (`Airline`depAirport`depTime`arivTime`arivAirport`FlightNumber`Type`Registration`Status)!( (dat`OperatingCarrier)`AirlineID;
-  (dat`Departure)`AirportCode ; extractTime[dat;`Departure]; extractTime[dat;`Arrival]; (dat`Arrival)`AirportCode  ;
-  (dat`OperatingCarrier)`FlightNumber ; (dat`Equipment)`AircraftCode ; (dat`Equipment)`AircraftRegistration; (dat`FlightStatus)`Code   )}
+
+niceDict:{ [dat] (!) . flip (
+  (`Airline; (dat`OperatingCarrier)`AirlineID);
+  (`depAirport; (dat `Departure)`AirportCode);
+  (`depTime; extractTime[dat;`Departure]);
+  (`arivTime; extractTime[dat;`Arrival]);
+  (`arivAirport; (dat`Arrival)`AirportCode);
+  (`FlightNumber; (dat`OperatingCarrier)`FlightNumber);
+  (`Type; (dat`Equipment)`AircraftCode);
+  (`Registration; (dat`Equipment)`AircraftRegistration);
+  (`Status; (dat`FlightStatus)`Code))
+ }
+
 
 extractFlights:{[time;airport;typ]  (((.req.get[ genReqUrl[time;airport;typ] ; headers]`FlightStatusResource)`Flights)`Flight)  };
 
