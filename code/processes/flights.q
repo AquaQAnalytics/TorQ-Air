@@ -19,7 +19,7 @@ callsTimesToSyms:{[]
  }
 
 /- Load user authorization details from config
-config:(!).("S*";"|")0:hsym first .proc.getconfigfile["lufthansa.txt"];
+config:.j.k read1 hsym first .proc.getconfigfile["lufthansa.json"];
 
 flightsPerRequest: 100;
 
@@ -30,7 +30,7 @@ LH2KDB:{"Z"$(-1 _ x)};
 /- This will need to be renewed on an ongoing basis
 genKey:{
 	url:"https://api.lufthansa.com/v1/oauth/token";
-	body:.url.enc `client_id`client_secret`grant_type!(config[`clientID];config[`secret];"client_credentials");
+	body:.url.enc @[config;`grant_type;:;"client_credentials"];
 	headers:(enlist "Content-Type")!(enlist "application/x-www-form-urlencoded");
 	.req.post[url;headers;body][`access_token]
 	};
