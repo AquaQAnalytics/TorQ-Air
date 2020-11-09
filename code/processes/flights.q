@@ -25,7 +25,7 @@ flightsPerRequest: 100;
 
 /- Date time conversion
 KDB2LH:{ssr[16 # string .z.z;".";"-"]};
-LH2KDB:{"Z"$(-1 _ x)};
+LH2KDB:{"Z"$-1_x};
 
 /- This will need to be renewed on an ongoing basis
 genKey:{
