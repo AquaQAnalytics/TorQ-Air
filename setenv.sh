@@ -10,6 +10,9 @@ else
   dirpath="$(cd "$(dirname "$0")" && pwd)"
 fi
 export TORQHOME=${dirpath}
+export TORQDATA=${dirpath}
+export TORQAPPHOME=${dirpath}
+
 export KDBCONFIG=${TORQHOME}/config
 export KDBCODE=${TORQHOME}/code
 export KDBLOG=${TORQHOME}/logs
