@@ -49,7 +49,7 @@ nflight:{[direction;airport;n] (getRaw[direction;airport])[n]}
 nallDep:{[n]
   u:string n; 
   tab:select Airline, depTime, arivTime, arivAirport, FlightNumber by depAirport from nflight[`depAirport;;n]'[allSyms]; 
-  (`depAirport;(`$u,"Airline");(`$u,"depTime");(`$u,"arivTime");(`$u,"arivAirport");(`$u,"FlightNumber")) xcol tab
+  (`depAirport,`$u,/:("Airline";"depTime";"arivTime";"arivAirport";"FlightNumber")) xcol tab
  }
 
 /- The "Departing airport" and "Arriving Airport" are swapped here so the LJ will work and data will be placed properly on the map
@@ -57,7 +57,7 @@ nallDep:{[n]
 nallAriv:{[n]
   u:string n;
   tab:select  Airline, depTime, arivTime, depAirport, FlightNumber by arivAirport from nflight[`arivAirport;;n]'[allSyms];
-  (`depAirport;(`$u,"Airlineq");(`$u,"depTimeq");(`$u,"arivTimeq");(`$u,"arivAirportq");(`$u,"FlightNumberq")) xcol tab 
+  (`depAirport,`$u,/:("Airlineq";"depTimeq";"arivTimeq";"arivAirportq";"FlightNumberq")) xcol tab 
  }
 
 resetFinal:{`final set coords}
@@ -68,7 +68,7 @@ addFlight:{`final set (lj/)(value`final;nallDep x;nallAriv x)}
 /- adds color coding to airports depending on how busy they are
 calcColors:{
   symsInUse:exec sym from final;
-  counts:{count getRaw[`depAirport;x]}'[symsInUse] + {count getRaw[`arivAirport;x]}'[symsInUse];
+  counts:count getRaw'[`depAirport`arivAirport]'[symsInUse];
   c:`s#0 6 16!`$("#39a105";"#d48c19";"#ff0000"); 
   `final set update color:c[counts] from final;
  }
@@ -78,7 +78,7 @@ calcBoards:{
   resetFinal[];
   addFlight'[til 5];
   `final set update sym:depAirport, depAirport:airports[depAirport] from 0!final;
-  calcColors[];	
+  calcColors[];
  }
 
 /- Tickerplant stuff
