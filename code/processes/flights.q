@@ -60,10 +60,10 @@ niceDict:{[dat] (!). flip (
   (`depTime;extractTime[dat;`Departure]);
   (`arivTime;extractTime[dat;`Arrival]);
   (`arivAirport;dat[`Arrival]`AirportCode);
-  (`FlightNumber;dat[`OperatingCarrier]`FlightNumber);
-  (`Type;dat[`Equipment]`AircraftCode);
-  (`Registration;dat[`Equipment]`AircraftRegistration);
-  (`Status;dat[`FlightStatus]`Code))
+  (`flightNumber;dat[`OperatingCarrier]`FlightNumber);
+  (`aircraftType;dat[`Equipment]`AircraftCode);
+  (`registration;dat[`Equipment]`AircraftRegistration);
+  (`status;dat[`FlightStatus]`Code))
  }
 
 extractFlights:{[time;airport;typ]
@@ -72,8 +72,8 @@ extractFlights:{[time;airport;typ]
 
 niceFlights:{[time;airport;typ] 
   a: niceDict'[extractFlights[time;airport;typ]]; 
-  a:@[a;`Airline`depAirport`arivAirport`Type`Status;`$];
-  `sym xcol update"J"$FlightNumber from a
+  a:@[a;`Airline`depAirport`arivAirport`aircraftType`status;`$];
+  `sym xcol update"J"$flightNumber from a
  }
 
 /- Streaming to tickerplant
@@ -93,8 +93,8 @@ sendToTp:{[sy]
 flightBySym:{sendToTp'[syms]}
 
 prevdata:([airport:`$()]; departures:([] sym:`symbol$(); depAirport:`symbol$(); depTime:`datetime$(); arivTime:`datetime$(); arivAirport:`symbol$(); 
-  FlightNumber:`long$(); Type:`symbol$(); Registration:"C"$(); Status:`symbol$()); arrivals:([] sym:`symbol$(); depAirport:`symbol$();
-  depTime:`datetime$(); arivTime:`datetime$(); arivAirport:`symbol$(); FlightNumber:`long$(); Type:`symbol$(); Registration:"C"$(); Status:`symbol$()));
+  flightNumber:`long$(); aircraftType:`symbol$(); registration:(); status:`symbol$()); arrivals:([] sym:`symbol$(); depAirport:`symbol$();
+  depTime:`datetime$(); arivTime:`datetime$(); arivAirport:`symbol$(); flightNumber:`long$();aircraftType:`symbol$(); registration:(); status:`symbol$()));
 
 .servers.startup[]
 .servers.CONNECTIONS:`tickerplant;

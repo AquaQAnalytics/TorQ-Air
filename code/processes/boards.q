@@ -38,7 +38,7 @@ allSyms:key airports;
 /- For direction takes `depAirport or `arivAirport
 getRaw:{[direction;airport]
   tab:?[`flights;enlist (=;direction;enlist airport);0b;()];
-  distinct select Airline:codes[sym], depAirport, depTime:"u"$depTime, arivTime:"u"$arivTime, arivAirport, FlightNumber from tab where arivTime > .z.z
+  distinct select Airline:codes[sym], depAirport, depTime:"u"$depTime, arivTime:"u"$arivTime, arivAirport, flightNumber from tab where arivTime > .z.z
  }
 
 /- select a particular flight, used for departure board entries
@@ -48,16 +48,16 @@ nflight:{[direction;airport;n] (getRaw[direction;airport])[n]}
 /- requests the nth departure / arrival as necessary from all syms
 nallDep:{[n]
   u:string n; 
-  tab:select Airline, depTime, arivTime, arivAirport, FlightNumber by depAirport from nflight[`depAirport;;n]'[allSyms]; 
-  (`depAirport,`$u,/:("Airline";"depTime";"arivTime";"arivAirport";"FlightNumber")) xcol tab
+  tab:select Airline, depTime, arivTime, arivAirport, flightNumber by depAirport from nflight[`depAirport;;n]'[allSyms]; 
+  (`depAirport,`$u,/:("Airline";"depTime";"arivTime";"arivAirport";"flightNumber")) xcol tab
  }
 
 /- The "Departing airport" and "Arriving Airport" are swapped here so the LJ will work and data will be placed properly on the map
 /- The q on the end of the names is to distinguish them from the departures when doing the html tables in kx dashboards. 
 nallAriv:{[n]
   u:string n;
-  tab:select  Airline, depTime, arivTime, depAirport, FlightNumber by arivAirport from nflight[`arivAirport;;n]'[allSyms];
-  (`depAirport,`$u,/:("Airlineq";"depTimeq";"arivTimeq";"arivAirportq";"FlightNumberq")) xcol tab 
+  tab:select  Airline, depTime, arivTime, depAirport, flightNumber by arivAirport from nflight[`arivAirport;;n]'[allSyms];
+  (`depAirport,`$u,/:("Airlineq";"depTimeq";"arivTimeq";"arivAirportq";"flightNumberq")) xcol tab 
  }
 
 resetFinal:{`final set coords}
