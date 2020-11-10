@@ -44,26 +44,31 @@ setKey:{`authKey set genKey[]}
 /- Generates url and headers for retrieving flight information
 headers: ("Accept";"Authorization";"X-Originating-IP")!("application/json"; "Bearer ",authKey; " " sv string `int$0x0 vs .z.a);
 
-genReqUrl:{[time;airport;typ] "https://api.lufthansa.com/v1/operations/flightstatus/",
+genReqUrl:{[time;airport;typ] 
+  "https://api.lufthansa.com/v1/operations/flightstatus/",
   typ,"/",airport,"/",KDB2LH[time],"?",.url.enc[`serviceType`limit!("passenger";flightsPerRequest)]  
  }
 
 /- Extracting data from nested tables
-extractTime:{[dat;status] LH2KDB[((dat@status)`ScheduledTimeUTC)`DateTime]}
-
-niceDict:{[dat] (!) . flip (
-  (`Airline; (dat`OperatingCarrier)`AirlineID);
-  (`depAirport; (dat `Departure)`AirportCode);
-  (`depTime; extractTime[dat;`Departure]);
-  (`arivTime; extractTime[dat;`Arrival]);
-  (`arivAirport; (dat`Arrival)`AirportCode);
-  (`FlightNumber; (dat`OperatingCarrier)`FlightNumber);
-  (`Type; (dat`Equipment)`AircraftCode);
-  (`Registration; (dat`Equipment)`AircraftRegistration);
-  (`Status; (dat`FlightStatus)`Code))
+extractTime:{[dat;status]
+  LH2KDB dat[status][`ScheduledTimeUTC]`DateTime
  }
 
-extractFlights:{[time;airport;typ].req.get[ genReqUrl[time;airport;typ];headers][`FlightStatusResource;`Flights;`Flight]};
+niceDict:{[dat] (!). flip (
+  (`Airline;dat[`OperatingCarrier]`AirlineID);
+  (`depAirport;dat[`Departure]`AirportCode);
+  (`depTime;extractTime[dat;`Departure]);
+  (`arivTime;extractTime[dat;`Arrival]);
+  (`arivAirport;dat[`Arrival]`AirportCode);
+  (`FlightNumber;dat[`OperatingCarrier]`FlightNumber);
+  (`Type;dat[`Equipment]`AircraftCode);
+  (`Registration;dat[`Equipment]`AircraftRegistration);
+  (`Status;dat[`FlightStatus]`Code))
+ }
+
+extractFlights:{[time;airport;typ]
+  .req.get[genReqUrl[time;airport;typ];headers][`FlightStatusResource;`Flights;`Flight]
+ };
 
 niceFlights:{[time;airport;typ] 
   a: niceDict'[extractFlights[time;airport;typ]]; 
