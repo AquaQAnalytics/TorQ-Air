@@ -2,5 +2,5 @@
 CONNECTIONS:enlist `tickerplant
 
 \d .lhflight
-numsyms:5;
-
+//Airport codes used (as symbols), use ` for all
+syms:`FRA`TXL`MUN`DUS`HAM`JFK

@@ -10,14 +10,14 @@ example: niceFlights[.z.Z;"FRA";"departures"];
 
 \
 
-/- The amount of syms from "symconfig.csv" that you want to include
-numSyms:@[value;`numSyms;5];
-
-syms:numSyms#exec sym from ("* ";enlist ",")0: hsym first .proc.getconfigfile["symconfig.csv"];
+syms:$[.lhflight.syms~`; 
+  exec code from ("   *";enlist ",")0: hsym first .proc.getconfigfile["allAirportCodes.csv"];
+  string .lhflight.syms
+ ];
 
 /- Adjusts time between airport calls to stay within 1000 / hour total API calls
 callsTimesToSyms:{[]
-  0D+`time$3.6e+6%1000%2*numSyms
+  0D+`time$3.6e+6%1000%2*count syms
  }
 
 /- Load user authorization details from config
