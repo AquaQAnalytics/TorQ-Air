@@ -1,1 +1,1 @@
-flights:([]time:`timestamp$(); sym:`symbol$(); depAirport :`symbol$();depTime :`datetime$();arivTime :`datetime$(); arivAirport: `symbol$(); FlightNumber:`long$(); Type:`symbol$(); Registration:"*"$(); Status:`symbol$())
+flights:([] time:`timestamp$(); sym:`symbol$(); depAirport:`symbol$();depTime:`datetime$();arivTime:`datetime$(); arivAirport:`symbol$(); FlightNumber:`long$(); Type:`symbol$(); Registration:"*"$(); Status:`symbol$())
