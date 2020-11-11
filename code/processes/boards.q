@@ -22,7 +22,7 @@ sub:{[]
 \d .
 
 /- loading airport / airline data
-airportData:.[0:;(("SSSSSS"; enlist ","); first .proc.getconfigfile["airportData.csv"]); {.lg.e[`airlineData;"Failed to load aiportData.csv"]}];
+airportData:.[0:;(("SSSSFF"; enlist ","); first .proc.getconfigfile["airportData.csv"]); {.lg.e[`airlineData;"Failed to load aiportData.csv"]}];
 airlineCodes:.[0:;(("SS";":"); first .proc.getconfigfile["allAirlineCodes.txt"]); {.lg.e[`airlineCodes;"Failed to load allAirlineCodes.txt"]}];
 
 /- Retrieving airport data
