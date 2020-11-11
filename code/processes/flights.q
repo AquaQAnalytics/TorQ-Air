@@ -11,7 +11,7 @@ example: niceFlights[.z.Z;"FRA";"departures"];
 \
 
 syms:$[.lhflight.syms~`; 
-  exec code from ("   *";enlist ",")0: hsym first .proc.getconfigfile["allAirportCodes.csv"];
+  1_exec airportCode from ("*     ";enlist ",")0: hsym first .proc.getconfigfile["airportData.csv"];
   string .lhflight.syms
  ];
 
