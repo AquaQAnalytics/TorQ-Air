@@ -21,16 +21,16 @@ sub:{[]
 
 \d .
 
-/- calculating boards
-coords:("SSS"; enlist ",") 0: first .proc.getconfigfile["allAirportCoords.csv"];
-coords:`depAirport xcol coords;
+/- loading airport / airline data
+airportData:.[0:;(("SSSSSS"; enlist ","); first .proc.getconfigfile["airportData.csv"]); {.lg.e[`airlineData;"Failed to load aiportData.csv"]}];
+airlineCodes:.[0:;(("SS";":"); first .proc.getconfigfile["allAirlineCodes.txt"]); {.lg.e[`airlineCodes;"Failed to load allAirlineCodes.txt"]}];
+
+/- Retrieving airport data
+coords:`depAirport xcol select airportCode, latitude, longitude from airportData ;
+airports:(exec airportCode from airportData)!(exec airport from airportData);
 
 /- Retrieves Airline Codes for translation later
-codes:(!).("SS";":")0: first .proc.getconfigfile["allAirlineCodes.txt"];
-
-/- Get airports codes as a dictionary
-airports:("  SS"; enlist ",") 0: first .proc.getconfigfile["allAirportCodes.csv"];
-airports:( airports`code)!(airports`Airport);
+codes:(!) . airlineCodes;
 
 final:();
 allSyms:key airports;
