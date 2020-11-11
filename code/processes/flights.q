@@ -83,13 +83,11 @@ niceFlights:{[time;airport;typ]
 sendToTp:{[sy]
   a:@[niceFlights[.z.Z;;"arrivals"];sy;"No flights"];
   d:@[niceFlights[.z.Z;;"departures"];sy;"No flights"];
-  if[98h~type a;
-    if[98h~type d;
+  if[(98h~type a) and 98h~type d;
       h:.servers.gethandlebytype[`tickerplant;`any];
       h(`.u.upd;`flights;value flip d except raze raze each prevdata);
       h(`.u.upd;`flights;value flip a except raze raze each prevdata);
       `prevdata upsert select by airport from ([] airport:`$sy; departures:enlist d; arrivals:enlist a)
-      ]
     ]
  }
 
