@@ -42,6 +42,8 @@ setKey:{
   if[(authKey~"") or (10h<>type authKey);setKey[];.lg.e[`setKey;"authKey malformed"]];
  };
 
+setKey[];
+
 /- Generates url and headers for retrieving flight information
 headers:("Accept";"Authorization";"X-Originating-IP")!("application/json";"Bearer ",authKey; " " sv string `int$0x0 vs .z.a);
 
@@ -91,7 +93,6 @@ sendToTp:{[sy]
     ]
  }
 
-setKey[];
 flightBySym:{sendToTp'[syms]}
 
 prevdata:([airport:`$()]; departures:([] sym:`symbol$(); depAirport:`symbol$(); depTime:`datetime$(); arivTime:`datetime$(); arivAirport:`symbol$(); 
