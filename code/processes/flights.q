@@ -11,7 +11,7 @@ example: niceFlights[.z.Z;"FRA";"departures"];
 \
 
 syms:$[.lhflight.syms~`; 
-  exec code from ("   *";enlist ",")0: hsym first .proc.getconfigfile["allAirportCodes.csv"];
+  exec code from .[0:;(("*     ";enlist ",");hsym first .proc.getconfigfile["allAirportCodes.csv"]);.lg.e[`loadingSyms;"Error loading syms from disk"]];
   string .lhflight.syms
  ];
 
@@ -21,7 +21,7 @@ callsTimesToSyms:{[]
  }
 
 /- Load user authorization details from config
-config:.j.k read1 hsym first .proc.getconfigfile["lufthansa.json"];
+config:@[{.j.k read1 hsym first x};.proc.getconfigfile["lufthansa.json"];{.lg.e[`config;"lufthansa.json failed to load"]}];
 
 flightsPerRequest: 100;
 
