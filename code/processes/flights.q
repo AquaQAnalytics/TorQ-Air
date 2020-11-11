@@ -91,13 +91,11 @@ sendToTp:{[sy]
     ]
  }
 
-flightBySym:{sendToTp'[syms]}
-
 prevdata:([airport:`$()]; departures:([] sym:`symbol$(); depAirport:`symbol$(); depTime:`datetime$(); arivTime:`datetime$(); arivAirport:`symbol$(); 
   flightNumber:`long$(); aircraftType:`symbol$(); registration:(); status:`symbol$()); arrivals:([] sym:`symbol$(); depAirport:`symbol$();
   depTime:`datetime$(); arivTime:`datetime$(); arivAirport:`symbol$(); flightNumber:`long$();aircraftType:`symbol$(); registration:(); status:`symbol$()));
 
 .servers.startup[]
 .servers.CONNECTIONS:`tickerplant;
-.timer.repeat[.proc.cp[];0Wp;callsTimesToSyms[];(`flightBySym;`);"Publish Feed"];
+.timer.repeat[.proc.cp[];0Wp;callsTimesToSyms[];({sendToTp'[syms]};`);"Publish Feed"];
 .timer.repeat[.proc.cp[];0Wp;1D00:00:00.000;(`setKey;`);"Generating new auth key"];
