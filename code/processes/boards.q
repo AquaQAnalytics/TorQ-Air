@@ -25,8 +25,8 @@ airportData:.[0:;(("SSSSFF"; enlist ","); first .proc.getconfigfile["airportData
 airlineCodes:.[0:;(("SS";":"); first .proc.getconfigfile["allAirlineCodes.txt"]); {.lg.e[`airlineCodes;"Failed to load allAirlineCodes.txt"]}];
 
 /- Retrieving airport data
-coords:`depAirport xcol select airportCode, latitude, longitude from airportData ;
-airports:(exec airportCode from airportData)!(exec airport from airportData);
+coords:`depAirport xcol select airportCode, latitude, longitude from airportData;
+airports:exec airportCode!airport from airportData;
 
 /- Retrieves Airline Codes for translation later
 codes:(!) . airlineCodes;
