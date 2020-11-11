@@ -38,7 +38,7 @@ allSyms:key airports;
 /- For direction takes `depAirport or `arivAirport
 getRaw:{[direction;airport]
   tab:?[`flights;enlist (=;direction;enlist airport);0b;()];
-  distinct select Airline:codes[sym], depAirport, depTime:"u"$depTime, arivTime:"u"$arivTime, arivAirport, flightNumber from tab where arivTime > .z.z
+  distinct select Airline:codes[sym], depAirport, depTime:"u"$depTime, arivTime:"u"$arivTime, arivAirport, flightNumber from tab where arivTime > .z.p
  }
 
 /- select a particular flight, used for departure board entries
