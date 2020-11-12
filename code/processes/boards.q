@@ -30,7 +30,6 @@ coords:`depAirport xcol select airportCode, latitude, longitude from airportData
 airports:exec airportCode!airport from airportData;
 
 final:();
-allSyms:key airports;
 
 /- For direction takes `depAirport or `arivAirport
 getRaw:{[direction;airport]
@@ -44,7 +43,7 @@ nflight:{[direction;airport;n] (getRaw[direction;airport])[n]}
 /- Renames the columns as necessary so they're all unique and can be lj'ed onto final
 /- requests the nth departure / arrival as necessary from all syms
 nallDep:{[n]
-  tab:select Airline, depTime, arivTime, arivAirport, flightNumber by depAirport from nflight[`depAirport;;n]'[allSyms]; 
+  tab:select Airline, depTime, arivTime, arivAirport, flightNumber by depAirport from nflight[`depAirport;;n]'[key airports]; 
   (`depAirport,`$string[n],/:("Airline";"depTime";"arivTime";"arivAirport";"flightNumber")) xcol tab
  }
 
@@ -52,7 +51,7 @@ nallDep:{[n]
 /- The q on the end of the names is to distinguish them from the departures when doing the html tables in kx dashboards. 
 nallAriv:{[n]
   u:string n;
-  tab:select  Airline, depTime, arivTime, depAirport, flightNumber by arivAirport from nflight[`arivAirport;;n]'[allSyms];
+  tab:select  Airline, depTime, arivTime, depAirport, flightNumber by arivAirport from nflight[`arivAirport;;n]'[key airports];
   (`depAirport,`$u,/:("Airlineq";"depTimeq";"arivTimeq";"arivAirportq";"flightNumberq")) xcol tab 
  }
 
