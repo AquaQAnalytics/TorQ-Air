@@ -1,6 +1,6 @@
 
 syms:$[.lhflight.syms~`; 
-  exec airportCode from .[0:;(("* ";enlist ",");hsym first .proc.getconfigfile["allAirportCodes.csv"]);.lg.e[`loadingSyms;"Error loading syms from disk"]];
+  exec airportCode from .[0:;(("* ";enlist ",");hsym first .proc.getconfigfile["airportData.csv"]);{.lg.e[`loadingSyms;"Error loading syms from disk"]}];
   string .lhflight.syms
  ];
 
