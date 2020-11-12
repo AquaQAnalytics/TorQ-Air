@@ -63,7 +63,7 @@ extractFlights:{[time;airport;typ]
  };
 
 niceFlights:{[time;airport;typ] 
-  a: niceDict'[extractFlights[time;airport;typ]]; 
+  a:niceDict'[extractFlights[time;airport;typ]]; 
   a:@[a;`Airline`depAirport`arivAirport`aircraftType`status;`$];
   `sym xcol update"J"$flightNumber from a
  }
@@ -88,3 +88,7 @@ prevdata:([airport:`$()]; departures:([] sym:`symbol$(); depAirport:`symbol$(); 
 .servers.CONNECTIONS:`tickerplant;
 .timer.repeat[.proc.cp[];0Wp;callsTimesToSyms[];({sendToTp'[syms]};`);"Publish Feed"];
 .timer.repeat[.proc.cp[];0Wp;1D00:00:00.000;(`setKey;`);"Generating new auth key"];
+
+/- Used for retrieving flight information
+headers:("Accept";"Authorization";"X-Originating-IP")!("application/json";"Bearer ",authKey; " " sv string `int$0x0 vs .z.a);
+
