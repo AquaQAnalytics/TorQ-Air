@@ -68,6 +68,8 @@ addFlight:{`final set (lj/)(value`final;nallDep x;nallAriv x)}
 calcColors:{
   symsInUse:exec sym from final;
   counts:count getRaw'[`depAirport`arivAirport]'[symsInUse];
+
+  /- Color codes airports red, yellow or green depending on how busy they are (in Kx dashboards)
   c:`s#0 6 16!`$("#39a105";"#d48c19";"#ff0000"); 
   `final set update color:c[counts] from final;
  }
