@@ -29,7 +29,7 @@ genKey:{
 setKey:{
   .[set;(`authKey;genKey[]);{.lg.e[`setKey;"Failed to generate authKey"]}];
   if[(authKey~"") or (10h<>type authKey);setKey[];.lg.e[`setKey;"authKey malformed"]];
-  `headers set ("Accept";"Authorization";"X-Originating-IP")!("application/json";"Bearer ",authKey; " " sv string `int$0x0 vs .z.a);
+  `headers set ("Accept";"Authorization")!("application/json";"Bearer ",authKey);
  };
 
 genReqUrl:{[time;airport;typ] 
