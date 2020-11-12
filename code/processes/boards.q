@@ -46,9 +46,8 @@ nflight:{[direction;airport;n] (getRaw[direction;airport])[n]}
 /- Renames the columns as necessary so they're all unique and can be lj'ed onto final
 /- requests the nth departure / arrival as necessary from all syms
 nallDep:{[n]
-  u:string n; 
   tab:select Airline, depTime, arivTime, arivAirport, flightNumber by depAirport from nflight[`depAirport;;n]'[allSyms]; 
-  (`depAirport,`$u,/:("Airline";"depTime";"arivTime";"arivAirport";"flightNumber")) xcol tab
+  (`depAirport,`$string[n],/:("Airline";"depTime";"arivTime";"arivAirport";"flightNumber")) xcol tab
  }
 
 /- The "Departing airport" and "Arriving Airport" are swapped here so the LJ will work and data will be placed properly on the map
