@@ -22,8 +22,8 @@ LH2KDB:{"Z"$-1_x};
 genKey:{
   url:.lhflight.apiurl,"/oauth/token";
   body:.url.enc @[config;`grant_type;:;"client_credentials"];
-  headers:(enlist "Content-Type")!(enlist "application/x-www-form-urlencoded");
-  .req.post[url;headers;body][`access_token]
+  keyHeaders:(enlist "Content-Type")!(enlist "application/x-www-form-urlencoded");
+  .req.post[url;keyHeaders;body][`access_token]
  };
 
 setKey:{
