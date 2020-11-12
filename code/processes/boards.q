@@ -15,7 +15,8 @@ upd:{[t;x] t insert x}
 sub:{[]
   if[count s:.sub.getsubscriptionhandles[`tickerplant;();()!()];
     .lg.o[`subscribe;"Available tickerplant found, attempting to subscribe"];
-    .boards,:.sub.subscribe[.boards.subscribeto;.boards.subscribetosyms;1b;.boards.replay;first s]];
+    .boards,:.sub.subscribe[.boards.subscribeto;.boards.subscribetosyms;1b;.boards.replay;first s]
+    ];
  }
 
 \d .
