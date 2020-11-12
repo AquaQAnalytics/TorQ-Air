@@ -29,6 +29,7 @@ genKey:{
 setKey:{
   .[set;(`authKey;genKey[]);{.lg.e[`setKey;"Failed to generate authKey"]}];
   if[(authKey~"") or (10h<>type authKey);setKey[];.lg.e[`setKey;"authKey malformed"]];
+  `headers set ("Accept";"Authorization";"X-Originating-IP")!("application/json";"Bearer ",authKey; " " sv string `int$0x0 vs .z.a);
  };
 
 genReqUrl:{[time;airport;typ] 
@@ -80,11 +81,8 @@ prevdata:([airport:`$()]; departures:([] sym:`symbol$(); depAirport:`symbol$(); 
   depTime:`datetime$(); arivTime:`datetime$(); arivAirport:`symbol$(); flightNumber:`long$();aircraftType:`symbol$(); registration:(); status:`symbol$()));
 
 setKey[];
-/- Used for retrieving flight information
-headers:("Accept";"Authorization";"X-Originating-IP")!("application/json";"Bearer ",authKey; " " sv string `int$0x0 vs .z.a);
-
 .servers.startup[]
 .servers.CONNECTIONS:`tickerplant;
-.timer.repeat[.proc.cp[];0Wp;callsTimesToSyms[];({sendToTp'[syms]};`);"Publish Feed"];
 .timer.repeat[.proc.cp[];0Wp;1D00:00:00.000;(`setKey;`);"Generating new auth key"];
+.timer.repeat[.proc.cp[];0Wp;callsTimesToSyms[];({sendToTp'[syms]};`);"Publish Feed"];
 
