@@ -1,17 +1,6 @@
-/
-USAGE
-
-The main function here is niceFlights[], taking as its arguments:
-a dateTime (between yesterday and 5 days from now),
-a three letter IATA airport code as a string
-either "departures" or "arrivals"
-
-example: niceFlights[.z.Z;"FRA";"departures"];
-
-\
 
 syms:$[.lhflight.syms~`; 
-  exec airportCode from .[0:;(("*     ";enlist ",");hsym first .proc.getconfigfile["allAirportCodes.csv"]);.lg.e[`loadingSyms;"Error loading syms from disk"]];
+  exec airportCode from .[0:;(("* ";enlist ",");hsym first .proc.getconfigfile["allAirportCodes.csv"]);.lg.e[`loadingSyms;"Error loading syms from disk"]];
   string .lhflight.syms
  ];
 
