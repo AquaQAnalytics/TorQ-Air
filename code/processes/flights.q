@@ -20,7 +20,7 @@ LH2KDB:{"Z"$-1_x};
 
 /- This will need to be renewed on an ongoing basis
 genKey:{
-  url:"https://api.lufthansa.com/v1/oauth/token";
+  url:.lhflight.apiurl,"/oauth/token";
   body:.url.enc @[config;`grant_type;:;"client_credentials"];
   headers:(enlist "Content-Type")!(enlist "application/x-www-form-urlencoded");
   .req.post[url;headers;body][`access_token]
@@ -31,14 +31,9 @@ setKey:{
   if[(authKey~"") or (10h<>type authKey);setKey[];.lg.e[`setKey;"authKey malformed"]];
  };
 
-setKey[];
-
-/- Generates url and headers for retrieving flight information
-headers:("Accept";"Authorization";"X-Originating-IP")!("application/json";"Bearer ",authKey; " " sv string `int$0x0 vs .z.a);
-
 genReqUrl:{[time;airport;typ] 
-  "https://api.lufthansa.com/v1/operations/flightstatus/",
-  typ,"/",airport,"/",KDB2LH[time],"?",.url.enc[`serviceType`limit!("passenger";flightsPerRequest)]  
+  .lhflight.apiurl,"/operations/flightstatus/",typ,"/",airport,"/",
+  KDB2LH[time],"?",.url.enc[`serviceType`limit!("passenger";flightsPerRequest)]  
  }
 
 /- Extracting data from nested tables
@@ -84,11 +79,12 @@ prevdata:([airport:`$()]; departures:([] sym:`symbol$(); depAirport:`symbol$(); 
   flightNumber:`long$(); aircraftType:`symbol$(); registration:(); status:`symbol$()); arrivals:([] sym:`symbol$(); depAirport:`symbol$();
   depTime:`datetime$(); arivTime:`datetime$(); arivAirport:`symbol$(); flightNumber:`long$();aircraftType:`symbol$(); registration:(); status:`symbol$()));
 
+setKey[];
+/- Used for retrieving flight information
+headers:("Accept";"Authorization";"X-Originating-IP")!("application/json";"Bearer ",authKey; " " sv string `int$0x0 vs .z.a);
+
 .servers.startup[]
 .servers.CONNECTIONS:`tickerplant;
 .timer.repeat[.proc.cp[];0Wp;callsTimesToSyms[];({sendToTp'[syms]};`);"Publish Feed"];
 .timer.repeat[.proc.cp[];0Wp;1D00:00:00.000;(`setKey;`);"Generating new auth key"];
-
-/- Used for retrieving flight information
-headers:("Accept";"Authorization";"X-Originating-IP")!("application/json";"Bearer ",authKey; " " sv string `int$0x0 vs .z.a);
 
