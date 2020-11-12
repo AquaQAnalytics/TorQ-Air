@@ -22,14 +22,11 @@ sub:{[]
 
 /- loading airport / airline data
 airportData:.[0:;(("SSSSFF"; enlist ","); first .proc.getconfigfile["airportData.csv"]); {.lg.e[`airlineData;"Failed to load aiportData.csv"]}];
-airlineCodes:.[0:;(("SS";":"); first .proc.getconfigfile["allAirlineCodes.txt"]); {.lg.e[`airlineCodes;"Failed to load allAirlineCodes.txt"]}];
+codes:(!) . .[0:;(("SS";":"); first .proc.getconfigfile["allAirlineCodes.txt"]); {.lg.e[`airlineCodes;"Failed to load allAirlineCodes.txt"]}];
 
 /- Retrieving airport data
 coords:`depAirport xcol select airportCode, latitude, longitude from airportData;
 airports:exec airportCode!airport from airportData;
-
-/- Retrieves Airline Codes for translation later
-codes:(!) . airlineCodes;
 
 final:();
 allSyms:key airports;
