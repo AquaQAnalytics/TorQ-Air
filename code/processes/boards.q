@@ -35,27 +35,26 @@ getRaw:{[direction;airport]
   time:$[direction~`depAirport;`depTime;`arivTime];
   tab:$[airport~`;flights;?[`flights;enlist (=;direction;enlist airport);0b;()]];
   tab:?[tab; enlist (>;time;.z.p);0b;()];
-  distinct select Airline:codes[sym], depAirport, depTime:"u"$depTime, arivTime:"u"$arivTime, arivAirport, flightNumber from tab
+  distinct select airline:codes[sym], depAirport, depTime:"u"$depTime, arivTime:"u"$arivTime, arivAirport, flightNumber from tab
  }
 
-/- Renames the columns as necessary so they're all unique and can be lj'ed onto final
-/- requests the nth departure / arrival as necessary from all syms
-nallDep:{[n]
-  tab:1!select depAirport, Airline, depTime, arivTime, arivAirport, flightNumber from getRaw[`depAirport;`] where i=({x@y}[;n];i) fby depAirport;
-  (`depAirport,`$string[n],/:("Airline";"depTime";"arivTime";"arivAirport";"flightNumber")) xcol tab
- }
-
-/- The "Departing airport" and "Arriving Airport" are swapped here so the LJ will work and data will be placed properly on the map
-/- The q on the end of the names is to distinguish them from the departures when doing the html tables in kx dashboards. 
-nallAriv:{[n]
-  tab:1!select  arivAirport,Airline, depTime, arivTime, depAirport, flightNumber from getRaw[`arivAirport;`] where i=({x@y}[;n];i) fby arivAirport;
-  (`depAirport,`$string[n],/:("Airlineq";"depTimeq";"arivTimeq";"arivAirportq";"flightNumberq")) xcol tab 
+/- Takes `depAirport or `arivAirport as direction
+/- Main difference in direction is what they are keyed by
+/- Note that the arriving and departing airports are swapped on arrivals so everything will line up in dashboards
+nAll:{[n;direction] 
+  tab:?[getRaw[direction;`];enlist (=;`i;(fby;(enlist;{y@x}[n];`i);direction));0b;()]; 
+  names:("airline";"depTime";"arivTime";"arivAirport";"flightNumber");
+  names:$[direction~`depAirport;(`depAirport, `$string[n],/:names);(`depAirport, `$string[n],/:(names,'"q"))];
+  $[direction~`depAirport;
+    :names xcol 1!select depAirport, airline, depTime, arivTime, arivAirport, flightNumber from tab;
+    :names xcol 1!select arivAirport, airline, depTime, arivTime, depAirport, flightNumber from tab
+   ]
  }
 
 resetFinal:{`final set coords}
 
 /- adds a set of columns representing the nth arrival / departure to the 
-addFlight:{`final set (lj/)(value`final;nallDep x;nallAriv x)}
+addFlight:{`final set (lj/)(value`final;nAll[x;`depAirport];nAll[x;`arivAirport])}
 
 /- adds color coding to airports depending on how busy they are
 calcColors:{
