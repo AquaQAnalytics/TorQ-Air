@@ -15,8 +15,7 @@ upd:{[t;x] t insert x}
 sub:{[]
   if[count s:.sub.getsubscriptionhandles[`tickerplant;();()!()];
     .lg.o[`subscribe;"Available tickerplant found, attempting to subscribe"];
-    .boards,:.sub.subscribe[.boards.subscribeto;.boards.subscribetosyms;1b;.boards.replay;first s]
-    ];
+    .boards,:.sub.subscribe[.boards.subscribeto;.boards.subscribetosyms;1b;.boards.replay;first s]];
  }
 
 \d .
@@ -33,26 +32,24 @@ final:();
 
 /- For direction takes `depAirport or `arivAirport
 getRaw:{[direction;airport]
-  tab:?[`flights;enlist (=;direction;enlist airport);0b;()];
-  distinct select Airline:codes[sym], depAirport, depTime:"u"$depTime, arivTime:"u"$arivTime, arivAirport, flightNumber from tab where arivTime > .z.p
+  time:$[direction~`depAirport;`depTime;`arivTime];
+  tab:$[airport~`;flights;?[`flights;enlist (=;direction;enlist airport);0b;()]];
+  tab:?[tab; enlist (>;time;.z.p);0b;()];
+  distinct select Airline:codes[sym], depAirport, depTime:"u"$depTime, arivTime:"u"$arivTime, arivAirport, flightNumber from tab
  }
-
-/- select a particular flight, used for departure board entries
-nflight:{[direction;airport;n] (getRaw[direction;airport])[n]}
 
 /- Renames the columns as necessary so they're all unique and can be lj'ed onto final
 /- requests the nth departure / arrival as necessary from all syms
 nallDep:{[n]
-  tab:select Airline, depTime, arivTime, arivAirport, flightNumber by depAirport from nflight[`depAirport;;n]'[key airports]; 
+  tab:1!select depAirport, Airline, depTime, arivTime, arivAirport, flightNumber from getRaw[`depAirport;`] where i=({x@y}[;n];i) fby depAirport;
   (`depAirport,`$string[n],/:("Airline";"depTime";"arivTime";"arivAirport";"flightNumber")) xcol tab
  }
 
 /- The "Departing airport" and "Arriving Airport" are swapped here so the LJ will work and data will be placed properly on the map
 /- The q on the end of the names is to distinguish them from the departures when doing the html tables in kx dashboards. 
 nallAriv:{[n]
-  u:string n;
-  tab:select  Airline, depTime, arivTime, depAirport, flightNumber by arivAirport from nflight[`arivAirport;;n]'[key airports];
-  (`depAirport,`$u,/:("Airlineq";"depTimeq";"arivTimeq";"arivAirportq";"flightNumberq")) xcol tab 
+  tab:1!select  arivAirport,Airline, depTime, arivTime, depAirport, flightNumber from getRaw[`arivAirport;`] where i=({x@y}[;n];i) fby arivAirport;
+  (`depAirport,`$string[n],/:("Airlineq";"depTimeq";"arivTimeq";"arivAirportq";"flightNumberq")) xcol tab 
  }
 
 resetFinal:{`final set coords}
