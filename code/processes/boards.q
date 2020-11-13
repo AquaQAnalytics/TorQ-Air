@@ -41,7 +41,7 @@ getRaw:{[direction;airport]
 /- Renames the columns as necessary so they're all unique and can be lj'ed onto final
 /- requests the nth departure / arrival as necessary from all syms
 nallDep:{[n]
-  tab:1!select depAirport, Airline, depTime, arivTime, arivAirport, flightNumber from getRaw[`depAirport;`] where i=({x@y}[;n];i) fby depAirport;
+  tab:1!select depAirport, Airline, depTime, arivTime, arivAirport, flightNumber from getRaw[`depAirport;`] where i=({y@x}[n];i) fby depAirport;
   (`depAirport,`$string[n],/:("Airline";"depTime";"arivTime";"arivAirport";"flightNumber")) xcol tab
  }
 
