@@ -42,7 +42,7 @@ extractTime:{[dat;status]
   LH2KDB dat[status][`ScheduledTimeUTC]`DateTime
  }
 
-niceDict:{[dat] (!). flip (
+formatDict:{[dat] (!). flip (
   (`Airline;dat[`OperatingCarrier]`AirlineID);
   (`depAirport;dat[`Departure]`AirportCode);
   (`depTime;extractTime[dat;`Departure]);
@@ -58,16 +58,16 @@ extractFlights:{[time;airport;typ]
   .req.get[genReqUrl[time;airport;typ];headers][`FlightStatusResource;`Flights;`Flight]
  };
 
-niceFlights:{[time;airport;typ] 
-  a:niceDict'[extractFlights[time;airport;typ]]; 
+formatFlights:{[time;airport;typ] 
+  a:formatDict'[extractFlights[time;airport;typ]]; 
   a:@[a;`Airline`depAirport`arivAirport`aircraftType`status;`$];
   `sym xcol update"J"$flightNumber from a
  }
 
 /- Streaming to tickerplant
 sendToTp:{[sy]
-  a:@[niceFlights[.z.Z;;"arrivals"];sy;"No flights"];
-  d:@[niceFlights[.z.Z;;"departures"];sy;"No flights"];
+  a:@[formatFlights[.z.Z;;"arrivals"];sy;"No flights"];
+  d:@[formatFlights[.z.Z;;"departures"];sy;"No flights"];
   if[(98h~type a) and 98h~type d;
       h:.servers.gethandlebytype[`tickerplant;`any];
       h(`.u.upd;`flights;value flip d except raze raze each prevdata);
