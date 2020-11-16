@@ -82,7 +82,6 @@ prevdata:([airport:`$()]; departures:([] sym:`symbol$(); depAirport:`symbol$(); 
 
 setKey[];
 .servers.CONNECTIONS:`tickerplant;
-.servers.startupdependent[];
+.servers.startupdependent[`tickerplant;10];
 .timer.repeat[.proc.cp[];0Wp;1D00:00:00.000;(`setKey;`);"Generating new auth key"];
 .timer.repeat[.proc.cp[];0Wp;callsTimesToSyms[];({sendToTp'[syms]};`);"Publish Feed"];
-

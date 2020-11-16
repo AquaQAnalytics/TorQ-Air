@@ -82,7 +82,7 @@ upd:.boards.upd;
 
 /- connecting to tickerplant
 .servers.CONNECTIONS:`tickerplant;
-.servers.startupdepcycles[`tickerplant;10];
+.servers.startupdependent[`tickerplant;10];
 
 /- subscribe to the quotes table
 .boards.sub[];
