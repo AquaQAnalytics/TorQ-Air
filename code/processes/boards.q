@@ -15,14 +15,15 @@ upd:{[t;x] t insert x}
 sub:{[]
   if[count s:.sub.getsubscriptionhandles[`tickerplant;();()!()];
     .lg.o[`subscribe;"Available tickerplant found, attempting to subscribe"];
-    .boards,:.sub.subscribe[.boards.subscribeto;.boards.subscribetosyms;1b;.boards.replay;first s]];
+    .boards,:.sub.subscribe[.boards.subscribeto;.boards.subscribetosyms;1b;.boards.replay;first s]
+    ];
  }
 
 \d .
 
 /- loading airport / airline data
-airportData:.[0:;(("SSSSFF"; enlist ","); first .proc.getconfigfile["airportData.csv"]); {.lg.e[`airlineData;"Failed to load aiportData.csv"]}];
-codes:(!) . .[0:;(("SS";":"); first .proc.getconfigfile["allAirlineCodes.txt"]); {.lg.e[`airlineCodes;"Failed to load allAirlineCodes.txt"]}];
+airportData:.[0:;(("SSSSFF"; enlist ",");first .proc.getconfigfile["airportData.csv"]);{.lg.e[`airlineData;"Failed to load aiportData.csv"]}];
+codes:(!) . .[0:;(("SS";":");first .proc.getconfigfile["allAirlineCodes.txt"]);{.lg.e[`airlineCodes;"Failed to load allAirlineCodes.txt"]}];
 
 /- Retrieving airport data
 coords:`depAirport xcol select airportCode, latitude, longitude from airportData;
@@ -41,14 +42,15 @@ getRaw:{[direction;airport]
 /- Takes `depAirport or `arivAirport as direction
 /- Main difference in direction is what they are keyed by
 /- Note that the arriving and departing airports are swapped on arrivals so everything will line up in dashboards
-nAll:{[n;direction] 
+nAll:{[n;direction]
+  /- select from getRaw[direction;`] where i=({y@x}[n];i) fby direction 
   tab:?[getRaw[direction;`];enlist (=;`i;(fby;(enlist;{y@x}[n];`i);direction));0b;()]; 
   names:("airline";"depTime";"arivTime";"arivAirport";"flightNumber");
-  names:$[direction~`depAirport;(`depAirport, `$string[n],/:names);(`depAirport, `$string[n],/:(names,'"q"))];
-  $[direction~`depAirport;
-    :names xcol 1!select depAirport, airline, depTime, arivTime, arivAirport, flightNumber from tab;
-    :names xcol 1!select arivAirport, airline, depTime, arivTime, depAirport, flightNumber from tab
-   ]
+  names:`depAirport,`$string[n],/:names,\:$[direction~`depAirport;"";"q"];
+  :names xcol 1!$[direction~`depAirport;
+    select depAirport, airline, depTime, arivTime, arivAirport, flightNumber from tab;
+    select arivAirport, airline, depTime, arivTime, depAirport, flightNumber from tab
+   ];
  }
 
 resetFinal:{`final set coords}
@@ -69,21 +71,18 @@ calcColors:{
 /- actually calculates departures and arrival boards
 calcBoards:{
   resetFinal[];
+  /- 5 here is the default maximum number of departures / arrivals on the board
   addFlight'[til 5];
   `final set update sym:depAirport, depAirport:airports[depAirport] from 0!final;
   calcColors[];
  }
-
-/- Tickerplant stuff
-.servers.startup[]
-.servers.CONNECTIONS:`tickerplant;
 
 /- assigning update and eod functions
 upd:.boards.upd;
 
 /- connecting to tickerplant
 .servers.CONNECTIONS:`tickerplant;
-.servers.startupdepcycles[`tickerplant;10;0W]
+.servers.startupdepcycles[`tickerplant;10];
 
 /- subscribe to the quotes table
 .boards.sub[];

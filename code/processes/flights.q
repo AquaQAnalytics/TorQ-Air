@@ -1,4 +1,3 @@
-
 syms:$[.lhflight.syms~`; 
   exec airportCode from .[0:;(("* ";enlist ",");hsym first .proc.getconfigfile["airportData.csv"]);{.lg.e[`loadingSyms;"Error loading syms from disk"]}];
   string .lhflight.syms
@@ -12,7 +11,7 @@ callsTimesToSyms:{[]
 /- Load user authorization details from config
 config:@[{.j.k read1 hsym first x};.proc.getconfigfile["lufthansa.json"];{.lg.e[`config;"lufthansa.json failed to load"]}];
 
-flightsPerRequest: 100;
+flightsPerRequest:100;
 
 /- Date time conversion
 KDB2LH:{ssr[16#string .z.z;".";"-"]};
@@ -28,7 +27,7 @@ genKey:{
 
 setKey:{
   .[set;(`authKey;genKey[]);{.lg.e[`setKey;"Failed to generate authKey"]}];
-  if[(authKey~"") or (10h<>type authKey);setKey[];.lg.e[`setKey;"authKey malformed"]];
+  if[(authKey~"") or 10h<>type authKey;setKey[];.lg.e[`setKey;"authKey malformed"]];
   `headers set ("Accept";"Authorization")!("application/json";"Bearer ",authKey);
  };
 
@@ -42,8 +41,9 @@ extractTime:{[dat;status]
   LH2KDB dat[status][`ScheduledTimeUTC]`DateTime
  }
 
-formatDict:{[dat] (!). flip (
-  (`Airline;dat[`OperatingCarrier]`AirlineID);
+formatDict:{[dat]
+  (!). flip (
+  (`airline;dat[`OperatingCarrier]`AirlineID);
   (`depAirport;dat[`Departure]`AirportCode);
   (`depTime;extractTime[dat;`Departure]);
   (`arivTime;extractTime[dat;`Arrival]);
@@ -60,7 +60,7 @@ extractFlights:{[time;airport;typ]
 
 formatFlights:{[time;airport;typ] 
   a:formatDict'[extractFlights[time;airport;typ]]; 
-  a:@[a;`Airline`depAirport`arivAirport`aircraftType`status;`$];
+  a:@[a;`airline`depAirport`arivAirport`aircraftType`status;`$];
   `sym xcol update"J"$flightNumber from a
  }
 
@@ -72,8 +72,8 @@ sendToTp:{[sy]
       h:.servers.gethandlebytype[`tickerplant;`any];
       h(`.u.upd;`flights;value flip d except raze raze each prevdata);
       h(`.u.upd;`flights;value flip a except raze raze each prevdata);
-      `prevdata upsert select by airport from ([] airport:`$sy; departures:enlist d; arrivals:enlist a)
-    ]
+      `prevdata upsert select by airport from ([]airport:`$sy;departures:enlist d;arrivals:enlist a)
+    ];
  }
 
 prevdata:([airport:`$()]; departures:([] sym:`symbol$(); depAirport:`symbol$(); depTime:`datetime$(); arivTime:`datetime$(); arivAirport:`symbol$(); 
@@ -81,8 +81,8 @@ prevdata:([airport:`$()]; departures:([] sym:`symbol$(); depAirport:`symbol$(); 
   depTime:`datetime$(); arivTime:`datetime$(); arivAirport:`symbol$(); flightNumber:`long$();aircraftType:`symbol$(); registration:(); status:`symbol$()));
 
 setKey[];
-.servers.startup[]
 .servers.CONNECTIONS:`tickerplant;
+.servers.startupdependent[];
 .timer.repeat[.proc.cp[];0Wp;1D00:00:00.000;(`setKey;`);"Generating new auth key"];
 .timer.repeat[.proc.cp[];0Wp;callsTimesToSyms[];({sendToTp'[syms]};`);"Publish Feed"];
 
