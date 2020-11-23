@@ -9,7 +9,7 @@ subscribeto:@[value;`subscribeto;`];
 /- syms to subscribe to
 subscribetosyms:@[value;`subscribetosyms;`];
 
-upd:{[t;x] t insert x}
+upd:{[t;x] t insert x};
 
 /- function for subscribing to the tickerplant
 sub:{[]
@@ -17,7 +17,7 @@ sub:{[]
     .lg.o[`subscribe;"Available tickerplant found, attempting to subscribe"];
     .boards,:.sub.subscribe[.boards.subscribeto;.boards.subscribetosyms;1b;.boards.replay;first s]
     ];
- }
+ };
 
 \d .
 
@@ -31,15 +31,17 @@ airports:exec airportCode!airport from airportData;
 
 final:();
 
-/- For direction takes `depAirport or `arivAirport
+/- For direction takes `depAirport or `arivAirport, gets distinct list of flights in that direction from airport
 getRaw:{[direction;airport]
   time:$[direction~`depAirport;`depTime;`arivTime];
+  /- select from flights where direction = airport
   tab:$[airport~`;flights;?[`flights;enlist (=;direction;enlist airport);0b;()]];
+  /- select from tab where time > .z.p
   tab:?[tab; enlist (>;time;.z.p);0b;()];
   distinct select airline:codes[sym], depAirport, depTime:"u"$depTime, arivTime:"u"$arivTime, arivAirport, flightNumber from tab
- }
+ };
 
-/- Takes `depAirport or `arivAirport as direction
+/- Takes `depAirport or `arivAirport as direction gets nth flight in that direction from each airport
 /- Main difference in direction is what they are keyed by
 /- Note that the arriving and departing airports are swapped on arrivals so everything will line up in dashboards
 nAll:{[n;direction]
@@ -51,12 +53,12 @@ nAll:{[n;direction]
     select depAirport, airline, depTime, arivTime, arivAirport, flightNumber from tab;
     select arivAirport, airline, depTime, arivTime, depAirport, flightNumber from tab
    ];
- }
+ };
 
-resetFinal:{`final set coords}
+resetFinal:{`final set coords};
 
-/- adds a set of columns representing the nth arrival / departure to the 
-addFlight:{`final set (lj/)(value`final;nAll[x;`depAirport];nAll[x;`arivAirport])}
+/- adds a set of columns representing the nth arrival / departure
+addFlight:{`final set (lj/)(value`final;nAll[x;`depAirport];nAll[x;`arivAirport])};
 
 /- adds color coding to airports depending on how busy they are
 calcColors:{
@@ -66,7 +68,7 @@ calcColors:{
   /- Color codes airports red, yellow or green depending on how busy they are (in Kx dashboards)
   c:`s#0 6 16!`$("#39a105";"#d48c19";"#ff0000"); 
   `final set update color:c[counts] from final;
- }
+ };
 
 /- actually calculates departures and arrival boards
 calcBoards:{
@@ -75,7 +77,7 @@ calcBoards:{
   addFlight'[til 5];
   `final set update sym:depAirport, depAirport:airports[depAirport] from 0!final;
   calcColors[];
- }
+ };
 
 /- assigning update and eod functions
 upd:.boards.upd;

@@ -6,7 +6,7 @@ syms:$[.lhflight.syms~`;
 /- Adjusts time between airport calls to stay within 1000 / hour total API calls
 callsTimesToSyms:{[]
   0D+`time$3.6e+6%1000%2*count syms
- }
+ };
 
 /- Load user authorization details from config
 config:@[{.j.k read1 hsym first x};.proc.getconfigfile["lufthansa.json"];{.lg.e[`config;"lufthansa.json failed to load"]}];
@@ -34,12 +34,12 @@ setKey:{
 genReqUrl:{[time;airport;typ] 
   .lhflight.apiurl,"/operations/flightstatus/",typ,"/",airport,"/",
   KDB2LH[time],"?",.url.enc[`serviceType`limit!("passenger";flightsPerRequest)]  
- }
+ };
 
 /- Extracting data from nested tables
 extractTime:{[dat;status]
   LH2KDB dat[status][`ScheduledTimeUTC]`DateTime
- }
+ };
 
 formatDict:{[dat]
   (!). flip (
@@ -52,7 +52,7 @@ formatDict:{[dat]
   (`aircraftType;dat[`Equipment]`AircraftCode);
   (`registration;dat[`Equipment]`AircraftRegistration);
   (`status;dat[`FlightStatus]`Code))
- }
+ };
 
 extractFlights:{[time;airport;typ]
   .req.get[genReqUrl[time;airport;typ];headers][`FlightStatusResource;`Flights;`Flight]
@@ -62,7 +62,7 @@ formatFlights:{[time;airport;typ]
   a:formatDict'[extractFlights[time;airport;typ]]; 
   a:@[a;`airline`depAirport`arivAirport`aircraftType`status;`$];
   `sym xcol update"J"$flightNumber from a
- }
+ };
 
 /- Streaming to tickerplant
 sendToTp:{[sy]
@@ -74,7 +74,7 @@ sendToTp:{[sy]
       h(`.u.upd;`flights;value flip a except raze raze each prevdata);
       `prevdata upsert select by airport from ([]airport:`$sy;departures:enlist d;arrivals:enlist a)
     ];
- }
+ };
 
 prevdata:([airport:`$()]; departures:([] sym:`symbol$(); depAirport:`symbol$(); depTime:`datetime$(); arivTime:`datetime$(); arivAirport:`symbol$(); 
   flightNumber:`long$(); aircraftType:`symbol$(); registration:(); status:`symbol$()); arrivals:([] sym:`symbol$(); depAirport:`symbol$();
