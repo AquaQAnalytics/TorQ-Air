@@ -40,9 +40,9 @@ Finally, change `KDBBASEPORT` in `setenv.sh` to an unused port and start the sta
 
 In order to connect the dashboards we must first install [Kx dashboards](https://code.kx.com/dashboards/gettingstarted/), preferably on the same machine as our TorQ stack. Start the process as per the installation instructions and then connect via your browser. 
 
-Open the editor via `Users -> Open Editor`, then `Demo -> Manage Dashboards -> Import`, where you can select one of the dashboards provided to import. Select that dashboard from the menu in the top left. 
+We'll then need to edit what ports are used in the dashboards to reflect the baseport your chose for the TorQ stack. Linux users can do this by running the provided `baseport.sh` script with `bash baseport.sh x y`, where `x` is the baseport and `y` is the path to the the dashboards folder. Non-linux users can do a manual search and replace both in the dashboard file itself and in `/dash/data/connections` for HDBPORT and RDBPORT, replacing them with 
 
-You'll need to let Dashboards know which port your gateway is running on. 
+Finally, after connecting to dashboards, open the editor via `Users -> Open Editor`, then `Demo -> Manage Dashboards -> Import`, where you can select one of the dashboards provided to import. Select that dashboard from the menu in the top left. 
 
 
 
