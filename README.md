@@ -38,7 +38,7 @@ Finally, change `KDBBASEPORT` in `setenv.sh` to an unused port and start the sta
 
 ### Dashboards
 
-In order to connect the dashboards we must first install [Kx dashboards](https://code.kx.com/dashboards/gettingstarted/), preferably on the same machine as our TorQ stack. Start the process as per the installation instructions and then connect via your browser. 
+In order to connect the dashboards we must first install [Kx dashboards](https://code.kx.com/dashboards/gettingstarted/) on the same machine as our TorQ stack. Start the process as per the installation instructions and then connect via your browser. 
 
 We'll then need to edit what ports are used in the dashboards to reflect the baseport your chose for the TorQ stack. Linux users can do this by running the provided `baseport.sh` script with `bash baseport.sh x y`, where `x` is the baseport and `y` is the path to the the dashboards folder. Non-linux users can do a manual search and replace both in the dashboard file itself and in `/dash/data/connections` for HDBPORT and RDBPORT, replacing them with 
 
