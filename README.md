@@ -36,7 +36,7 @@ You may also use \` to instead use the full list of [all airports served by Luft
 
 Finally, change `KDBBASEPORT` in `setenv.sh` to an unused port and start the stack, which on linux can be achieved with `./torq.sh start all`
 
-#### Dashboards
+### Dashboards
 
 In order to connect the dashboards we must first install [Kx dashboards](https://code.kx.com/dashboards/gettingstarted/), preferably on the same machine as our TorQ stack. Start the process as per the installation instructions and then connect via your browser. 
 
