@@ -1,4 +1,4 @@
-syms:$[.lhflight.syms~`; 
+syms:$[.lhflight.syms~`;
   exec airportCode from .[0:;(("* ";enlist ",");hsym first .proc.getconfigfile["airportData.csv"]);{.lg.e[`loadingSyms;"Error loading syms from disk"]}];
   string .lhflight.syms
  ];
@@ -31,9 +31,9 @@ setKey:{
   `headers set ("Accept";"Authorization")!("application/json";"Bearer ",authKey);
  };
 
-genReqUrl:{[time;airport;typ] 
+genReqUrl:{[time;airport;typ]
   .lhflight.apiurl,"/operations/flightstatus/",typ,"/",airport,"/",
-  KDB2LH[time],"?",.url.enc[`serviceType`limit!("passenger";flightsPerRequest)]  
+  KDB2LH[time],"?",.url.enc[`serviceType`limit!("passenger";flightsPerRequest)]
  };
 
 /- Extracting data from nested tables
@@ -58,8 +58,8 @@ extractFlights:{[time;airport;typ]
   .req.get[genReqUrl[time;airport;typ];headers][`FlightStatusResource;`Flights;`Flight]
  };
 
-formatFlights:{[time;airport;typ] 
-  a:formatDict'[extractFlights[time;airport;typ]]; 
+formatFlights:{[time;airport;typ]
+  a:formatDict'[extractFlights[time;airport;typ]];
   a:@[a;`airline`depAirport`arivAirport`aircraftType`status;`$];
   `sym xcol update"J"$flightNumber from a
  };
@@ -76,7 +76,7 @@ sendToTp:{[sy]
     ];
  };
 
-prevdata:([airport:`$()]; departures:([] sym:`symbol$(); depAirport:`symbol$(); depTime:`datetime$(); arivTime:`datetime$(); arivAirport:`symbol$(); 
+prevdata:([airport:`$()]; departures:([] sym:`symbol$(); depAirport:`symbol$(); depTime:`datetime$(); arivTime:`datetime$(); arivAirport:`symbol$();
   flightNumber:`long$(); aircraftType:`symbol$(); registration:(); status:`symbol$()); arrivals:([] sym:`symbol$(); depAirport:`symbol$();
   depTime:`datetime$(); arivTime:`datetime$(); arivAirport:`symbol$(); flightNumber:`long$();aircraftType:`symbol$(); registration:(); status:`symbol$()));
 

@@ -45,8 +45,8 @@ getRaw:{[direction;airport]
 /- Main difference in direction is what they are keyed by
 /- Note that the arriving and departing airports are swapped on arrivals so everything will line up in dashboards
 nAll:{[n;direction]
-  /- select from getRaw[direction;`] where i=({y@x}[n];i) fby direction 
-  tab:?[getRaw[direction;`];enlist (=;`i;(fby;(enlist;{y@x}[n];`i);direction));0b;()]; 
+  /- select from getRaw[direction;`] where i=({y@x}[n];i) fby direction
+  tab:?[getRaw[direction;`];enlist (=;`i;(fby;(enlist;{y@x}[n];`i);direction));0b;()];
   names:("airline";"depTime";"arivTime";"arivAirport";"flightNumber");
   names:`depAirport,`$string[n],/:names,\:$[direction~`depAirport;"";"q"];
   :names xcol 1!$[direction~`depAirport;
@@ -66,7 +66,7 @@ calcColors:{
   counts:count getRaw'[`depAirport`arivAirport]'[symsInUse];
 
   /- Color codes airports red, yellow or green depending on how busy they are (in Kx dashboards)
-  c:`s#0 6 16!`$("#39a105";"#d48c19";"#ff0000"); 
+  c:`s#0 6 16!`$("#39a105";"#d48c19";"#ff0000");
   `final set update color:c[counts] from final;
  };
 
