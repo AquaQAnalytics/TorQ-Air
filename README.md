@@ -17,12 +17,35 @@ wget https://raw.githubusercontent.com/AquaQAnalytics/TorQ-Air/master/installlat
 bash installatest.sh
 ```
 Otherwise, you may install TorQ-Air by
-1. Downloading the [main TorQ codebase]
-2. Downloading the [latest TorQ-Air release]
+1. Downloading the [main TorQ codebase](https://github.com/AquaQAnalytics/TorQ/tree/master)
+2. Downloading the [latest TorQ-Air release](https://github.com/AquaQAnalytics/TorQ-Air)
 3. Extract the contents of the TorQ folder into your deploy folder, then likewise with TorQ-Air. 
 
 ### Quick Setup Guide
 
+Firstly, users should register for a free API key from the [Lufthansa API website](https://developer.lufthansa.com/member/register). Then enter your Key/ID and secret into `/appconfig/lufthansa.json` as below
+```
+{
+ "client_id":"agazjqhyx7xxpfp9j6Kh4d2u",
+ "client_secret":"NZzhf4jfWFzsTFX8qWex"
+}
+```
+Then in `/appconfig/settings/lhflight.q`, edit the `syms` variable to be a list of three letter IATA codes of airports that you want TorQ-Air to track, for example:  
+``` syms:`FRA`MUC`VIE`ZRH ```  
+You may also use \` to instead use the full list of [all airports served by Lufthansa](https://en.wikipedia.org/wiki/List_of_Lufthansa_destinations). Note that by default your API key has a maximum of 1,000 requests per hour, so the more airports are selected, the less frequents updates will be. 
 
+Finally, change `KDBBASEPORT` in `setenv.sh` to an unused port and start the stack, which on linux can be achieved with `./torq.sh start all`
 
 #### Dashboards
+
+In order to connect the dashboards we must first install [Kx dashboards](https://code.kx.com/dashboards/gettingstarted/), preferably on the same machine as our TorQ stack. Start the process as per the installation instructions and then connect via your browser. 
+
+Open the editor via `Users -> Open Editor`, then `Demo -> Manage Dashboards -> Import`, where you can select one of the dashboards provided to import. Select that dashboard from the menu in the top left. 
+
+You'll need to let Dashboards know which port your gateway is running on. 
+
+
+
+
+
+
