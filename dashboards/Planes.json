@@ -1,0 +1,434 @@
+{
+  "id": "b4b278fd-e0f4-abef-3a55-0cf5aa9409aa",
+  "name": "Planes",
+  "creationDate": "Tue, 27 Oct 2020 13:40:51 GMT",
+  "lastUpdateDate": "Tue, 03 Nov 2020 15:38:24 GMT",
+  "thumb": null,
+  "screenDetails": [
+    {
+      "label": "Screen 1",
+      "value": "6a6b646c-3e3f-33bf-715c-610b0dc3e6bc"
+    }
+  ],
+  "screens": [
+    {
+      "id": "6a6b646c-3e3f-33bf-715c-610b0dc3e6bc",
+      "name": "Screen 1",
+      "thumb": null,
+      "widgets": [
+        {
+          "id": "133e9738-f023-4de5-9bcf-a27ae309f281",
+          "layout": {
+            "row": 0,
+            "column": 1,
+            "rowSpan": 24,
+            "colSpan": 35
+          },
+          "component": {
+            "id": "1d963c13-c2bf-3eb0-fa5d-cc922be995c4",
+            "key": "Mapbox",
+            "options": {
+              "version": "4.5.1",
+              "MapDetails": {
+                "Bearing": 12,
+                "Latitude": 50,
+                "Longitude": 8,
+                "Pitch": 14,
+                "SelectedCol": "",
+                "Zoom": 5
+              },
+              "Overlays": {
+                "GeoJSON": "",
+                "GeoJSONFull": "",
+                "GeoJSONLines": ""
+              },
+              "Points": {
+                "Color": "color",
+                "DataSource": {
+                  "_dashboardsType": "data",
+                  "value": "Homer"
+                },
+                "Icon": "",
+                "Latitude": "Latitude",
+                "Longitude": "Longitude",
+                "SubTitle": "",
+                "Title": "depAirport",
+                "Tooltip": "<style>\n    table {\n        padding: 0px;\n        margin: 0px;\n\n    }\n\n\n    th,\n    td {\n        width: 80px;\n        height: 5px;\n        font-size: 12px;\n        padding: 0px;\n        margin: 0px;\n    }\n\n    th {\n        background-color: #4CAF50;\n        color: white;\n    }\n</style>\n\n<h2>Departures:</h2>\n<table>\n    <thead>\n        <tr>\n            <th>Airline</th>\n            <th>Departure</th>\n            <th>Arrival</th>\n            <th>To</th>\n            <th>Flight</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>{{0Airline}}</td>\n            <td> {{0depTime}} </td>\n            <td> {{0arivTime}} </td>\n            <td> {{0arivAirport}} </td>\n            <td> {{0flightNumber}} </td>\n        </tr>\n        <tr>\n            <td>{{1Airline}}</td>\n            <td> {{1depTime}} </td>\n            <td> {{1arivTime}} </td>\n            <td> {{1arivAirport}} </td>\n            <td> {{1flightNumber}} </td>\n        </tr>\n        <tr>\n            <td>{{2Airline}}</td>\n            <td> {{2depTime}} </td>\n            <td> {{2arivTime}} </td>\n            <td> {{2arivAirport}} </td>\n            <td> {{2flightNumber}} </td>\n        </tr>\n        <tr>\n            <td>{{3Airline}}</td>\n            <td> {{3depTime}} </td>\n            <td> {{3arivTime}} </td>\n            <td> {{3arivAirport}} </td>\n            <td> {{3flightNumber}} </td>\n        </tr>\n        <tr>\n            <td>{{4Airline}}</td>\n            <td> {{4depTime}} </td>\n            <td> {{4arivTime}} </td>\n            <td> {{4arivAirport}} </td>\n            <td> {{4flightNumber}} </td>\n        </tr>\n    </tbody>\n</table>\n\n<h2>Arrivals:</h2>\n<table>\n    <thead>\n        <tr>\n            <th>Airline</th>\n            <th>Departure</th>\n            <th>Arrival</th>\n            <th>From</th>\n            <th>Flight</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>{{0Airlineq}}</td>\n            <td> {{0depTimeq}} </td>\n            <td> {{0arivTimeq}} </td>\n            <td> {{0arivAirportq}} </td>\n            <td> {{0flightNumberq}} </td>\n        </tr>\n        <tr>\n            <td>{{1Airlineq}}</td>\n            <td> {{1depTimeq}} </td>\n            <td> {{1arivTimeq}} </td>\n            <td> {{1arivAirportq}} </td>\n            <td> {{1flightNumberq}} </td>\n        </tr>\n        <tr>\n            <td>{{2Airlineq}}</td>\n            <td> {{2depTimeq}} </td>\n            <td> {{2arivTimeq}} </td>\n            <td> {{2arivAirportq}} </td>\n            <td> {{2flightNumberq}} </td>\n        </tr>\n        <tr>\n            <td>{{3Airlineq}}</td>\n            <td> {{3depTimeq}} </td>\n            <td> {{3arivTimeq}} </td>\n            <td> {{3arivAirportq}} </td>\n            <td> {{3flightNumberq}} </td>\n        </tr>\n        <tr>\n            <td>{{4Airlineq}}</td>\n            <td> {{4depTimeq}} </td>\n            <td> {{4arivTimeq}} </td>\n            <td> {{4arivAirportq}} </td>\n            <td> {{4flightNumberq}} </td>\n        </tr>\n    </tbody>\n</table>",
+                "Type": ""
+              },
+              "possibleColumns": [
+                "",
+                "depAirport",
+                "Latitude",
+                "Longitude",
+                "0Airline",
+                "0depTime",
+                "0arivTime",
+                "0arivAirport",
+                "0flightNumber",
+                "1Airline",
+                "1depTime",
+                "1arivTime",
+                "1arivAirport",
+                "1flightNumber",
+                "2Airline",
+                "2depTime",
+                "2arivTime",
+                "2arivAirport",
+                "2flightNumber",
+                "3Airline",
+                "3depTime",
+                "3arivTime",
+                "3arivAirport",
+                "3flightNumber",
+                "4Airline",
+                "4depTime",
+                "4arivTime",
+                "4arivAirport",
+                "4flightNumber",
+                "0Airlineq",
+                "0depTimeq",
+                "0arivTimeq",
+                "0arivAirportq",
+                "0flightNumberq",
+                "1Airlineq",
+                "1depTimeq",
+                "1arivTimeq",
+                "1arivAirportq",
+                "1flightNumberq",
+                "2Airlineq",
+                "2depTimeq",
+                "2arivTimeq",
+                "2arivAirportq",
+                "2flightNumberq",
+                "3Airlineq",
+                "3depTimeq",
+                "3arivTimeq",
+                "3arivAirportq",
+                "3flightNumberq",
+                "4Airlineq",
+                "4depTimeq",
+                "4arivTimeq",
+                "4arivAirportq",
+                "4flightNumberq",
+                "sym",
+                "color"
+              ],
+              "Style": {
+                "advanced": "",
+                "cssClasses": "",
+                "Theme": "Dark"
+              },
+              "Alignment": {
+                "paddingLeft": 0,
+                "paddingRight": 0,
+                "paddingTop": 0,
+                "paddingBottom": 0,
+                "innerPaddingLeft": 0,
+                "innerPaddingRight": 0,
+                "innerPaddingTop": 0,
+                "innerPaddingBottom": 0,
+                "titlePaddingLeft": 0,
+                "titlePaddingRight": 0,
+                "titlePaddingTop": 7,
+                "titlePaddingBottom": 7
+              },
+              "format": {
+                "titleFontSize": 16,
+                "titleHorizontal": "Center",
+                "titleFontBold": false,
+                "titleShadow": false,
+                "titleTransparentBackground": false,
+                "tileBorderWidth": 0,
+                "tileBorderRounding": 0,
+                "tileBorderColor": "#000000",
+                "tileBackgroundColor": "#000000",
+                "tileTransparentBackground": true,
+                "tileShadow": false
+              }
+            },
+            "containerId": null,
+            "components": [],
+            "widgets": [],
+            "definitionId": "10123",
+            "hasOnSettingsChange": true
+          }
+        }
+      ],
+      "relativeHeight": true,
+      "rowCount": 24,
+      "colCount": 36,
+      "floatable": false,
+      "isDefault": true
+    }
+  ],
+  "popups": [],
+  "tags": [],
+  "dashboardTheme": "Dark",
+  "themeSwitchable": true,
+  "saveTimestamp": null,
+  "relativeHeight": true,
+  "rowCount": 24,
+  "colCount": 36,
+  "floatable": false,
+  "viewState": {
+    "selected": {
+      "_viewType": true,
+      "_type": "string",
+      "value": "Jeff",
+      "_default": "Jeff"
+    },
+    ".settings": {},
+    "asdf": {
+      "_viewType": true,
+      "_default": "asfd",
+      "value": "asfd",
+      "_type": "symbol"
+    },
+    "New node": {
+      "_viewType": true,
+      "_type": "byte",
+      "value": null,
+      "_default": null
+    }
+  },
+  "data": {
+    "AllAirports": {
+      "_pagingType": "NONE",
+      "_autoExec": true,
+      "_columns": [
+        "depAirport",
+        "Latitude",
+        "Longitude",
+        "0Airline",
+        "0depTime",
+        "0arivTime",
+        "0arivAirport",
+        "0flightNumber",
+        "1Airline",
+        "1depTime",
+        "1arivTime",
+        "1arivAirport",
+        "1flightNumber",
+        "2Airline",
+        "2depTime",
+        "2arivTime",
+        "2arivAirport",
+        "2flightNumber",
+        "3Airline",
+        "3depTime",
+        "3arivTime",
+        "3arivAirport",
+        "3flightNumber",
+        "4Airline",
+        "4depTime",
+        "4arivTime",
+        "4arivAirport",
+        "4flightNumber",
+        "0Airlineq",
+        "0depTimeq",
+        "0arivTimeq",
+        "0arivAirportq",
+        "0flightNumberq",
+        "1Airlineq",
+        "1depTimeq",
+        "1arivTimeq",
+        "1arivAirportq",
+        "1flightNumberq",
+        "2Airlineq",
+        "2depTimeq",
+        "2arivTimeq",
+        "2arivAirportq",
+        "2flightNumberq",
+        "3Airlineq",
+        "3depTimeq",
+        "3arivTimeq",
+        "3arivAirportq",
+        "3flightNumberq",
+        "4Airlineq",
+        "4depTimeq",
+        "4arivTimeq",
+        "4arivAirportq",
+        "4flightNumberq",
+        "color"
+      ],
+      "_dataType": "query",
+      "_dataSource": "kdb",
+      "_connection": "html5evalcongroup",
+      "_mappings": {
+        "key": "depAirport",
+        "mappings": {},
+        "value": "Latitude"
+      },
+      "_maxRows": 2000,
+      "_subscriptionType": "static",
+      "_subscriptionInterval": 3,
+      "_layout": [
+        {
+          "isExpanded": true,
+          "weight": 2
+        },
+        {
+          "isExpanded": false,
+          "weight": 1
+        },
+        {
+          "isExpanded": false,
+          "weight": 1
+        },
+        {
+          "isExpanded": true,
+          "weight": 0
+        },
+        {
+          "isExpanded": true,
+          "weight": 2
+        }
+      ],
+      "_queryString": "select from b",
+      "_queryParams": [],
+      "_subscriptionKey": "",
+      "_hasUpdateQuery": false,
+      "_updateQueryString": "",
+      "_updateType": "query",
+      "_pageSize": 2000,
+      "_serverPaging": false
+    },
+    "Homer": {
+      "_autoExec": true,
+      "_columns": [
+        "depAirport",
+        "Latitude",
+        "Longitude",
+        "0Airline",
+        "0depTime",
+        "0arivTime",
+        "0arivAirport",
+        "0flightNumber",
+        "1Airline",
+        "1depTime",
+        "1arivTime",
+        "1arivAirport",
+        "1flightNumber",
+        "2Airline",
+        "2depTime",
+        "2arivTime",
+        "2arivAirport",
+        "2flightNumber",
+        "3Airline",
+        "3depTime",
+        "3arivTime",
+        "3arivAirport",
+        "3flightNumber",
+        "4Airline",
+        "4depTime",
+        "4arivTime",
+        "4arivAirport",
+        "4flightNumber",
+        "0Airlineq",
+        "0depTimeq",
+        "0arivTimeq",
+        "0arivAirportq",
+        "0flightNumberq",
+        "1Airlineq",
+        "1depTimeq",
+        "1arivTimeq",
+        "1arivAirportq",
+        "1flightNumberq",
+        "2Airlineq",
+        "2depTimeq",
+        "2arivTimeq",
+        "2arivAirportq",
+        "2flightNumberq",
+        "3Airlineq",
+        "3depTimeq",
+        "3arivTimeq",
+        "3arivAirportq",
+        "3flightNumberq",
+        "4Airlineq",
+        "4depTimeq",
+        "4arivTimeq",
+        "4arivAirportq",
+        "4flightNumberq",
+        "sym",
+        "color"
+      ],
+      "_dataType": "query",
+      "_dataSource": "kdb",
+      "_connection": "HomerConnect",
+      "_mappings": {
+        "key": "depAirport",
+        "mappings": {},
+        "value": "Latitude"
+      },
+      "_maxRows": 2000,
+      "_subscriptionType": "static",
+      "_subscriptionInterval": 3,
+      "_layout": [
+        {
+          "isExpanded": true,
+          "weight": 2
+        },
+        {
+          "isExpanded": false,
+          "weight": 1
+        },
+        {
+          "isExpanded": false,
+          "weight": 1
+        },
+        {
+          "isExpanded": true,
+          "weight": 0
+        },
+        {
+          "isExpanded": true,
+          "weight": 2
+        }
+      ],
+      "_queryString": "select from final",
+      "_queryParams": [],
+      "_subscriptionKey": "",
+      "_hasUpdateQuery": false,
+      "_updateQueryString": "",
+      "_updateType": "query",
+      "_pageSize": 2000,
+      "_serverPaging": false
+    }
+  },
+  "permissionEntity": null,
+  "worksheetPadding": 10,
+  "widgetsSpacing": 0,
+  "borderColor": "000000",
+  "borderBackground": "000000",
+  "transparentBackground": true,
+  "borderWidth": 0,
+  "borderRounding": 0,
+  "borderSpacing": 0,
+  "borderShadow": false,
+  "enableSaveViewState": true,
+  "enableShareDashboard": true,
+  "notifications": {
+    "Notifications": {
+      "_Version": "4.2.0s2",
+      "Enabled": true,
+      "InBrowserNotifications": false,
+      "Position": "Bottom Right",
+      "MaxVisibleCount": 3,
+      "FadeOut": 5,
+      "Icon": "fa-bell-o",
+      "Sound": "beep",
+      "SoundVolume": 100,
+      "Grouping": false,
+      "GroupingInterval": 1,
+      "triggers": []
+    }
+  },
+  "showLoadingIndicators": true,
+  "unsavedViewerPrompt": false,
+  "advancedCss": "",
+  "cssClasses": "",
+  "viewStateBinding": false,
+  "wasChanged": false,
+  "version": "4.4.0p7"
+}
