@@ -22,6 +22,8 @@ Otherwise, you may install TorQ-Air by
 
 ### Quick Setup Guide
 
+Note: If you encounter any problems during setup, our extended setup guide in `/docs` will likely have a solution. 
+
 Firstly, users should register for a free API key from the [Lufthansa API website](https://developer.lufthansa.com/member/register). Then enter your Key/ID and secret into `/appconfig/lufthansa.json` as below
 ```
 {
@@ -31,12 +33,12 @@ Firstly, users should register for a free API key from the [Lufthansa API websit
 ```
 Then in `/appconfig/settings/lhflight.q`, edit the `syms` variable to be a list of three letter IATA codes of airports that you want TorQ-Air to track. You may also use a single backtick \` to instead use the full list of [all airports served by Lufthansa](https://en.wikipedia.org/wiki/List_of_Lufthansa_destinations). Note that by default your API key has a maximum of 1,000 requests per hour, so the more airports are selected, the less frequents updates will be.
 
-Finally, change `KDBBASEPORT` in `setenv.sh` to an unused port and start the stack, which on linux can be achieved with `./torq.sh start all`
+Finally start the stack, which on linux can be achieved with `./torq.sh start all`
 
 ### Dashboards
 
 In order to connect the dashboards we must first install [Kx dashboards](https://code.kx.com/dashboards/gettingstarted/) on the same machine as our TorQ stack.
 
-We'll then need to edit which ports are used in the dashboards to reflect the baseport you chose for the TorQ stack. Linux users can do this by running the provided `setup_dashboards.sh` script with `bash setup_dashboards.sh x y`, where `x` is the baseport and `y` is the path to the the dashboards folder. Non-linux users can do a manual search and replace in `/dashboards` for HDBPORT,RDBPORT and BOARDPORT, replacing them with their respective ports and then placing `boards.json` and `rdb.json` in `/dash/data/connections`, inside the dashboards installation.
+Place `boards.json` and `rdb.json` into `/dash/data/connection`, inside the Kx dashboards installation. 
 
 Start the dashboards process as per the installation instructions and then connect via your browser. Then, open the editor via `Users -> Open Editor`, then `Demo -> Manage Dashboards -> Import`, where you can select one of the numbered slides provided in the `/dashboards` folder to import. Select that dashboard from the menu in the top left to view.
