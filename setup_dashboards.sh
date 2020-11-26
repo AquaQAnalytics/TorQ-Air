@@ -7,12 +7,10 @@ then
 fi
 
 baseport=$1
-
 RDBPORT=$(($baseport + 2))
 HDBPORT=$(($baseport + 3))
 BOARDPORT=$(($baseport + 10))
-
-declare -a dashboards=("boards.json" "rdb.json" "slide1.json" "slide2.json" "slide3.json" "slide4.json")
+dashboards=("boards.json" "rdb.json" "slide1.json" "slide2.json" "slide3.json" "slide4.json")
 
 # Replaces default port numbers in all files in /dashboards
 for item in "${dashboards[@]}"
