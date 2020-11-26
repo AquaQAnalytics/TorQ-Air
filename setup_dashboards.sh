@@ -1,5 +1,13 @@
 #!/bin/bash
 
+if [[ $# -eq 0 ]]
+then
+	echo "Usage:"
+	echo "Please provide the baseport of your TorQ-Air stack as the first argument"
+	echo "And the path to your Kx Dashboards 'dash' folder as the second"
+	exit 0
+fi
+
 baseport=$1
 dashFolder=$2
 
