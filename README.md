@@ -5,7 +5,7 @@ TorQ-Air is a data-capture and analytics application built on top of the [TorQ f
 This package includes:  
 
  - A feed handler for the Lufthansa API
- - 5 data dashboards for visualization
+ - 4 data dashboards for visualization
  - Realtime analytics through Kx Dashboards
  
 
