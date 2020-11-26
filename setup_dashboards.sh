@@ -8,7 +8,7 @@ HDBPORT=$(($baseport + 3))
 BOARDPORT=$(($baseport + 10))
 
 declare -a connections=("rdb.json" "boards.json")
-declare -a dashboards=("Slide1.json" "slide2.json" "Slide3.json" "slide4.json")
+declare -a dashboards=("slide1.json" "slide2.json" "slide3.json" "slide4.json")
 
 all=( "${dashboards[@]}" "${connections[@]}" )
 
