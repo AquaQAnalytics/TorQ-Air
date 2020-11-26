@@ -1,3 +1,4 @@
+#!/bin/bash
 
 baseport=$1
 dashFolder=$2
