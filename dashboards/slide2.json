@@ -1,0 +1,2187 @@
+{
+  "id": "3e98ab62-4439-0e73-9ac0-a3ec2c45e960",
+  "name": "slide2",
+  "creationDate": "Tue, 17 Nov 2020 12:09:14 GMT",
+  "lastUpdateDate": "Wed, 25 Nov 2020 13:35:31 GMT",
+  "thumb": null,
+  "screenDetails": [
+    {
+      "label": "Screen 1",
+      "value": "083e855e-b0ae-1744-2685-7c87d429e412"
+    }
+  ],
+  "screens": [
+    {
+      "id": "083e855e-b0ae-1744-2685-7c87d429e412",
+      "name": "Screen 1",
+      "thumb": null,
+      "widgets": [
+        {
+          "id": "2dc4feed-2261-afea-9033-a1670c225662",
+          "layout": {
+            "row": 9,
+            "column": 0,
+            "rowSpan": 14,
+            "colSpan": 13
+          },
+          "component": {
+            "id": "50a86aa5-278d-59b2-23b1-329d615b1620",
+            "key": "Datagrid",
+            "options": {
+              "version": "4.5.0a",
+              "datagridPossibleColumns": [
+                "aircraftType",
+                "typecount",
+                "historicalAverage"
+              ],
+              "datagridPossibleColumnsWithItself": [
+                "<this>",
+                "aircraftType",
+                "typecount",
+                "historicalAverage"
+              ],
+              "selectedColumnPossibleValues": [
+                "aircraftType",
+                "typecount",
+                "historicalAverage"
+              ],
+              "highlightTargetPossibleValues": [
+                "aircraftType",
+                "typecount",
+                "historicalAverage",
+                "*"
+              ],
+              "sortingPossibleValues": [
+                "",
+                "aircraftType",
+                "typecount",
+                "historicalAverage"
+              ],
+              "Basics": {
+                "Data": {
+                  "_dashboardsType": "data",
+                  "value": "count_each_type"
+                },
+                "EnableGrouping": false,
+                "IsFilterVisible": false,
+                "ShowPagingControl": false,
+                "Filtering": "disabled"
+              },
+              "ColumnsConfiguration": [
+                {
+                  "Field": "aircraftType",
+                  "DisplayName": "Aircraft",
+                  "WidthWeight": 100,
+                  "MinWidthAbsolute": 90
+                },
+                {
+                  "Field": "typecount",
+                  "DisplayName": "Count",
+                  "Format": "Formatted Number",
+                  "Precision": 0,
+                  "WidthWeight": 100,
+                  "MinWidthAbsolute": 60
+                },
+                {
+                  "Field": "historicalAverage",
+                  "DisplayName": "Historical Avg.",
+                  "Precision": 0,
+                  "WidthWeight": 100
+                }
+              ],
+              "Alignment": {
+                "paddingLeft": 0,
+                "paddingRight": 0,
+                "paddingTop": 0,
+                "paddingBottom": 0,
+                "innerPaddingLeft": 0,
+                "innerPaddingRight": 0,
+                "innerPaddingTop": 0,
+                "innerPaddingBottom": 0,
+                "titlePaddingLeft": 0,
+                "titlePaddingRight": 0
+              },
+              "format": {
+                "titleFontBold": false,
+                "titleTransparentBackground": false,
+                "tileBorderWidth": 0,
+                "tileBorderRounding": 0,
+                "tileBorderColor": "#000000",
+                "tileBackgroundColor": "#000000",
+                "tileTransparentBackground": true,
+                "tileShadow": false
+              },
+              "FileExport": {
+                "ShowExportCsvButton": false,
+                "ShowExportExcelButton": false
+              }
+            },
+            "containerId": null,
+            "components": [],
+            "widgets": [],
+            "definitionId": "21",
+            "hasOnSettingsChange": true
+          }
+        },
+        {
+          "id": "d659877c-69ec-28b9-c0dd-7bd550a90ea0",
+          "layout": {
+            "row": 23,
+            "column": 0,
+            "rowSpan": 12,
+            "colSpan": 11
+          },
+          "component": {
+            "id": "d5b1f18e-9dc3-311b-6442-b8fce171fd85",
+            "key": "PieJS",
+            "options": {
+              "version": "4.5.1",
+              "Basics": {
+                "Data": {
+                  "_dashboardsType": "data",
+                  "value": "count_each_type"
+                },
+                "Theme": "Dark",
+                "Focus": "",
+                "Selected": "",
+                "SelectedAttr": "",
+                "PopoutSelected": false,
+                "PopoutSelectedSize": 10,
+                "Actions": []
+              },
+              "DataSet": {
+                "Label": "aircraftType",
+                "DonutRatio": 40,
+                "Rotation": 50,
+                "Circumference": 100,
+                "BorderWidth": 1,
+                "Layers": [
+                  {
+                    "Segment": "typecount",
+                    "Display": "",
+                    "UseColor": true,
+                    "Color": "#4f6aa6",
+                    "BorderColor": "#ffffff",
+                    "ColorOpacity": 85,
+                    "HighlightRules": []
+                  }
+                ]
+              },
+              "Legend": {
+                "Display": false,
+                "FullWidth": true,
+                "Reverse": false,
+                "Position": "top",
+                "LabelColor": "#FFFFFF",
+                "LabelFontFamily": "Helvetica",
+                "LabelFontSize": 12,
+                "BoxWidth": 40,
+                "Padding": 10,
+                "UsePointStyle": true,
+                "Mode": "Toggle Hidden",
+                "LegendScroll": false
+              },
+              "InnerLabel": {
+                "Innertitle": "",
+                "InnertitleColor": "#FFFFFF",
+                "InnertitleFont": "Verdana",
+                "InnertitleSize": 12,
+                "ShowPieceLabel": true,
+                "ShowZero": false,
+                "PieceLabelArc": false,
+                "PieceLabelColor": "#FFFFFF",
+                "PieceLabelOverlap": false,
+                "PieceLabelRender": "label",
+                "PieceLabelPosition": "outside",
+                "PieceLabelTemplate": "{{label}} - {{value}}\n",
+                "FontSize": 8,
+                "Format": "General",
+                "Precision": 2,
+                "HideTrailingZeroes": false,
+                "Prefix": "",
+                "Suffix": "",
+                "DateFormat": "YYYY-MM-DD"
+              },
+              "Padding": {
+                "Top": 2,
+                "Bottom": 2,
+                "Left": 2,
+                "Right": 2
+              },
+              "Animations": {
+                "Enabled": true
+              },
+              "Style": {
+                "advanced": "",
+                "cssClasses": "",
+                "chartBarColors": [
+                  {
+                    "type": "#4f6aa6"
+                  },
+                  {
+                    "type": "#7995b8"
+                  },
+                  {
+                    "type": "#808387"
+                  },
+                  {
+                    "type": "#a69775"
+                  },
+                  {
+                    "type": "#749450"
+                  },
+                  {
+                    "type": "#51966a"
+                  },
+                  {
+                    "type": "#e2c7c0"
+                  },
+                  {
+                    "type": "#9acad6"
+                  },
+                  {
+                    "type": "#1995a3"
+                  },
+                  {
+                    "type": "#484d6e"
+                  }
+                ],
+                "advancedTooltip": "<div> <table>{{#each dataSet}} <tbody> {{#eq @index 0}} <tr> <td colspan=\"2\">{{label}}</td> </tr> {{/eq}} <tr><td>{{xaxis}}</td> <td><svg style=\"width:20px;height:20px\"> <circle fill=\"{{color}}\" stroke-width=\"2\" stroke=\"white\" r=\"8\" cy=\"10\" cx=\"10\"> </circle> </svg></td> <td>{{layerName}} :</td> <td>{{toFixed value 2}} ({{toFixed percent 2}}%)</td> </tr> {{/each}} </tbody> </table> </div>"
+              },
+              "FileExport": {
+                "ShowScreenshot": false,
+                "ShowExportCsvButton": false,
+                "ShowExportExcelButton": false,
+                "FileName": []
+              },
+              "possibleColumns": [
+                "aircraftType",
+                "typecount",
+                "historicalAverage"
+              ],
+              "possibleLabels": [
+                "aircraftType",
+                "typecount",
+                "historicalAverage"
+              ],
+              "Alignment": {
+                "paddingLeft": 0,
+                "paddingRight": 0,
+                "paddingTop": 0,
+                "paddingBottom": 0,
+                "innerPaddingLeft": 0,
+                "innerPaddingRight": 0,
+                "innerPaddingTop": 0,
+                "innerPaddingBottom": 0,
+                "titlePaddingLeft": 0,
+                "titlePaddingRight": 0,
+                "titlePaddingTop": 7,
+                "titlePaddingBottom": 7
+              },
+              "format": {
+                "widgetTitle": "Today's Aircraft Type",
+                "titleFontSize": 16,
+                "titleHorizontal": "Center",
+                "titleFontBold": false,
+                "titleShadow": false,
+                "titleTransparentBackground": false,
+                "tileBorderWidth": 0,
+                "tileBorderRounding": 0,
+                "tileBorderColor": "#000000",
+                "tileBackgroundColor": "#000000",
+                "tileTransparentBackground": true,
+                "tileShadow": false
+              },
+              "possibleRules": [
+                "aircraftType",
+                "typecount",
+                "historicalAverage"
+              ]
+            },
+            "containerId": null,
+            "components": [],
+            "widgets": [],
+            "definitionId": "1009",
+            "hasOnSettingsChange": true
+          }
+        },
+        {
+          "id": "246b841a-f1f5-2e60-cb02-616d82523492",
+          "layout": {
+            "row": 9,
+            "column": 14,
+            "rowSpan": 7,
+            "colSpan": 15
+          },
+          "component": {
+            "id": "ed899080-542a-90d8-e358-fb96cb476f79",
+            "key": "Datagrid",
+            "options": {
+              "version": "4.5.0a",
+              "datagridPossibleColumnsWithItself": [
+                "<this>",
+                "Data",
+                "today",
+                "totalhistorical",
+                "averageHistorical"
+              ],
+              "selectedColumnPossibleValues": [
+                "Data",
+                "today",
+                "totalhistorical",
+                "averageHistorical"
+              ],
+              "highlightTargetPossibleValues": [
+                "Data",
+                "today",
+                "totalhistorical",
+                "averageHistorical",
+                "*"
+              ],
+              "sortingPossibleValues": [
+                "",
+                "Data",
+                "today",
+                "totalhistorical",
+                "averageHistorical"
+              ],
+              "Basics": {
+                "Data": {
+                  "_dashboardsType": "data",
+                  "value": "count_landed"
+                },
+                "EnableGrouping": false,
+                "IsFilterVisible": false,
+                "ShowPagingControl": false,
+                "Filtering": "disabled"
+              },
+              "ColumnsConfiguration": [
+                {
+                  "Field": "Data",
+                  "DisplayName": "Data",
+                  "WidthWeight": 100,
+                  "MinWidthAbsolute": 100
+                },
+                {
+                  "Field": "today",
+                  "DisplayName": "Today",
+                  "Format": "Formatted Number",
+                  "Precision": 0,
+                  "WidthWeight": 100,
+                  "MinWidthAbsolute": 60
+                },
+                {
+                  "Field": "totalhistorical",
+                  "DisplayName": "Historical",
+                  "Format": "Formatted Number",
+                  "Precision": 0,
+                  "WidthWeight": 100,
+                  "MinWidthAbsolute": 100
+                },
+                {
+                  "Field": "averageHistorical",
+                  "DisplayName": "Avg. Historical",
+                  "Format": "Formatted Number",
+                  "Precision": 0,
+                  "WidthWeight": 100,
+                  "MinWidthAbsolute": 100
+                }
+              ],
+              "Alignment": {
+                "paddingLeft": 0,
+                "paddingRight": 0,
+                "paddingTop": 0,
+                "paddingBottom": 0,
+                "innerPaddingLeft": 0,
+                "innerPaddingRight": 0,
+                "innerPaddingTop": 0,
+                "innerPaddingBottom": 0,
+                "titlePaddingLeft": 0,
+                "titlePaddingRight": 0
+              },
+              "format": {
+                "titleFontBold": false,
+                "titleTransparentBackground": false,
+                "tileBorderWidth": 0,
+                "tileBorderRounding": 0,
+                "tileBorderColor": "#000000",
+                "tileBackgroundColor": "#000000",
+                "tileTransparentBackground": true,
+                "tileShadow": false
+              },
+              "datagridPossibleColumns": [
+                "Data",
+                "today",
+                "totalhistorical",
+                "averageHistorical"
+              ],
+              "Selection": {
+                "RowSelectionColumn": "Data"
+              },
+              "FileExport": {
+                "ShowExportCsvButton": false,
+                "ShowExportExcelButton": false
+              }
+            },
+            "containerId": null,
+            "components": [],
+            "widgets": [],
+            "definitionId": "21",
+            "hasOnSettingsChange": true
+          }
+        },
+        {
+          "id": "4a16dff1-cedf-d46e-d5ae-ed4766573a16",
+          "layout": {
+            "row": 0,
+            "column": 13,
+            "rowSpan": 5,
+            "colSpan": 31
+          },
+          "component": {
+            "id": "8d440dac-396d-8f46-737d-93f4ebe9d4e9",
+            "key": "Dataform",
+            "options": {
+              "version": "4.5.1",
+              "isDataform": true,
+              "Basics": {
+                "Data": {
+                  "_dashboardsType": "data",
+                  "value": "count_landed"
+                },
+                "SubmitButtonText": "Submit",
+                "ValidationAnalytic": "",
+                "ExpandDictParameters": true,
+                "ForceExecute": false,
+                "ShowReset": false,
+                "ShowSubmit": true,
+                "FloatSubmit": true,
+                "FloatReset": false,
+                "ViewStates": [
+                  {
+                    "PathEnc": "startdate",
+                    "DisplayName": "Startdate",
+                    "HideParameter": false,
+                    "Tooltip": "",
+                    "FieldType": {}
+                  },
+                  {
+                    "PathEnc": "enddate",
+                    "DisplayName": "Enddate",
+                    "HideParameter": false,
+                    "Tooltip": "",
+                    "FieldType": {}
+                  }
+                ],
+                "Actions": []
+              },
+              "Style": {
+                "advanced": "",
+                "cssClasses": "",
+                "minWidth": "",
+                "display": "Row",
+                "inline": "Top",
+                "labelWidth": "",
+                "labelPadding": "",
+                "labelAlign": "Left",
+                "padding": "",
+                "verticalSpacing": "",
+                "submitOffset": "",
+                "resetOffset": "",
+                "formMargin": ""
+              },
+              "Alignment": {
+                "paddingLeft": 0,
+                "paddingRight": 0,
+                "paddingTop": 0,
+                "paddingBottom": 0,
+                "innerPaddingLeft": 0,
+                "innerPaddingRight": 0,
+                "innerPaddingTop": 0,
+                "innerPaddingBottom": 0,
+                "titlePaddingLeft": 0,
+                "titlePaddingRight": 0,
+                "titlePaddingTop": 7,
+                "titlePaddingBottom": 7
+              },
+              "format": {
+                "widgetTitle": "Please select historical range",
+                "titleFontSize": 12,
+                "titleHorizontal": "Left",
+                "titleFontBold": false,
+                "titleShadow": false,
+                "titleTransparentBackground": false,
+                "tileBorderWidth": 0,
+                "tileBorderRounding": 0,
+                "tileBorderColor": "#000000",
+                "tileBackgroundColor": "#000000",
+                "tileTransparentBackground": true,
+                "tileShadow": false
+              }
+            },
+            "containerId": null,
+            "components": [],
+            "widgets": [],
+            "definitionId": "27",
+            "hasOnSettingsChange": true
+          }
+        },
+        {
+          "id": "547c9af8-9657-3e38-2d7f-14a54faa3534",
+          "layout": {
+            "row": 16,
+            "column": 14,
+            "rowSpan": 8,
+            "colSpan": 15
+          },
+          "component": {
+            "id": "cd066938-2caf-a239-94ea-aa8871638caf",
+            "key": "Datagrid",
+            "options": {
+              "version": "4.5.0a",
+              "datagridPossibleColumns": [
+                "Property",
+                "Value"
+              ],
+              "datagridPossibleColumnsWithItself": [
+                "<this>",
+                "Property",
+                "Value"
+              ],
+              "selectedColumnPossibleValues": [
+                "Property",
+                "Value"
+              ],
+              "highlightTargetPossibleValues": [
+                "Property",
+                "Value",
+                "*"
+              ],
+              "sortingPossibleValues": [
+                "",
+                "Property",
+                "Value"
+              ],
+              "Basics": {
+                "Data": {
+                  "_dashboardsType": "data",
+                  "value": "FlightData"
+                },
+                "EnableGrouping": false,
+                "IsFilterVisible": false,
+                "ShowPagingControl": false,
+                "Filtering": "disabled"
+              },
+              "ColumnsConfiguration": [
+                {
+                  "Field": "Property",
+                  "DisplayName": "Status",
+                  "WidthWeight": 100,
+                  "MinWidthAbsolute": 100
+                },
+                {
+                  "Field": "Value",
+                  "DisplayName": "Total Flights",
+                  "HighlightChanges": true,
+                  "HighlightChangeDuration": 2000,
+                  "WidthWeight": 100,
+                  "MinWidthAbsolute": 80
+                }
+              ],
+              "Alignment": {
+                "paddingLeft": 0,
+                "paddingRight": 0,
+                "paddingTop": 0,
+                "paddingBottom": 0,
+                "innerPaddingLeft": 0,
+                "innerPaddingRight": 0,
+                "innerPaddingTop": 0,
+                "innerPaddingBottom": 0,
+                "titlePaddingLeft": 0,
+                "titlePaddingRight": 0
+              },
+              "format": {
+                "widgetTitle": "Today's Flight Stats",
+                "titleFontSize": 12,
+                "titleFontBold": false,
+                "titleTransparentBackground": false,
+                "tileBorderWidth": 0,
+                "tileBorderRounding": 0,
+                "tileBorderColor": "#000000",
+                "tileBackgroundColor": "#000000",
+                "tileTransparentBackground": true,
+                "tileShadow": false
+              },
+              "FileExport": {
+                "ShowExportCsvButton": false,
+                "ShowExportExcelButton": false
+              }
+            },
+            "containerId": null,
+            "components": [],
+            "widgets": [],
+            "definitionId": "21",
+            "hasOnSettingsChange": true
+          }
+        },
+        {
+          "id": "90a43c2a-d233-eef8-88cf-bcaba3cf988d",
+          "layout": {
+            "row": 24,
+            "column": 14,
+            "rowSpan": 11,
+            "colSpan": 15
+          },
+          "component": {
+            "id": "f8df7fb1-40c7-200e-d606-7c7cc4617813",
+            "key": "PieJS",
+            "options": {
+              "version": "4.5.1",
+              "Basics": {
+                "Data": {
+                  "_dashboardsType": "data",
+                  "value": "FlightData"
+                },
+                "Theme": "Dark",
+                "Focus": {},
+                "Selected": "",
+                "SelectedAttr": "",
+                "PopoutSelected": false,
+                "PopoutSelectedSize": 10,
+                "Actions": []
+              },
+              "DataSet": {
+                "Label": "Property",
+                "DonutRatio": 37,
+                "Rotation": 50,
+                "Circumference": 100,
+                "BorderWidth": 1,
+                "Layers": [
+                  {
+                    "Segment": "Value",
+                    "Display": "",
+                    "UseColor": true,
+                    "Color": "#4f6aa6",
+                    "BorderColor": "#ffffff",
+                    "ColorOpacity": 85,
+                    "HighlightRules": []
+                  }
+                ]
+              },
+              "Legend": {
+                "Display": true,
+                "FullWidth": true,
+                "Reverse": false,
+                "Position": "top",
+                "LabelColor": "#FFFFFF",
+                "LabelFontFamily": "Helvetica",
+                "LabelFontSize": 12,
+                "BoxWidth": 40,
+                "Padding": 10,
+                "UsePointStyle": true,
+                "Mode": "Toggle Hidden",
+                "LegendScroll": false
+              },
+              "InnerLabel": {
+                "Innertitle": "",
+                "InnertitleColor": "#FFFFFF",
+                "InnertitleFont": "Verdana",
+                "InnertitleSize": 12,
+                "ShowPieceLabel": true,
+                "ShowZero": false,
+                "PieceLabelArc": false,
+                "PieceLabelColor": "#FFFFFF",
+                "PieceLabelOverlap": false,
+                "PieceLabelRender": "value",
+                "PieceLabelPosition": "outside",
+                "PieceLabelTemplate": "",
+                "FontSize": 10,
+                "Format": "General",
+                "Precision": 0,
+                "HideTrailingZeroes": false,
+                "Prefix": "",
+                "Suffix": "",
+                "DateFormat": "YYYY-MM-DD"
+              },
+              "Padding": {
+                "Top": 2,
+                "Bottom": 2,
+                "Left": 2,
+                "Right": 2
+              },
+              "Animations": {
+                "Enabled": true
+              },
+              "Style": {
+                "advanced": "",
+                "cssClasses": "",
+                "chartBarColors": [
+                  {
+                    "type": "#cae038"
+                  },
+                  {
+                    "type": "#33db49"
+                  },
+                  {
+                    "type": "#3c79c9"
+                  },
+                  {
+                    "type": "#de1111"
+                  },
+                  {
+                    "type": "#749450"
+                  },
+                  {
+                    "type": "#51966a"
+                  },
+                  {
+                    "type": "#e2c7c0"
+                  },
+                  {
+                    "type": "#9acad6"
+                  },
+                  {
+                    "type": "#1995a3"
+                  },
+                  {
+                    "type": "#484d6e"
+                  },
+                  {
+                    "type": "#ffa500"
+                  }
+                ],
+                "advancedTooltip": "<div> <table>{{#each dataSet}} <tbody> {{#eq @index 0}} <tr> <td colspan=\"2\">{{label}}</td> </tr> {{/eq}} <tr><td>{{xaxis}}</td> <td><svg style=\"width:20px;height:20px\"> <circle fill=\"{{color}}\" stroke-width=\"2\" stroke=\"white\" r=\"8\" cy=\"10\" cx=\"10\"> </circle> </svg></td> <td>{{layerName}} :</td> <td>{{toFixed value 2}} ({{toFixed percent 2}}%)</td> </tr> {{/each}} </tbody> </table> </div>"
+              },
+              "FileExport": {
+                "ShowScreenshot": false,
+                "ShowExportCsvButton": false,
+                "ShowExportExcelButton": false,
+                "FileName": []
+              },
+              "possibleColumns": [
+                "Property",
+                "Value"
+              ],
+              "possibleLabels": [
+                "Property",
+                "Value"
+              ],
+              "Alignment": {
+                "paddingLeft": 0,
+                "paddingRight": 0,
+                "paddingTop": 0,
+                "paddingBottom": 0,
+                "innerPaddingLeft": 0,
+                "innerPaddingRight": 0,
+                "innerPaddingTop": 0,
+                "innerPaddingBottom": 0,
+                "titlePaddingLeft": 0,
+                "titlePaddingRight": 0,
+                "titlePaddingTop": 7,
+                "titlePaddingBottom": 7
+              },
+              "format": {
+                "titleFontSize": 16,
+                "titleHorizontal": "Center",
+                "titleFontBold": false,
+                "titleShadow": false,
+                "titleTransparentBackground": false,
+                "tileBorderWidth": 0,
+                "tileBorderRounding": 0,
+                "tileBorderColor": "#000000",
+                "tileBackgroundColor": "#000000",
+                "tileTransparentBackground": true,
+                "tileShadow": false
+              },
+              "possibleRules": [
+                "Property",
+                "Value"
+              ]
+            },
+            "containerId": null,
+            "components": [],
+            "widgets": [],
+            "definitionId": "1009",
+            "hasOnSettingsChange": true
+          }
+        },
+        {
+          "id": "85be9a3c-0f73-73fe-743f-05c12f0ca5d2",
+          "layout": {
+            "row": 25,
+            "column": 30,
+            "rowSpan": 9,
+            "colSpan": 15
+          },
+          "component": {
+            "id": "c40dfb62-734c-9479-66eb-730e624b4ea7",
+            "key": "ChartJS",
+            "options": {
+              "Layers": [
+                {
+                  "_Hidden": {
+                    "_Type": "Bar",
+                    "_Index": 0,
+                    "_LayerId": "layer_50709",
+                    "_PossibleColumns": [
+                      "airport",
+                      "todayArivals",
+                      "todayDepartures"
+                    ],
+                    "_PossibleColumnsWithItself": [
+                      "<this>",
+                      "airport",
+                      "todayArivals",
+                      "todayDepartures"
+                    ],
+                    "_PossibleColumnsWithXYKey": [
+                      "<thisX>",
+                      "<thisY>",
+                      "<thisName>",
+                      "airport",
+                      "todayArivals",
+                      "todayDepartures"
+                    ],
+                    "_PossibleRadius": [
+                      "Fixed Size",
+                      "airport",
+                      "todayArivals",
+                      "todayDepartures"
+                    ],
+                    "_PossibleXAxes": [
+                      "XAxis 1"
+                    ],
+                    "_PossibleYAxes": [
+                      "YAxis 1"
+                    ]
+                  },
+                  "Basics": {
+                    "Name": "Arivals Today",
+                    "Data": {
+                      "_dashboardsType": "data",
+                      "value": "arivdep_single"
+                    }
+                  },
+                  "Axes": {
+                    "XAxisData": "airport",
+                    "YAxisData": "todayArivals",
+                    "XAxisID": "XAxis 1",
+                    "YAxisID": "YAxis 1"
+                  },
+                  "Labels": {
+                    "Font": {
+                      "Bold": false,
+                      "Size": 12
+                    }
+                  },
+                  "Bars": {
+                    "HoverBorderWidth": 2
+                  }
+                },
+                {
+                  "_Hidden": {
+                    "_Type": "Bar",
+                    "_Index": 1,
+                    "_LayerId": "layer_52940",
+                    "_PossibleColumns": [
+                      "airport",
+                      "todayArivals",
+                      "todayDepartures"
+                    ],
+                    "_PossibleColumnsWithItself": [
+                      "<this>",
+                      "airport",
+                      "todayArivals",
+                      "todayDepartures"
+                    ],
+                    "_PossibleColumnsWithXYKey": [
+                      "<thisX>",
+                      "<thisY>",
+                      "<thisName>",
+                      "airport",
+                      "todayArivals",
+                      "todayDepartures"
+                    ],
+                    "_PossibleRadius": [
+                      "Fixed Size",
+                      "airport",
+                      "todayArivals",
+                      "todayDepartures"
+                    ],
+                    "_PossibleXAxes": [
+                      "XAxis 1"
+                    ],
+                    "_PossibleYAxes": [
+                      "YAxis 1"
+                    ],
+                    "_PossibleLayers": []
+                  },
+                  "Basics": {
+                    "Name": "Depart. Today",
+                    "BackgroundColor": "#7995b8",
+                    "BorderColor": "#7995b8",
+                    "Data": {
+                      "_dashboardsType": "data",
+                      "value": "arivdep_single"
+                    }
+                  },
+                  "Axes": {
+                    "XAxisData": "airport",
+                    "YAxisData": "todayDepartures",
+                    "XAxisID": "XAxis 1",
+                    "YAxisID": "YAxis 1"
+                  },
+                  "Labels": {
+                    "Font": {
+                      "Bold": false,
+                      "Size": 12
+                    }
+                  }
+                },
+                {
+                  "_Hidden": {
+                    "_Type": "Bar",
+                    "_Index": 2,
+                    "_LayerId": "layer_3158",
+                    "_PossibleColumns": [
+                      "airport",
+                      "averagehistoricalArivals",
+                      "averagehistoricalDepartures"
+                    ],
+                    "_PossibleColumnsWithItself": [
+                      "<this>",
+                      "airport",
+                      "averagehistoricalArivals",
+                      "averagehistoricalDepartures"
+                    ],
+                    "_PossibleColumnsWithXYKey": [
+                      "<thisX>",
+                      "<thisY>",
+                      "<thisName>",
+                      "airport",
+                      "averagehistoricalArivals",
+                      "averagehistoricalDepartures"
+                    ],
+                    "_PossibleRadius": [
+                      "Fixed Size",
+                      "airport",
+                      "averagehistoricalArivals",
+                      "averagehistoricalDepartures"
+                    ],
+                    "_PossibleXAxes": [
+                      "XAxis 1"
+                    ],
+                    "_PossibleYAxes": [
+                      "YAxis 1"
+                    ],
+                    "_PossibleLayers": []
+                  },
+                  "Basics": {
+                    "Name": "Avg. Arrivals",
+                    "BackgroundColor": "#808387",
+                    "BorderColor": "#808387",
+                    "Data": {
+                      "_dashboardsType": "data",
+                      "value": "arivdephistsingle"
+                    }
+                  },
+                  "Axes": {
+                    "XAxisData": "airport",
+                    "YAxisData": "averagehistoricalArivals",
+                    "XAxisID": "XAxis 1",
+                    "YAxisID": "YAxis 1"
+                  },
+                  "Labels": {
+                    "Font": {
+                      "Bold": false,
+                      "Size": 12
+                    }
+                  }
+                },
+                {
+                  "_Hidden": {
+                    "_Type": "Bar",
+                    "_Index": 3,
+                    "_LayerId": "layer_4860",
+                    "_PossibleColumns": [
+                      "airport",
+                      "averagehistoricalArivals",
+                      "averagehistoricalDepartures"
+                    ],
+                    "_PossibleColumnsWithItself": [
+                      "<this>",
+                      "airport",
+                      "averagehistoricalArivals",
+                      "averagehistoricalDepartures"
+                    ],
+                    "_PossibleColumnsWithXYKey": [
+                      "<thisX>",
+                      "<thisY>",
+                      "<thisName>",
+                      "airport",
+                      "averagehistoricalArivals",
+                      "averagehistoricalDepartures"
+                    ],
+                    "_PossibleRadius": [
+                      "Fixed Size",
+                      "airport",
+                      "averagehistoricalArivals",
+                      "averagehistoricalDepartures"
+                    ],
+                    "_PossibleXAxes": [
+                      "XAxis 1"
+                    ],
+                    "_PossibleYAxes": [
+                      "YAxis 1"
+                    ]
+                  },
+                  "Basics": {
+                    "Name": "Avg. Departures",
+                    "BackgroundColor": "#a69775",
+                    "BorderColor": "#a69775",
+                    "BorderWidth": 2,
+                    "Data": {
+                      "_dashboardsType": "data",
+                      "value": "arivdephistsingle"
+                    }
+                  },
+                  "Axes": {
+                    "XAxisData": "airport",
+                    "YAxisData": "averagehistoricalDepartures",
+                    "XAxisID": "XAxis 1",
+                    "YAxisID": "YAxis 1"
+                  },
+                  "Labels": {
+                    "Font": {
+                      "Bold": false,
+                      "Size": 12
+                    }
+                  }
+                }
+              ],
+              "Overlay": {
+                "customTooltip": "<table style='{{fontSize}}'><thead><tr style='padding-right: 10px;'> <th>{{ xLabel }} </th><th> </th > </tr></thead> {{#each points }}<tr><td>{{{svg}}} {{ layerName }}: </td><td style='padding-right: 10px; text-align: left;'>{{layerData}}</td > </tr>{{/each}}</table>",
+                "CrosshairsEnabled": false,
+                "TooltipsEnabled": false
+              },
+              "XAxes": [
+                {
+                  "_Hidden": {
+                    "_Type": "category",
+                    "_AxisId": "axis_50493",
+                    "_Index": 0,
+                    "_Label": "XAxis 1"
+                  },
+                  "Labels": {
+                    "MaxWidth": 0,
+                    "_ReverseCache": false,
+                    "BeginAtZero": true,
+                    "DateFormat": "YYYY-MM-DD"
+                  }
+                }
+              ],
+              "YAxes": [
+                {
+                  "_Hidden": {
+                    "_Type": "linear",
+                    "_AxisId": "axis_50497",
+                    "_Index": 0,
+                    "_Label": "YAxis 1"
+                  },
+                  "Labels": {
+                    "MaxWidth": 0,
+                    "_ReverseCache": false,
+                    "DateFormat": "YYYY-MM-DD"
+                  },
+                  "Range": {
+                    "Max": 0,
+                    "Min": 0,
+                    "SoftRange": false,
+                    "SuggestedMax": 0,
+                    "SuggestedMin": 0,
+                    "UseDataRange": false
+                  }
+                }
+              ],
+              "format": {
+                "titleFontBold": false,
+                "titleTransparentBackground": false
+              },
+              "version": "4.5.1.2"
+            },
+            "containerId": null,
+            "components": [],
+            "widgets": [],
+            "definitionId": "1007",
+            "hasOnSettingsChange": true
+          }
+        },
+        {
+          "id": "2ab2c6fd-e97a-a816-f9b6-a80ac6ab1001",
+          "layout": {
+            "row": 9,
+            "column": 30,
+            "rowSpan": 15,
+            "colSpan": 16
+          },
+          "component": {
+            "id": "25d76c43-abef-8e0d-2935-5b72959b970c",
+            "key": "Datagrid",
+            "options": {
+              "version": "4.5.0a",
+              "datagridPossibleColumns": [
+                "airport",
+                "todayArivals",
+                "todayDepartures",
+                "histAvgArivals",
+                "histAvgDepartures"
+              ],
+              "datagridPossibleColumnsWithItself": [
+                "<this>",
+                "airport",
+                "todayArivals",
+                "todayDepartures",
+                "histAvgArivals",
+                "histAvgDepartures"
+              ],
+              "selectedColumnPossibleValues": [
+                "airport",
+                "todayArivals",
+                "todayDepartures",
+                "histAvgArivals",
+                "histAvgDepartures"
+              ],
+              "highlightTargetPossibleValues": [
+                "airport",
+                "todayArivals",
+                "todayDepartures",
+                "histAvgArivals",
+                "histAvgDepartures",
+                "*"
+              ],
+              "sortingPossibleValues": [
+                "",
+                "airport",
+                "todayArivals",
+                "todayDepartures",
+                "histAvgArivals",
+                "histAvgDepartures"
+              ],
+              "Basics": {
+                "Data": {
+                  "_dashboardsType": "data",
+                  "value": "Airporttodayandhist"
+                },
+                "EnableGrouping": false,
+                "IsFilterVisible": false,
+                "ShowPagingControl": false,
+                "Filtering": "disabled"
+              },
+              "ColumnsConfiguration": [
+                {
+                  "Field": "airport",
+                  "DisplayName": "Airport",
+                  "WidthWeight": 100,
+                  "MinWidthAbsolute": 70
+                },
+                {
+                  "Field": "todayArivals",
+                  "DisplayName": "Arrivals Today",
+                  "Format": "Formatted Number",
+                  "Precision": 0,
+                  "WidthWeight": 165,
+                  "MinWidthAbsolute": 90
+                },
+                {
+                  "Field": "todayDepartures",
+                  "DisplayName": "Depart. Today",
+                  "Format": "Formatted Number",
+                  "Precision": 0,
+                  "WidthWeight": 100,
+                  "MinWidthAbsolute": 100
+                },
+                {
+                  "Field": "histAvgArivals",
+                  "DisplayName": "Avg Arrivals",
+                  "Format": "Formatted Number",
+                  "Precision": 4,
+                  "WidthWeight": 140,
+                  "MinWidthAbsolute": 100
+                },
+                {
+                  "Field": "histAvgDepartures",
+                  "DisplayName": "Avg Depart.",
+                  "Format": "Formatted Number",
+                  "Precision": 4,
+                  "WidthWeight": 140,
+                  "MinWidthAbsolute": 80
+                }
+              ],
+              "Alignment": {
+                "paddingLeft": 0,
+                "paddingRight": 0,
+                "paddingTop": 0,
+                "paddingBottom": 0,
+                "innerPaddingLeft": 0,
+                "innerPaddingRight": 0,
+                "innerPaddingTop": 0,
+                "innerPaddingBottom": 0,
+                "titlePaddingLeft": 0,
+                "titlePaddingRight": 0
+              },
+              "format": {
+                "titleFontBold": false,
+                "titleTransparentBackground": false,
+                "tileBorderWidth": 0,
+                "tileBorderRounding": 0,
+                "tileBorderColor": "#000000",
+                "tileBackgroundColor": "#000000",
+                "tileTransparentBackground": true,
+                "tileShadow": false
+              },
+              "Selection": {
+                "Mode": "Single Row",
+                "RowSelectionColumn": "airport",
+                "Actions": [
+                  {
+                    "Current": "airport",
+                    "Target": {
+                      "_dashboardsType": "viewstate",
+                      "value": "airport"
+                    },
+                    "_Type": "map",
+                    "TriggerColumn": "*",
+                    "Trigger": "Click"
+                  }
+                ],
+                "SelectedValue": "DUS"
+              },
+              "FileExport": {
+                "ShowExportCsvButton": false,
+                "ShowExportExcelButton": false
+              }
+            },
+            "containerId": null,
+            "components": [],
+            "widgets": [],
+            "definitionId": "21",
+            "hasOnSettingsChange": true
+          }
+        },
+        {
+          "id": "2613e22f-066a-0f60-6ed4-4826e025aedd",
+          "layout": {
+            "row": 0,
+            "column": 0,
+            "rowSpan": 2,
+            "colSpan": 12
+          },
+          "component": {
+            "id": "e413c8f6-eb13-ebdc-5300-6a82a1dbbed4",
+            "key": "BasicComponents",
+            "options": {
+              "version": "4.5.0",
+              "Basics": {
+                "ComponentName": "label",
+                "HtmlText": "<font size=\"5\">Lufthansa Dashboard</font><br>",
+                "Data": "",
+                "Template": "",
+                "Theme": "Dark",
+                "FontSize": "13",
+                "horizontal": "Center",
+                "vertical": "Middle",
+                "tooltip": "",
+                "AllowUnsafeContent": false,
+                "version": "4.2.0s2"
+              },
+              "Style": {
+                "advanced": "",
+                "cssClasses": ""
+              },
+              "Alignment": {
+                "paddingLeft": 0,
+                "paddingRight": 0,
+                "paddingTop": 0,
+                "paddingBottom": 0,
+                "innerPaddingLeft": 0,
+                "innerPaddingRight": 0,
+                "innerPaddingTop": 0,
+                "innerPaddingBottom": 0,
+                "titlePaddingLeft": 0,
+                "titlePaddingRight": 0,
+                "titlePaddingTop": 7,
+                "titlePaddingBottom": 7
+              },
+              "format": {
+                "titleFontSize": 16,
+                "titleHorizontal": "Center",
+                "titleFontBold": false,
+                "titleShadow": false,
+                "titleTransparentBackground": false,
+                "tileBorderWidth": 0,
+                "tileBorderRounding": 0,
+                "tileBorderColor": "#000000",
+                "tileBackgroundColor": "#000000",
+                "tileTransparentBackground": true,
+                "tileShadow": false
+              }
+            },
+            "containerId": null,
+            "components": [],
+            "widgets": [],
+            "definitionId": "17",
+            "hasOnSettingsChange": true
+          }
+        },
+        {
+          "id": "fbac0b2f-66bb-1b96-764e-09b771e452da",
+          "layout": {
+            "row": 7,
+            "column": 1,
+            "rowSpan": 2,
+            "colSpan": 7
+          },
+          "component": {
+            "id": "b3ca6543-9c23-ad37-4a5a-e33b67b76549",
+            "key": "BasicComponents",
+            "options": {
+              "version": "4.5.0",
+              "Basics": {
+                "ComponentName": "label",
+                "HtmlText": "<font size=\"4\">Aircraft</font>",
+                "Data": "",
+                "Template": "",
+                "Theme": "Dark",
+                "FontSize": "13",
+                "horizontal": "Left",
+                "vertical": "Middle",
+                "tooltip": "",
+                "AllowUnsafeContent": false,
+                "version": "4.2.0s2"
+              },
+              "Style": {
+                "advanced": "",
+                "cssClasses": ""
+              },
+              "Alignment": {
+                "paddingLeft": 0,
+                "paddingRight": 0,
+                "paddingTop": 0,
+                "paddingBottom": 0,
+                "innerPaddingLeft": 0,
+                "innerPaddingRight": 0,
+                "innerPaddingTop": 0,
+                "innerPaddingBottom": 0,
+                "titlePaddingLeft": 0,
+                "titlePaddingRight": 0,
+                "titlePaddingTop": 7,
+                "titlePaddingBottom": 7
+              },
+              "format": {
+                "titleFontSize": 16,
+                "titleHorizontal": "Center",
+                "titleFontBold": false,
+                "titleShadow": false,
+                "titleTransparentBackground": false,
+                "tileBorderWidth": 0,
+                "tileBorderRounding": 0,
+                "tileBorderColor": "#000000",
+                "tileBackgroundColor": "#000000",
+                "tileTransparentBackground": true,
+                "tileShadow": false
+              }
+            },
+            "containerId": null,
+            "components": [],
+            "widgets": [],
+            "definitionId": "17",
+            "hasOnSettingsChange": true
+          }
+        },
+        {
+          "id": "3ebdd84c-9623-4605-bb30-afeb8d213cd6",
+          "layout": {
+            "row": 7,
+            "column": 14,
+            "rowSpan": 2,
+            "colSpan": 6
+          },
+          "component": {
+            "id": "0f28db57-787f-5e0c-e0c1-d9266e56445d",
+            "key": "BasicComponents",
+            "options": {
+              "version": "4.5.0",
+              "Basics": {
+                "ComponentName": "label",
+                "HtmlText": "<div><font size=\"4\">Flights</font></div>",
+                "Data": "",
+                "Template": "",
+                "Theme": "Dark",
+                "FontSize": "13",
+                "horizontal": "Left",
+                "vertical": "Middle",
+                "tooltip": "",
+                "AllowUnsafeContent": false,
+                "version": "4.2.0s2"
+              },
+              "Style": {
+                "advanced": "",
+                "cssClasses": ""
+              },
+              "Alignment": {
+                "paddingLeft": 0,
+                "paddingRight": 0,
+                "paddingTop": 0,
+                "paddingBottom": 0,
+                "innerPaddingLeft": 0,
+                "innerPaddingRight": 0,
+                "innerPaddingTop": 0,
+                "innerPaddingBottom": 0,
+                "titlePaddingLeft": 0,
+                "titlePaddingRight": 0,
+                "titlePaddingTop": 7,
+                "titlePaddingBottom": 7
+              },
+              "format": {
+                "titleFontSize": 16,
+                "titleHorizontal": "Center",
+                "titleFontBold": false,
+                "titleShadow": false,
+                "titleTransparentBackground": false,
+                "tileBorderWidth": 0,
+                "tileBorderRounding": 0,
+                "tileBorderColor": "#000000",
+                "tileBackgroundColor": "#000000",
+                "tileTransparentBackground": true,
+                "tileShadow": false
+              }
+            },
+            "containerId": null,
+            "components": [],
+            "widgets": [],
+            "definitionId": "17",
+            "hasOnSettingsChange": true
+          }
+        },
+        {
+          "id": "676f64d1-a8f1-c2be-519e-f5126e868ae3",
+          "layout": {
+            "row": 7,
+            "column": 31,
+            "rowSpan": 2,
+            "colSpan": 6
+          },
+          "component": {
+            "id": "36165dae-8dd4-6f73-4f29-459cec7ef02f",
+            "key": "BasicComponents",
+            "options": {
+              "version": "4.5.0",
+              "Basics": {
+                "ComponentName": "label",
+                "HtmlText": "<font size=\"4\">Airports</font>",
+                "Data": "",
+                "Template": "",
+                "Theme": "Dark",
+                "FontSize": "13",
+                "horizontal": "Left",
+                "vertical": "Middle",
+                "tooltip": "",
+                "AllowUnsafeContent": false,
+                "version": "4.2.0s2"
+              },
+              "Style": {
+                "advanced": "",
+                "cssClasses": ""
+              },
+              "Alignment": {
+                "paddingLeft": 0,
+                "paddingRight": 0,
+                "paddingTop": 0,
+                "paddingBottom": 0,
+                "innerPaddingLeft": 0,
+                "innerPaddingRight": 0,
+                "innerPaddingTop": 0,
+                "innerPaddingBottom": 0,
+                "titlePaddingLeft": 0,
+                "titlePaddingRight": 0,
+                "titlePaddingTop": 7,
+                "titlePaddingBottom": 7
+              },
+              "format": {
+                "titleFontSize": 16,
+                "titleHorizontal": "Center",
+                "titleFontBold": false,
+                "titleShadow": false,
+                "titleTransparentBackground": false,
+                "tileBorderWidth": 0,
+                "tileBorderRounding": 0,
+                "tileBorderColor": "#000000",
+                "tileBackgroundColor": "#000000",
+                "tileTransparentBackground": true,
+                "tileShadow": false
+              }
+            },
+            "containerId": null,
+            "components": [],
+            "widgets": [],
+            "definitionId": "17",
+            "hasOnSettingsChange": true
+          }
+        }
+      ],
+      "relativeHeight": true,
+      "rowCount": 35,
+      "colCount": 46,
+      "floatable": true,
+      "isDefault": true
+    }
+  ],
+  "popups": [],
+  "tags": [],
+  "dashboardTheme": "Dark",
+  "themeSwitchable": true,
+  "saveTimestamp": null,
+  "relativeHeight": true,
+  "rowCount": 35,
+  "colCount": 46,
+  "floatable": true,
+  "viewState": {
+    "selected": {
+      "_viewType": true,
+      "_default": "0",
+      "value": "0",
+      "_type": "symbol"
+    },
+    ".settings": {},
+    "startdate": {
+      "_viewType": true,
+      "_type": "date",
+      "value": "2020-11-01",
+      "_default": "2020-11-01"
+    },
+    "enddate": {
+      "_viewType": true,
+      "_type": "date",
+      "value": "2020-11-30",
+      "_default": "2020-11-30"
+    },
+    "airport": {
+      "_viewType": true,
+      "_default": "FRA",
+      "value": "FRA",
+      "_type": "symbol"
+    }
+  },
+  "data": {
+    "count_landed": {
+      "_pagingType": "NONE",
+      "_autoExec": true,
+      "_columns": [
+        "Data",
+        "today",
+        "totalhistorical",
+        "averageHistorical"
+      ],
+      "_dataType": "query",
+      "_dataSource": "kdb",
+      "_connection": "rdb",
+      "_mappings": {
+        "key": "Data",
+        "mappings": {},
+        "value": "today"
+      },
+      "_maxRows": 2000,
+      "_subscriptionType": "polling",
+      "_subscriptionInterval": 300,
+      "_layout": [
+        {
+          "weight": 2,
+          "isExpanded": true
+        },
+        {
+          "weight": 1,
+          "isExpanded": false
+        },
+        {
+          "weight": 1,
+          "isExpanded": false
+        },
+        {
+          "weight": 0,
+          "isExpanded": true
+        },
+        {
+          "weight": 2,
+          "isExpanded": true
+        }
+      ],
+      "_queryString": "{[st;ed]\r\n  h: hopen `:localhost:HDBPORT:admin:admin; \r\n  historical:(enlist `date)_h\"select from flights where date within (\", (string st), \";\",(string ed),\")\";\r\n  todays:flights;\r\n  HL:count select from historical where status=`LD;\r\n  TL:count select from todays where status=`LD;\r\n  HAL:HL%1+ed-st;\r\n  HC:count select from historical where status=`CD;\r\n  HAC:HC%1+ed-st;\r\n  TC:count select from todays where status=`CD;\r\n  ([Data:`Landed`Cancelled] today:TL,TC;totalhistorical:HL,HC;\"i\"$averageHistorical:HAL,HAC)\r\n }",
+      "_queryParams": [
+        {
+          "name": "st",
+          "index": 0,
+          "type": "date",
+          "value": "<%startdate%>",
+          "IsKdbParam": true,
+          "isViewState": true
+        },
+        {
+          "name": "ed",
+          "index": 1,
+          "type": "date",
+          "value": "<%enddate%>",
+          "IsKdbParam": true,
+          "isViewState": true
+        }
+      ],
+      "_subscriptionKey": "",
+      "_hasUpdateQuery": false,
+      "_updateQueryString": "",
+      "_updateType": "query",
+      "_pageSize": 2000,
+      "_serverPaging": false
+    },
+    "count_each_type": {
+      "_pagingType": "NONE",
+      "_autoExec": true,
+      "_columns": [
+        "aircraftType",
+        "typecount",
+        "historicalAverage"
+      ],
+      "_dataType": "query",
+      "_dataSource": "kdb",
+      "_connection": "rdb",
+      "_mappings": {
+        "key": "aircraftType",
+        "mappings": {},
+        "value": "typecount"
+      },
+      "_maxRows": 2000,
+      "_subscriptionType": "polling",
+      "_subscriptionInterval": 300,
+      "_layout": [
+        {
+          "isExpanded": true,
+          "weight": 2
+        },
+        {
+          "isExpanded": false,
+          "weight": 1
+        },
+        {
+          "isExpanded": false,
+          "weight": 1
+        },
+        {
+          "isExpanded": true,
+          "weight": 0
+        },
+        {
+          "isExpanded": true,
+          "weight": 2
+        }
+      ],
+      "_queryString": "{[st;ed] \r\n  h: hopen `:localhost:HDBPORT:admin:admin; \r\n  historical:(enlist `date)_h\"select from flights where date within (\", (string st), \";\",(string ed),\")\";\r\n  todays:flights;\r\n  typetoday:select typecount:count i by aircraftType from distinct select sym,depAirport,depTime,arivTime,arivAirport,flightNumber,aircraftType from todays;\r\n  typehist:select historicalAverage:\"i\"$((count i)%1+ed-st) by aircraftType from distinct select sym,depAirport,depTime,arivTime,arivAirport,flightNumber,aircraftType from historical;\r\n  0^typetoday uj typehist\r\n }",
+      "_queryParams": [
+        {
+          "name": "st",
+          "index": 0,
+          "type": "date",
+          "value": "<%startdate%>",
+          "IsKdbParam": true,
+          "isViewState": true
+        },
+        {
+          "name": "ed",
+          "index": 1,
+          "type": "date",
+          "value": "<%enddate%>",
+          "IsKdbParam": true,
+          "isViewState": true
+        }
+      ],
+      "_subscriptionKey": "aircraftType",
+      "_hasUpdateQuery": false,
+      "_updateQueryString": "",
+      "_updateType": "query",
+      "_pageSize": 2000,
+      "_serverPaging": false
+    },
+    "count_dep_by_airport": {
+      "_pagingType": "NONE",
+      "_autoExec": true,
+      "_columns": [
+        "airport",
+        "arivCount",
+        "depCount"
+      ],
+      "_dataType": "query",
+      "_dataSource": "kdb",
+      "_connection": "air_dc_rdb",
+      "_mappings": {
+        "key": "airport",
+        "mappings": {},
+        "value": "arivCount"
+      },
+      "_maxRows": 2000,
+      "_subscriptionType": "polling",
+      "_subscriptionInterval": 5,
+      "_layout": [
+        {
+          "isExpanded": true,
+          "weight": 2
+        },
+        {
+          "isExpanded": false,
+          "weight": 1
+        },
+        {
+          "isExpanded": false,
+          "weight": 1
+        },
+        {
+          "isExpanded": true,
+          "weight": 0
+        },
+        {
+          "isExpanded": false,
+          "weight": 2
+        }
+      ],
+      "_queryString": "\r\n  arivalcount:select arivCount:count i by airport:arivAirport from (distinct select sym,depAirport,depTime,arivTime,arivAirport,flightNumber,aircraftType from flights where status=`LD);\r\n  departurecount:select depCount:count i by airport:depAirport from (distinct select sym,depAirport,depTime,arivTime,arivAirport,flightNumber,aircraftType from flights where status=`DP);\r\n  0^(arivalcount uj departurecount)\r\n ",
+      "_queryParams": [],
+      "_subscriptionKey": "",
+      "_hasUpdateQuery": false,
+      "_updateQueryString": "",
+      "_updateType": "query",
+      "_pageSize": 2000,
+      "_serverPaging": false
+    },
+    "airdcrdb": {
+      "_pagingType": "NONE",
+      "_autoExec": true,
+      "_columns": [
+        "time",
+        "sym",
+        "depAirport",
+        "depTime",
+        "arivTime",
+        "arivAirport",
+        "flightNumber",
+        "aircraftType",
+        "registration",
+        "status"
+      ],
+      "_dataType": "query",
+      "_dataSource": "kdb",
+      "_connection": "rdb",
+      "_mappings": {
+        "key": "time",
+        "mappings": {},
+        "value": "sym"
+      },
+      "_maxRows": 2000,
+      "_subscriptionType": "static",
+      "_subscriptionInterval": 3,
+      "_layout": [
+        {
+          "isExpanded": true,
+          "weight": 2
+        },
+        {
+          "isExpanded": false,
+          "weight": 1
+        },
+        {
+          "isExpanded": false,
+          "weight": 1
+        },
+        {
+          "isExpanded": true,
+          "weight": 1
+        },
+        {
+          "isExpanded": true,
+          "weight": 2
+        }
+      ],
+      "_queryString": "select from flights",
+      "_queryParams": [],
+      "_subscriptionKey": "_rowIndex",
+      "_hasUpdateQuery": false,
+      "_updateQueryString": "",
+      "_updateType": "query",
+      "_pageSize": 2000,
+      "_serverPaging": false
+    },
+    "FlightData": {
+      "_pagingType": "NONE",
+      "_autoExec": true,
+      "_columns": [
+        "Property",
+        "Value"
+      ],
+      "_dataType": "query",
+      "_dataSource": "kdb",
+      "_connection": "rdb",
+      "_mappings": {
+        "key": "Property",
+        "mappings": {},
+        "value": "Value"
+      },
+      "_maxRows": 2000,
+      "_subscriptionType": "polling",
+      "_subscriptionInterval": 5,
+      "_layout": [
+        {
+          "isExpanded": true,
+          "weight": 2
+        },
+        {
+          "isExpanded": false,
+          "weight": 1
+        },
+        {
+          "isExpanded": false,
+          "weight": 1
+        },
+        {
+          "isExpanded": true,
+          "weight": 0
+        },
+        {
+          "isExpanded": true,
+          "weight": 2
+        }
+      ],
+      "_queryString": "\r\ntodays:select from flights;\r\n\r\nintheair:count select by flightNumber from todays where status=`DP;\r\nlanded:count select by flightNumber from todays where status=`LD;\r\nnoInfo:count select by flightNumber from todays where status=`NA;\r\ncancelled:count select by flightNumber from todays where status=`CD;\r\nflip ([] Departed: enlist intheair; Landed:enlist landed; NA: enlist noInfo; Cancelled: enlist cancelled)",
+      "_queryParams": [],
+      "_subscriptionKey": "",
+      "_hasUpdateQuery": false,
+      "_updateQueryString": "",
+      "_updateType": "query",
+      "_pageSize": 2000,
+      "_serverPaging": false
+    },
+    "New node": {
+      "_pagingType": "NONE",
+      "_autoExec": true,
+      "_columns": [],
+      "_dataType": "query",
+      "_dataSource": "kdb",
+      "_mappings": {},
+      "_maxRows": 2000,
+      "_subscriptionType": "static",
+      "_subscriptionInterval": 3,
+      "_layout": [
+        {
+          "weight": 2,
+          "isExpanded": true
+        },
+        {
+          "weight": 1,
+          "isExpanded": false
+        },
+        {
+          "weight": 1,
+          "isExpanded": false
+        },
+        {
+          "weight": 1,
+          "isExpanded": true
+        },
+        {
+          "weight": 2,
+          "isExpanded": false
+        }
+      ],
+      "_queryString": "",
+      "_queryParams": [],
+      "_subscriptionKey": "_rowIndex",
+      "_hasUpdateQuery": false,
+      "_updateQueryString": "",
+      "_pageSize": 2000,
+      "_serverPaging": false
+    },
+    "New node 2": {
+      "_pagingType": "NONE",
+      "_autoExec": true,
+      "_columns": [],
+      "_dataType": "query",
+      "_dataSource": "kdb",
+      "_mappings": {},
+      "_maxRows": 2000,
+      "_subscriptionType": "static",
+      "_subscriptionInterval": 3,
+      "_layout": [
+        {
+          "weight": 2,
+          "isExpanded": true
+        },
+        {
+          "weight": 1,
+          "isExpanded": false
+        },
+        {
+          "weight": 1,
+          "isExpanded": false
+        },
+        {
+          "weight": 1,
+          "isExpanded": true
+        },
+        {
+          "weight": 2,
+          "isExpanded": false
+        }
+      ],
+      "_queryString": "",
+      "_queryParams": [],
+      "_subscriptionKey": "_rowIndex",
+      "_hasUpdateQuery": false,
+      "_updateQueryString": "",
+      "_pageSize": 2000,
+      "_serverPaging": false
+    },
+    "arivdep_single": {
+      "_pagingType": "NONE",
+      "_autoExec": true,
+      "_columns": [
+        "airport",
+        "todayArivals",
+        "todayDepartures"
+      ],
+      "_dataType": "query",
+      "_dataSource": "kdb",
+      "_connection": "rdb",
+      "_mappings": {
+        "key": "airport",
+        "mappings": {},
+        "value": "todayArivals"
+      },
+      "_maxRows": 2000,
+      "_subscriptionType": "static",
+      "_subscriptionInterval": 3,
+      "_layout": [
+        {
+          "isExpanded": true,
+          "weight": 2
+        },
+        {
+          "isExpanded": false,
+          "weight": 1
+        },
+        {
+          "isExpanded": false,
+          "weight": 1
+        },
+        {
+          "isExpanded": true,
+          "weight": 0
+        },
+        {
+          "isExpanded": true,
+          "weight": 2
+        }
+      ],
+      "_queryString": "{[sy]\r\n  arivalcount:`airport xcol select todayArivals:count i by arivAirport from flights where status=`LD,arivAirport=sy;\r\n  \r\n  departurecount:`airport xcol select todayDepartures:count i by depAirport from flights where status=`DP,depAirport=sy;\r\n  0^(arivalcount uj departurecount)\r\n }",
+      "_queryParams": [
+        {
+          "name": "sy",
+          "index": 0,
+          "type": "symbol",
+          "value": "<%airport%>",
+          "IsKdbParam": true,
+          "isViewState": true
+        }
+      ],
+      "_subscriptionKey": "",
+      "_hasUpdateQuery": false,
+      "_updateQueryString": "",
+      "_updateType": "query",
+      "_pageSize": 2000,
+      "_serverPaging": false
+    },
+    "Airporttodayandhist": {
+      "_pagingType": "NONE",
+      "_autoExec": true,
+      "_columns": [
+        "airport",
+        "todayArivals",
+        "todayDepartures",
+        "histAvgArivals",
+        "histAvgDepartures"
+      ],
+      "_dataType": "query",
+      "_dataSource": "kdb",
+      "_connection": "rdb",
+      "_mappings": {
+        "key": "airport",
+        "mappings": {},
+        "value": "todayArivals"
+      },
+      "_maxRows": 2000,
+      "_subscriptionType": "polling",
+      "_subscriptionInterval": 300,
+      "_layout": [
+        {
+          "isExpanded": true,
+          "weight": 2
+        },
+        {
+          "isExpanded": false,
+          "weight": 1
+        },
+        {
+          "isExpanded": false,
+          "weight": 1
+        },
+        {
+          "isExpanded": true,
+          "weight": 0
+        },
+        {
+          "isExpanded": false,
+          "weight": 2
+        }
+      ],
+      "_queryString": "{[st;ed]\r\n  h: hopen `:localhost:HDBPORT:admin:admin; \r\n  historical:(enlist `date)_h\"select from flights where date within (\", (string st), \";\",(string ed),\")\";\r\n  todays:flights;\r\n  arivhist:`airport xcol select histAvgArivals:((count i)%1+ed-st) by arivAirport from historical where status=`LD;\r\n\r\n  dephist:`airport xcol select histAvgDepartures:((count i)%1+ed-st) by depAirport from historical where status=`DP;\r\n\r\n    arivalcount:`airport xcol select todayArivals:count i by arivAirport from flights where status=`LD;\r\n  departurecount:`airport xcol select todayDepartures:count i by depAirport from flights where status=`DP;\r\n\r\n 0^(arivalcount uj departurecount) uj (arivhist uj dephist)\r\n }",
+      "_queryParams": [
+        {
+          "name": "st",
+          "index": 0,
+          "type": "date",
+          "value": "<%startdate%>",
+          "IsKdbParam": true,
+          "isViewState": true
+        },
+        {
+          "name": "ed",
+          "index": 1,
+          "type": "date",
+          "value": "<%enddate%>",
+          "IsKdbParam": true,
+          "isViewState": true
+        }
+      ],
+      "_subscriptionKey": "",
+      "_hasUpdateQuery": false,
+      "_updateQueryString": "",
+      "_updateType": "query",
+      "_pageSize": 2000,
+      "_serverPaging": false
+    },
+    "arivdephistsingle": {
+      "_pagingType": "NONE",
+      "_autoExec": true,
+      "_columns": [
+        "airport",
+        "averagehistoricalArivals",
+        "averagehistoricalDepartures"
+      ],
+      "_dataType": "query",
+      "_dataSource": "kdb",
+      "_connection": "rdb",
+      "_mappings": {
+        "key": "airport",
+        "mappings": {},
+        "value": "averagehistoricalArivals"
+      },
+      "_maxRows": 2000,
+      "_subscriptionType": "static",
+      "_subscriptionInterval": 3,
+      "_layout": [
+        {
+          "isExpanded": true,
+          "weight": 2
+        },
+        {
+          "isExpanded": false,
+          "weight": 1
+        },
+        {
+          "isExpanded": false,
+          "weight": 1
+        },
+        {
+          "isExpanded": true,
+          "weight": 0
+        },
+        {
+          "isExpanded": true,
+          "weight": 2
+        }
+      ],
+      "_queryString": "{[st;ed;sy]\r\n  h: hopen `:localhost:HDBPORT:admin:admin; \r\n  historical:(enlist `date)_h\"select from flights where date within (\", (string st), \";\",(string ed),\")\";\r\n\r\n  harivalcount:`airport xcol select averagehistoricalArivals:((count i)%1+ed-st) by arivAirport from historical where status=`LD,arivAirport=sy;\r\n  \r\n  hdeparturecount:`airport xcol select averagehistoricalDepartures:((count i)%1+ed-st) by depAirport from historical where status=`DP,depAirport=sy;\r\n  0^(harivalcount uj hdeparturecount)\r\n }",
+      "_queryParams": [
+        {
+          "name": "st",
+          "index": 0,
+          "type": "date",
+          "value": "<%startdate%>",
+          "IsKdbParam": true,
+          "isViewState": true
+        },
+        {
+          "name": "ed",
+          "index": 1,
+          "type": "date",
+          "value": "<%enddate%>",
+          "IsKdbParam": true,
+          "isViewState": true
+        },
+        {
+          "name": "sy",
+          "index": 2,
+          "type": "symbol",
+          "value": "<%airport%>",
+          "IsKdbParam": true,
+          "isViewState": true
+        }
+      ],
+      "_subscriptionKey": "",
+      "_hasUpdateQuery": false,
+      "_updateQueryString": "",
+      "_updateType": "query",
+      "_pageSize": 2000,
+      "_serverPaging": false
+    }
+  },
+  "permissionEntity": null,
+  "worksheetPadding": 10,
+  "widgetsSpacing": 0,
+  "borderColor": "000000",
+  "borderBackground": "000000",
+  "transparentBackground": true,
+  "borderWidth": 0,
+  "borderRounding": 0,
+  "borderSpacing": 0,
+  "borderShadow": false,
+  "enableSaveViewState": true,
+  "enableShareDashboard": false,
+  "notifications": {
+    "Notifications": {
+      "_Version": "4.2.0s2",
+      "Enabled": true,
+      "InBrowserNotifications": false,
+      "Position": "Bottom Right",
+      "MaxVisibleCount": 3,
+      "FadeOut": 5,
+      "Icon": "fa-bell-o",
+      "Sound": "beep",
+      "SoundVolume": 100,
+      "Grouping": false,
+      "GroupingInterval": 1,
+      "triggers": []
+    }
+  },
+  "showLoadingIndicators": true,
+  "unsavedViewerPrompt": false,
+  "advancedCss": "",
+  "cssClasses": "",
+  "viewStateBinding": false,
+  "wasChanged": false,
+  "version": "4.4.0p7",
+  "action": "add"
+}
