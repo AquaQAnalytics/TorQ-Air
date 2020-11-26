@@ -1615,7 +1615,7 @@
           "isExpanded": true
         }
       ],
-      "_queryString": "{[st;ed]\r\n  h: hopen `:localhost:HDBPORT:admin:admin; \r\n  historical:(enlist `date)_h\"select from flights where date within (\", (string st), \";\",(string ed),\")\";\r\n  todays:flights;\r\n  HL:count select from historical where status=`LD;\r\n  TL:count select from todays where status=`LD;\r\n  HAL:HL%1+ed-st;\r\n  HC:count select from historical where status=`CD;\r\n  HAC:HC%1+ed-st;\r\n  TC:count select from todays where status=`CD;\r\n  ([Data:`Landed`Cancelled] today:TL,TC;totalhistorical:HL,HC;\"i\"$averageHistorical:HAL,HAC)\r\n }",
+      "_queryString": "{[st;ed]\r\n  h: hopen `:localhost:24028:admin:admin; \r\n  historical:(enlist `date)_h\"select from flights where date within (\", (string st), \";\",(string ed),\")\";\r\n  todays:flights;\r\n  HL:count select from historical where status=`LD;\r\n  TL:count select from todays where status=`LD;\r\n  HAL:HL%1+ed-st;\r\n  HC:count select from historical where status=`CD;\r\n  HAC:HC%1+ed-st;\r\n  TC:count select from todays where status=`CD;\r\n  ([Data:`Landed`Cancelled] today:TL,TC;totalhistorical:HL,HC;\"i\"$averageHistorical:HAL,HAC)\r\n }",
       "_queryParams": [
         {
           "name": "st",
@@ -1682,7 +1682,7 @@
           "weight": 2
         }
       ],
-      "_queryString": "{[st;ed] \r\n  h: hopen `:localhost:HDBPORT:admin:admin; \r\n  historical:(enlist `date)_h\"select from flights where date within (\", (string st), \";\",(string ed),\")\";\r\n  todays:flights;\r\n  typetoday:select typecount:count i by aircraftType from distinct select sym,depAirport,depTime,arivTime,arivAirport,flightNumber,aircraftType from todays;\r\n  typehist:select historicalAverage:\"i\"$((count i)%1+ed-st) by aircraftType from distinct select sym,depAirport,depTime,arivTime,arivAirport,flightNumber,aircraftType from historical;\r\n  0^typetoday uj typehist\r\n }",
+      "_queryString": "{[st;ed] \r\n  h: hopen `:localhost:24028:admin:admin; \r\n  historical:(enlist `date)_h\"select from flights where date within (\", (string st), \";\",(string ed),\")\";\r\n  todays:flights;\r\n  typetoday:select typecount:count i by aircraftType from distinct select sym,depAirport,depTime,arivTime,arivAirport,flightNumber,aircraftType from todays;\r\n  typehist:select historicalAverage:\"i\"$((count i)%1+ed-st) by aircraftType from distinct select sym,depAirport,depTime,arivTime,arivAirport,flightNumber,aircraftType from historical;\r\n  0^typetoday uj typehist\r\n }",
       "_queryParams": [
         {
           "name": "st",
@@ -2046,7 +2046,7 @@
           "weight": 2
         }
       ],
-      "_queryString": "{[st;ed]\r\n  h: hopen `:localhost:HDBPORT:admin:admin; \r\n  historical:(enlist `date)_h\"select from flights where date within (\", (string st), \";\",(string ed),\")\";\r\n  todays:flights;\r\n  arivhist:`airport xcol select histAvgArivals:((count i)%1+ed-st) by arivAirport from historical where status=`LD;\r\n\r\n  dephist:`airport xcol select histAvgDepartures:((count i)%1+ed-st) by depAirport from historical where status=`DP;\r\n\r\n    arivalcount:`airport xcol select todayArivals:count i by arivAirport from flights where status=`LD;\r\n  departurecount:`airport xcol select todayDepartures:count i by depAirport from flights where status=`DP;\r\n\r\n 0^(arivalcount uj departurecount) uj (arivhist uj dephist)\r\n }",
+      "_queryString": "{[st;ed]\r\n  h: hopen `:localhost:24028:admin:admin; \r\n  historical:(enlist `date)_h\"select from flights where date within (\", (string st), \";\",(string ed),\")\";\r\n  todays:flights;\r\n  arivhist:`airport xcol select histAvgArivals:((count i)%1+ed-st) by arivAirport from historical where status=`LD;\r\n\r\n  dephist:`airport xcol select histAvgDepartures:((count i)%1+ed-st) by depAirport from historical where status=`DP;\r\n\r\n    arivalcount:`airport xcol select todayArivals:count i by arivAirport from flights where status=`LD;\r\n  departurecount:`airport xcol select todayDepartures:count i by depAirport from flights where status=`DP;\r\n\r\n 0^(arivalcount uj departurecount) uj (arivhist uj dephist)\r\n }",
       "_queryParams": [
         {
           "name": "st",
@@ -2113,7 +2113,7 @@
           "weight": 2
         }
       ],
-      "_queryString": "{[st;ed;sy]\r\n  h: hopen `:localhost:HDBPORT:admin:admin; \r\n  historical:(enlist `date)_h\"select from flights where date within (\", (string st), \";\",(string ed),\")\";\r\n\r\n  harivalcount:`airport xcol select averagehistoricalArivals:((count i)%1+ed-st) by arivAirport from historical where status=`LD,arivAirport=sy;\r\n  \r\n  hdeparturecount:`airport xcol select averagehistoricalDepartures:((count i)%1+ed-st) by depAirport from historical where status=`DP,depAirport=sy;\r\n  0^(harivalcount uj hdeparturecount)\r\n }",
+      "_queryString": "{[st;ed;sy]\r\n  h: hopen `:localhost:24028:admin:admin; \r\n  historical:(enlist `date)_h\"select from flights where date within (\", (string st), \";\",(string ed),\")\";\r\n\r\n  harivalcount:`airport xcol select averagehistoricalArivals:((count i)%1+ed-st) by arivAirport from historical where status=`LD,arivAirport=sy;\r\n  \r\n  hdeparturecount:`airport xcol select averagehistoricalDepartures:((count i)%1+ed-st) by depAirport from historical where status=`DP,depAirport=sy;\r\n  0^(harivalcount uj hdeparturecount)\r\n }",
       "_queryParams": [
         {
           "name": "st",

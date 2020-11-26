@@ -1794,7 +1794,7 @@
           "weight": 2
         }
       ],
-      "_queryString": "{[reg;sdate;edate]\r\n  h2: hopen `:localhost:HDBPORT:admin:admin;\r\n  hist:h2\"select from flights where date within(\", (string sdate),\";\",(string edate),\")\";\r\n  typehist:distinct select date, sym, depAirport, depTime, arivTime, arivAirport, flightNumber, aircraftType, registration from hist where registration like reg\r\n\r\n / mostused:exec aircraftType from typehist where typecount=max typecount;\r\n  /mostusedCount:exec typecount from typehist where typecount=max typecount;\r\n\r\n  /([] numAircraftsToday: enlist numAircrafts; mostPopCraft: enlist mostused; MostPopAmount: enlist mostusedCount)\r\n }",
+      "_queryString": "{[reg;sdate;edate]\r\n  h2: hopen `:localhost:24028:admin:admin;\r\n  hist:h2\"select from flights where date within(\", (string sdate),\";\",(string edate),\")\";\r\n  typehist:distinct select date, sym, depAirport, depTime, arivTime, arivAirport, flightNumber, aircraftType, registration from hist where registration like reg\r\n\r\n / mostused:exec aircraftType from typehist where typecount=max typecount;\r\n  /mostusedCount:exec typecount from typehist where typecount=max typecount;\r\n\r\n  /([] numAircraftsToday: enlist numAircrafts; mostPopCraft: enlist mostused; MostPopAmount: enlist mostusedCount)\r\n }",
       "_queryParams": [
         {
           "name": "reg",
@@ -1869,7 +1869,7 @@
           "weight": 1.8660508083140877
         }
       ],
-      "_queryString": "{[reg;sdate;edate]\r\n  h5: hopen `:localhost:HDBPORT:admin:admin;\r\n  hist:h5\"select from flights where date within (\",(string sdate),\";\",(string edate),\")\";\r\n  hclose h5;\r\n\r\n co:count (distinct select sym, depAirport, depTime, arivTime, arivAirport, flightNumber, aircraftType, registration from hist where registration like reg);\r\n avgco:co%1+edate-sdate;\r\n  y:exec distinct aircraftType from hist where registration like reg;\r\n ([]numberOfFlights:enlist co; regi:enlist reg;avgcount:enlist \"i\"$avgco)\r\n }",
+      "_queryString": "{[reg;sdate;edate]\r\n  h5: hopen `:localhost:24028:admin:admin;\r\n  hist:h5\"select from flights where date within (\",(string sdate),\";\",(string edate),\")\";\r\n  hclose h5;\r\n\r\n co:count (distinct select sym, depAirport, depTime, arivTime, arivAirport, flightNumber, aircraftType, registration from hist where registration like reg);\r\n avgco:co%1+edate-sdate;\r\n  y:exec distinct aircraftType from hist where registration like reg;\r\n ([]numberOfFlights:enlist co; regi:enlist reg;avgcount:enlist \"i\"$avgco)\r\n }",
       "_queryParams": [
         {
           "name": "reg",
@@ -1992,7 +1992,7 @@
           "weight": 2
         }
       ],
-      "_queryString": "h1: hopen `:localhost:HDBPORT:admin:admin;\r\nhist: (enlist `date)_h1\"select from flights\";\r\nasc distinct select aircraftType from (hist,flights)\r\n",
+      "_queryString": "h1: hopen `:localhost:24028:admin:admin;\r\nhist: (enlist `date)_h1\"select from flights\";\r\nasc distinct select aircraftType from (hist,flights)\r\n",
       "_queryParams": [],
       "_subscriptionKey": "",
       "_hasUpdateQuery": false,
@@ -2041,7 +2041,7 @@
           "weight": 2
         }
       ],
-      "_queryString": "{[start;end;craft]\r\n\r\n  h2: hopen `:localhost:HDBPORT:admin:admin;\r\n  todayCraft:distinct select sym,depAirport,depTime,arivTime,arivAirport,flightNumber,aircraftType,registration from flights where aircraftType=craft;\r\n  histcraft:h2\"distinct select date, sym,depAirport,depTime,arivTime,arivAirport,flightNumber,aircraftType,registration from flights where date within(\", (string start),\";\",(string end),\"), aircraftType=`\", (string craft);\r\n  \r\n  /craftInfoAllTime:h(`.gw.syncexec; \"distinct select sym,depAirport,depTime,arivTime,arivAirport,flightNumber,aircraftType,registration from flights where aircraftType=`\",string craft;`hdb`rdb);\r\n histschedulednumflights:count histcraft;\r\n toschedulednumflights:count todayCraft;\r\n hstavgscheduled: histschedulednumflights%1+end-start;\r\n hmax:exec max eachdaycount from select eachdaycount:count i by date from histcraft;\r\n\r\n flip ([] Today:enlist toschedulednumflights; Historic:enlist histschedulednumflights; dailyAverage:enlist \"i\"$hstavgscheduled; dailyMaximum:enlist hmax)\r\n    \r\n  }",
+      "_queryString": "{[start;end;craft]\r\n\r\n  h2: hopen `:localhost:24028:admin:admin;\r\n  todayCraft:distinct select sym,depAirport,depTime,arivTime,arivAirport,flightNumber,aircraftType,registration from flights where aircraftType=craft;\r\n  histcraft:h2\"distinct select date, sym,depAirport,depTime,arivTime,arivAirport,flightNumber,aircraftType,registration from flights where date within(\", (string start),\";\",(string end),\"), aircraftType=`\", (string craft);\r\n  \r\n  /craftInfoAllTime:h(`.gw.syncexec; \"distinct select sym,depAirport,depTime,arivTime,arivAirport,flightNumber,aircraftType,registration from flights where aircraftType=`\",string craft;`hdb`rdb);\r\n histschedulednumflights:count histcraft;\r\n toschedulednumflights:count todayCraft;\r\n hstavgscheduled: histschedulednumflights%1+end-start;\r\n hmax:exec max eachdaycount from select eachdaycount:count i by date from histcraft;\r\n\r\n flip ([] Today:enlist toschedulednumflights; Historic:enlist histschedulednumflights; dailyAverage:enlist \"i\"$hstavgscheduled; dailyMaximum:enlist hmax)\r\n    \r\n  }",
       "_queryParams": [
         {
           "name": "start",
@@ -2240,7 +2240,7 @@
           "weight": 2.18013856812933
         }
       ],
-      "_queryString": "{[st;ed] \r\n  h2: hopen `:localhost:HDBPORT:admin:admin;\r\n  historicalcraft:h2\"select from flights\";\r\n  historicalcraft: select from historicalcraft where date within (st;ed);\r\n  \r\n  typehist:select historicalTotal:count i, historicalAverage:((count i)%1+ed-st) by aircraftType from distinct select sym,depAirport,depTime,arivTime,arivAirport,flightNumber,aircraftType from historicalcraft;\r\n \r\n  hnumAircrafts:count typehist;\r\n  hTotalMax:exec historicalTotal from typehist where historicalTotal=max historicalTotal;\r\n  hmostused:exec aircraftType from typehist where historicalAverage=max historicalAverage;\r\n  hmostusedCount:exec historicalAverage from typehist where historicalAverage=max historicalAverage;\r\n\r\n  ([] hNumberOfAircrafts: enlist hnumAircrafts; mostPopularCraft: enlist hmostused; MostPopAvgAmount: enlist .Q.fmt[6;2;hmostusedCount[0]]; mostPopTotCount:enlist hTotalMax)\r\n  \r\n }",
+      "_queryString": "{[st;ed] \r\n  h2: hopen `:localhost:24028:admin:admin;\r\n  historicalcraft:h2\"select from flights\";\r\n  historicalcraft: select from historicalcraft where date within (st;ed);\r\n  \r\n  typehist:select historicalTotal:count i, historicalAverage:((count i)%1+ed-st) by aircraftType from distinct select sym,depAirport,depTime,arivTime,arivAirport,flightNumber,aircraftType from historicalcraft;\r\n \r\n  hnumAircrafts:count typehist;\r\n  hTotalMax:exec historicalTotal from typehist where historicalTotal=max historicalTotal;\r\n  hmostused:exec aircraftType from typehist where historicalAverage=max historicalAverage;\r\n  hmostusedCount:exec historicalAverage from typehist where historicalAverage=max historicalAverage;\r\n\r\n  ([] hNumberOfAircrafts: enlist hnumAircrafts; mostPopularCraft: enlist hmostused; MostPopAvgAmount: enlist .Q.fmt[6;2;hmostusedCount[0]]; mostPopTotCount:enlist hTotalMax)\r\n  \r\n }",
       "_queryParams": [
         {
           "name": "st",

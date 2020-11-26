@@ -1,1 +1,1 @@
-{"name":"boards","dbtype":"q","tls":"off","host":"localhost","port":"BOARDPORT","user":"admin","pass":"admin","database":""}
+{"name":"boards","dbtype":"q","tls":"off","host":"localhost","port":"24035","user":"admin","pass":"admin","database":""}

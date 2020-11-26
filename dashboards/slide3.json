@@ -1389,7 +1389,7 @@
           "weight": 2
         }
       ],
-      "_queryString": "{[arriv;dep]\r\n  h: hopen `:localhost:HDBPORT:admin:admin; \r\n  historical:(enlist `date) _ h\"select from flights where date > .z.d - 8\";\r\n  \r\n  today: distinct select sym,depAirport, depTime,arivAirport, arivTime,flightNumber, aircraftType, registration from (historical,flights);\r\n\r\n  select from today where depAirport in (dep;arriv), arivAirport in (dep;arriv)\r\n }",
+      "_queryString": "{[arriv;dep]\r\n  h: hopen `:localhost:24028:admin:admin; \r\n  historical:(enlist `date) _ h\"select from flights where date > .z.d - 8\";\r\n  \r\n  today: distinct select sym,depAirport, depTime,arivAirport, arivTime,flightNumber, aircraftType, registration from (historical,flights);\r\n\r\n  select from today where depAirport in (dep;arriv), arivAirport in (dep;arriv)\r\n }",
       "_queryParams": [
         {
           "name": "arriv",
@@ -1587,7 +1587,7 @@
           "weight": 2
         }
       ],
-      "_queryString": "{[arriv;dep]\r\n\r\n  h: hopen `:localhost:HDBPORT:admin:admin; \r\n  historical:(enlist `date) _ h\"select from flights\";\r\n  \r\n  theLot: distinct select sym,depAirport, depTime,arivAirport, arivTime,flightNumber, aircraftType, registration from (historical,flights) where arivAirport in (arriv;dep), depAirport in (arriv;dep);  \r\n\r\n  flightsToday: count select from theLot where arivTime > .z.d;\r\n  flightsThisWeek: count select from theLot where arivTime > .z.d - 8;\r\n  flightsThisMonth: count select from theLot where arivTime > \"d\"$`month$.z.d;\r\n\r\n  ([]\r\n    property: (\"Total Flights\";\"Today\";\"WTD\";\"MTD\";\"Flights per day (This week)\");\r\n    propertyValue:(\"\";flightsToday;flightsThisWeek;flightsThisMonth;(.Q.fmt[6;2]flightsThisWeek%7)) \r\n    )\r\n }",
+      "_queryString": "{[arriv;dep]\r\n\r\n  h: hopen `:localhost:24028:admin:admin; \r\n  historical:(enlist `date) _ h\"select from flights\";\r\n  \r\n  theLot: distinct select sym,depAirport, depTime,arivAirport, arivTime,flightNumber, aircraftType, registration from (historical,flights) where arivAirport in (arriv;dep), depAirport in (arriv;dep);  \r\n\r\n  flightsToday: count select from theLot where arivTime > .z.d;\r\n  flightsThisWeek: count select from theLot where arivTime > .z.d - 8;\r\n  flightsThisMonth: count select from theLot where arivTime > \"d\"$`month$.z.d;\r\n\r\n  ([]\r\n    property: (\"Total Flights\";\"Today\";\"WTD\";\"MTD\";\"Flights per day (This week)\");\r\n    propertyValue:(\"\";flightsToday;flightsThisWeek;flightsThisMonth;(.Q.fmt[6;2]flightsThisWeek%7)) \r\n    )\r\n }",
       "_queryParams": [
         {
           "name": "arriv",
