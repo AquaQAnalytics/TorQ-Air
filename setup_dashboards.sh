@@ -20,6 +20,7 @@ declare -a dashboards=("slide1.json" "slide2.json" "slide3.json" "slide4.json")
 
 all=( "${dashboards[@]}" "${connections[@]}" )
 
+# Replaces placeholder port numbers in all files in /dashboards
 for item in "${all[@]}"
 do
 	sed -i s/RDBPORT/$RDBPORT/g dashboards/$item
@@ -27,6 +28,7 @@ do
 	sed -i s/BOARDPORT/$BOARDPORT/g dashboards/$item 
 done
 
+# Moves rdb.json and boards.json to the connections folder in Kx dashboards
 for conn in "${connections[@]}"
 do
 	cp dashboards/$conn $dashFolder/data/connections
