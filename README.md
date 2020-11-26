@@ -1,6 +1,6 @@
 # TorQ-Air
 
-TorQ-Air is a data-capture and analytics application built on top of the [TorQ framework](https://aquaqanalytics.github.io/TorQ/). It sources data from the [Lufthansa developer API](https://developer.lufthansa.com/page) and captures it within a TorQ stack. There are also four example [Kx Dashboards](https://code.kx.com/dashboards/) setups provided, which can be imported into any dashboards session and connected to the TorQ stack. 
+TorQ-Air is a data-capture and analytics application built on top of the [TorQ framework](https://github.com/AquaQAnalytics/TorQ/releases). It sources data from the [Lufthansa developer API](https://developer.lufthansa.com/page) and captures it within a TorQ stack. There are also four example [Kx Dashboards](https://code.kx.com/dashboards/) setups provided, which can be imported into any dashboards session and connected to the TorQ stack. 
 
 This package includes:  
 
@@ -18,7 +18,7 @@ bash installatest.sh
 ```
 Otherwise, you may install TorQ-Air by
 1. Downloading the [main TorQ codebase](https://github.com/AquaQAnalytics/TorQ/tree/master)
-2. Downloading the [latest TorQ-Air release](https://github.com/AquaQAnalytics/TorQ-Air)
+2. Downloading the [latest TorQ-Air release](https://github.com/AquaQAnalytics/TorQ-Air/releases)
 3. Extract the contents of the TorQ folder into your deploy folder, then likewise with TorQ-Air. 
 
 ### Quick Setup Guide
