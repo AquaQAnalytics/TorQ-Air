@@ -1,0 +1,1628 @@
+{
+  "id": "183cccf8-344a-fedb-9876-207ccdb08565",
+  "name": "slide1",
+  "creationDate": "Mon, 16 Nov 2020 09:25:29 GMT",
+  "lastUpdateDate": "Thu, 26 Nov 2020 12:57:47 GMT",
+  "thumb": null,
+  "screenDetails": [
+    {
+      "label": "Screen 1",
+      "value": "0096463f-6f68-3fb6-be42-9375c8151542"
+    }
+  ],
+  "screens": [
+    {
+      "id": "0096463f-6f68-3fb6-be42-9375c8151542",
+      "name": "Screen 1",
+      "thumb": null,
+      "widgets": [
+        {
+          "id": "fa8f4c35-8c4d-fb2e-4bc3-8b8df269611c",
+          "layout": {
+            "row": 1,
+            "column": 14,
+            "rowSpan": 1,
+            "colSpan": 13
+          },
+          "component": {
+            "id": "20f6d6c0-1a7d-a2b1-b144-d6b67c6fbc15",
+            "key": "BasicComponents",
+            "options": {
+              "version": "4.5.0",
+              "Basics": {
+                "ComponentName": "textBox",
+                "Theme": "Dark",
+                "Text": "Arrivals",
+                "Type": "text",
+                "FontSize": 16,
+                "horizontal": "Center",
+                "vertical": "Middle",
+                "fixedWidth": false,
+                "width": 100,
+                "fixedHeight": false,
+                "height": 100
+              },
+              "Actions": [],
+              "Style": {
+                "advanced": "",
+                "cssClasses": ""
+              },
+              "Alignment": {
+                "paddingLeft": 0,
+                "paddingRight": 0,
+                "paddingTop": 0,
+                "paddingBottom": 0,
+                "innerPaddingLeft": 0,
+                "innerPaddingRight": 0,
+                "innerPaddingTop": 0,
+                "innerPaddingBottom": 0,
+                "titlePaddingLeft": 0,
+                "titlePaddingRight": 0,
+                "titlePaddingTop": 7,
+                "titlePaddingBottom": 7
+              },
+              "format": {
+                "titleFontSize": 16,
+                "titleHorizontal": "Center",
+                "titleFontBold": false,
+                "titleShadow": false,
+                "titleTransparentBackground": false,
+                "tileBorderWidth": 0,
+                "tileBorderRounding": 0,
+                "tileBorderColor": "#000000",
+                "tileBackgroundColor": "#000000",
+                "tileTransparentBackground": true,
+                "tileShadow": false
+              }
+            },
+            "containerId": null,
+            "components": [],
+            "widgets": [],
+            "definitionId": "33",
+            "hasOnSettingsChange": true
+          }
+        },
+        {
+          "id": "97b19d45-27a1-4d39-a25e-cf214719ca5a",
+          "layout": {
+            "row": 12,
+            "column": 14,
+            "rowSpan": 1,
+            "colSpan": 13
+          },
+          "component": {
+            "id": "e8873dd1-b286-38cf-9039-e7abb376eeb5",
+            "key": "BasicComponents",
+            "options": {
+              "version": "4.5.0",
+              "Basics": {
+                "ComponentName": "textBox",
+                "Theme": "Dark",
+                "Text": "Departures",
+                "Type": "text",
+                "FontSize": 16,
+                "horizontal": "Center",
+                "vertical": "Middle",
+                "fixedWidth": false,
+                "width": 100,
+                "fixedHeight": false,
+                "height": 100
+              },
+              "Actions": [],
+              "Style": {
+                "advanced": "",
+                "cssClasses": ""
+              },
+              "Alignment": {
+                "paddingLeft": 0,
+                "paddingRight": 0,
+                "paddingTop": 0,
+                "paddingBottom": 0,
+                "innerPaddingLeft": 0,
+                "innerPaddingRight": 0,
+                "innerPaddingTop": 0,
+                "innerPaddingBottom": 0,
+                "titlePaddingLeft": 0,
+                "titlePaddingRight": 0,
+                "titlePaddingTop": 7,
+                "titlePaddingBottom": 7
+              },
+              "format": {
+                "titleFontSize": 16,
+                "titleHorizontal": "Center",
+                "titleFontBold": false,
+                "titleShadow": false,
+                "titleTransparentBackground": false,
+                "tileBorderWidth": 0,
+                "tileBorderRounding": 0,
+                "tileBorderColor": "#000000",
+                "tileBackgroundColor": "#000000",
+                "tileTransparentBackground": true,
+                "tileShadow": false
+              }
+            },
+            "containerId": null,
+            "components": [],
+            "widgets": [],
+            "definitionId": "33",
+            "hasOnSettingsChange": true
+          }
+        },
+        {
+          "id": "335241b7-2696-c559-a966-e54d2aad13bc",
+          "layout": {
+            "row": 17,
+            "column": 0,
+            "rowSpan": 3,
+            "colSpan": 6
+          },
+          "component": {
+            "id": "39032305-edeb-b3e1-18b0-872d636327c6",
+            "key": "BasicComponents",
+            "options": {
+              "version": "4.5.0",
+              "dropdownPossibleValues": [
+                "depAirport"
+              ],
+              "Basics": {
+                "Data": {
+                  "_dashboardsType": "data",
+                  "value": "airports"
+                },
+                "SelectedValue": {
+                  "_dashboardsType": "viewstate",
+                  "value": "depAirport"
+                },
+                "ComponentName": "dropdown",
+                "DataSourceMapping": {
+                  "Value": "depAirport",
+                  "Text": "depAirport"
+                },
+                "Items": [],
+                "Width": 100,
+                "Theme": "Dark",
+                "Label": "Airport:",
+                "LabelWidth": 75,
+                "MultiSelect": false,
+                "ShowSearch": false,
+                "AdvancedSearch": false,
+                "AcceptEmptyValues": false,
+                "ForceSelectedValue": false,
+                "FieldSummaryThreshold": 5,
+                "TooltipSummaryThreshold": 10,
+                "SelectAllValue": "",
+                "horizontal": "Center",
+                "vertical": "Middle",
+                "tooltip": "",
+                "ShowRowCount": false,
+                "Flex": false,
+                "EnableDropdownHeight": false
+              },
+              "Actions": [
+                {
+                  "Current": "airportCode",
+                  "Target": "",
+                  "_Type": "map"
+                }
+              ],
+              "Style": {
+                "advanced": "",
+                "cssClasses": ""
+              },
+              "Alignment": {
+                "paddingLeft": 0,
+                "paddingRight": 0,
+                "paddingTop": 0,
+                "paddingBottom": 0,
+                "innerPaddingLeft": 0,
+                "innerPaddingRight": 0,
+                "innerPaddingTop": 0,
+                "innerPaddingBottom": 0,
+                "titlePaddingLeft": 0,
+                "titlePaddingRight": 0,
+                "titlePaddingTop": 7,
+                "titlePaddingBottom": 7
+              },
+              "format": {
+                "titleFontSize": 16,
+                "titleHorizontal": "Center",
+                "titleFontBold": false,
+                "titleShadow": false,
+                "titleTransparentBackground": false,
+                "tileBorderWidth": 0,
+                "tileBorderRounding": 0,
+                "tileBorderColor": "#000000",
+                "tileBackgroundColor": "#000000",
+                "tileTransparentBackground": true,
+                "tileShadow": false
+              }
+            },
+            "containerId": null,
+            "components": [],
+            "widgets": [],
+            "definitionId": "16",
+            "hasOnSettingsChange": true
+          }
+        },
+        {
+          "id": "614872be-9be3-9b89-5e0f-61a384c3959f",
+          "layout": {
+            "row": 13,
+            "column": 14,
+            "rowSpan": 10,
+            "colSpan": 13
+          },
+          "component": {
+            "id": "163a9709-bd48-1da5-e828-8fbec3ee7a25",
+            "key": "Datagrid",
+            "options": {
+              "version": "4.5.0a",
+              "datagridPossibleColumns": [
+                "sym",
+                "arivAirport",
+                "depTime",
+                "arivTime",
+                "flightNumber",
+                "aircraftType",
+                "registration"
+              ],
+              "datagridPossibleColumnsWithItself": [
+                "<this>",
+                "sym",
+                "arivAirport",
+                "depTime",
+                "arivTime",
+                "flightNumber",
+                "aircraftType",
+                "registration"
+              ],
+              "selectedColumnPossibleValues": [
+                "sym",
+                "arivAirport",
+                "depTime",
+                "arivTime",
+                "flightNumber",
+                "aircraftType",
+                "registration"
+              ],
+              "highlightTargetPossibleValues": [
+                "sym",
+                "arivAirport",
+                "depTime",
+                "arivTime",
+                "flightNumber",
+                "aircraftType",
+                "registration",
+                "*"
+              ],
+              "sortingPossibleValues": [
+                "",
+                "sym",
+                "arivAirport",
+                "depTime",
+                "arivTime",
+                "flightNumber",
+                "aircraftType",
+                "registration"
+              ],
+              "Basics": {
+                "Data": {
+                  "_dashboardsType": "data",
+                  "value": "departuresBoard"
+                },
+                "Filtering": "disabled",
+                "IsFilterVisible": false,
+                "ShowPagingControl": false,
+                "EnableGrouping": false
+              },
+              "ColumnsConfiguration": [
+                {
+                  "Field": "sym",
+                  "DisplayName": "Airline",
+                  "WidthWeight": 100,
+                  "MinWidthAbsolute": 60
+                },
+                {
+                  "Field": "depTime",
+                  "DisplayName": "Depart.",
+                  "Format": "Time",
+                  "TimeFormat": "HH:mm",
+                  "WidthWeight": 100,
+                  "MinWidthAbsolute": 60
+                },
+                {
+                  "Field": "arivTime",
+                  "DisplayName": "Arrival",
+                  "Format": "Time",
+                  "TimeFormat": "HH:mm",
+                  "WidthWeight": 100,
+                  "MinWidthAbsolute": 60
+                },
+                {
+                  "Field": "arivAirport",
+                  "DisplayName": "Destination",
+                  "WidthWeight": 100,
+                  "MinWidthAbsolute": 60
+                },
+                {
+                  "Field": "flightNumber",
+                  "DisplayName": "Flight",
+                  "Format": "Formatted Number",
+                  "Precision": 0,
+                  "WidthWeight": 100,
+                  "MinWidthAbsolute": 60
+                },
+                {
+                  "Field": "aircraftType",
+                  "DisplayName": "Aircraft",
+                  "WidthWeight": 100,
+                  "MinWidthAbsolute": 60
+                },
+                {
+                  "Field": "registration",
+                  "DisplayName": "Reg.",
+                  "WidthWeight": 100,
+                  "MinWidthAbsolute": 60
+                }
+              ],
+              "Selection": {
+                "Mode": "Single Row",
+                "RowSelectionColumn": "sym",
+                "SelectedValue": {
+                  "_dashboardsType": "viewstate",
+                  "value": "depAirport"
+                },
+                "FollowSelectedValue": true
+              },
+              "HighlightRules": [
+                {
+                  "Name": "hello",
+                  "Enabled": true,
+                  "Target": "depAirport",
+                  "ConditionSource": "depAirport",
+                  "ConditionOperator": "Fill Left-to-Right",
+                  "ConditionValue": "previous value",
+                  "Color": "#ff00ff",
+                  "BackgroundColor": "#ff00ff",
+                  "BorderColor": "#ff00ff",
+                  "Icon": "",
+                  "IconColor": "#ff00ff",
+                  "RuleType": "discrete",
+                  "RuleMin": 0,
+                  "RuleMax": 1,
+                  "RuleLimitEnabled": false,
+                  "TargetElement": "background",
+                  "Palette": [
+                    {
+                      "color": "#b71c1c"
+                    },
+                    {
+                      "color": "#F57F17"
+                    },
+                    {
+                      "color": "#33691E"
+                    }
+                  ]
+                }
+              ],
+              "CustomFilters": [
+                {
+                  "Name": "time",
+                  "Type": "Number"
+                }
+              ],
+              "Alignment": {
+                "paddingLeft": 0,
+                "paddingRight": 0,
+                "paddingTop": 0,
+                "paddingBottom": 0,
+                "innerPaddingLeft": 0,
+                "innerPaddingRight": 0,
+                "innerPaddingTop": 0,
+                "innerPaddingBottom": 0,
+                "titlePaddingLeft": 0,
+                "titlePaddingRight": 0
+              },
+              "format": {
+                "titleFontBold": false,
+                "titleTransparentBackground": false,
+                "tileBorderWidth": 0,
+                "tileBorderRounding": 0,
+                "tileBorderColor": "#000000",
+                "tileBackgroundColor": "#000000",
+                "tileTransparentBackground": true,
+                "tileShadow": false
+              },
+              "FileExport": {
+                "ShowExportCsvButton": false,
+                "ShowExportExcelButton": false
+              }
+            },
+            "containerId": null,
+            "components": [],
+            "widgets": [],
+            "definitionId": "21",
+            "hasOnSettingsChange": true
+          }
+        },
+        {
+          "id": "dd8847a4-a5c9-07ff-d606-0abdd8ea59e4",
+          "layout": {
+            "row": 2,
+            "column": 14,
+            "rowSpan": 10,
+            "colSpan": 13
+          },
+          "component": {
+            "id": "9704a98f-beb7-8c98-b0ce-2c8945f0b4fc",
+            "key": "Datagrid",
+            "options": {
+              "version": "4.5.0a",
+              "datagridPossibleColumns": [
+                "sym",
+                "depAirport",
+                "depTime",
+                "arivTime",
+                "flightNumber",
+                "aircraftType",
+                "registration"
+              ],
+              "datagridPossibleColumnsWithItself": [
+                "<this>",
+                "sym",
+                "depAirport",
+                "depTime",
+                "arivTime",
+                "flightNumber",
+                "aircraftType",
+                "registration"
+              ],
+              "selectedColumnPossibleValues": [
+                "sym",
+                "depAirport",
+                "depTime",
+                "arivTime",
+                "flightNumber",
+                "aircraftType",
+                "registration"
+              ],
+              "highlightTargetPossibleValues": [
+                "sym",
+                "depAirport",
+                "depTime",
+                "arivTime",
+                "flightNumber",
+                "aircraftType",
+                "registration",
+                "*"
+              ],
+              "sortingPossibleValues": [
+                "",
+                "sym",
+                "depAirport",
+                "depTime",
+                "arivTime",
+                "flightNumber",
+                "aircraftType",
+                "registration"
+              ],
+              "Basics": {
+                "Data": {
+                  "_dashboardsType": "data",
+                  "value": "arrivalsBoard"
+                },
+                "Filtering": "disabled",
+                "IsFilterVisible": false,
+                "ShowPagingControl": false,
+                "EnableGrouping": false
+              },
+              "ColumnsConfiguration": [
+                {
+                  "Field": "sym",
+                  "DisplayName": "Airline",
+                  "WidthWeight": 80,
+                  "MinWidthAbsolute": 58
+                },
+                {
+                  "Field": "depTime",
+                  "DisplayName": "Depart.",
+                  "Format": "Time",
+                  "TimeFormat": "HH:mm",
+                  "WidthWeight": 80,
+                  "MinWidthAbsolute": 60
+                },
+                {
+                  "Field": "arivTime",
+                  "DisplayName": "Arrival",
+                  "Format": "Time",
+                  "DateFormat": "MMM D",
+                  "TimeFormat": "HH:mm",
+                  "WidthWeight": 80,
+                  "MinWidthAbsolute": 60
+                },
+                {
+                  "Field": "depAirport",
+                  "DisplayName": "From",
+                  "WidthWeight": 100,
+                  "MinWidthAbsolute": 60
+                },
+                {
+                  "Field": "flightNumber",
+                  "DisplayName": "Flight",
+                  "Format": "Formatted Number",
+                  "Precision": 0,
+                  "WidthWeight": 99,
+                  "MinWidthAbsolute": 60
+                },
+                {
+                  "Field": "aircraftType",
+                  "DisplayName": "Aircraft",
+                  "WidthWeight": 100,
+                  "MinWidthAbsolute": 60
+                },
+                {
+                  "Field": "registration",
+                  "DisplayName": "Reg.",
+                  "WidthWeight": 100,
+                  "MinWidthAbsolute": 60
+                }
+              ],
+              "Selection": {
+                "Mode": "Single Row",
+                "RowSelectionColumn": "depAirport",
+                "SelectedValue": {
+                  "_dashboardsType": "viewstate",
+                  "value": "depAirport"
+                },
+                "FollowSelectedValue": true
+              },
+              "HighlightRules": [
+                {
+                  "Name": "hello",
+                  "Enabled": true,
+                  "Target": "depAirport",
+                  "ConditionSource": "depAirport",
+                  "ConditionOperator": "Fill Left-to-Right",
+                  "ConditionValue": "previous value",
+                  "Color": "#ff00ff",
+                  "BackgroundColor": "#ff00ff",
+                  "BorderColor": "#ff00ff",
+                  "Icon": "",
+                  "IconColor": "#ff00ff",
+                  "RuleType": "discrete",
+                  "RuleMin": 0,
+                  "RuleMax": 1,
+                  "RuleLimitEnabled": false,
+                  "TargetElement": "background",
+                  "Palette": [
+                    {
+                      "color": "#b71c1c"
+                    },
+                    {
+                      "color": "#F57F17"
+                    },
+                    {
+                      "color": "#33691E"
+                    }
+                  ]
+                }
+              ],
+              "CustomFilters": [
+                {
+                  "Name": "time",
+                  "Type": "Number"
+                }
+              ],
+              "Alignment": {
+                "paddingLeft": 0,
+                "paddingRight": 0,
+                "paddingTop": 0,
+                "paddingBottom": 0,
+                "innerPaddingLeft": 0,
+                "innerPaddingRight": 0,
+                "innerPaddingTop": 0,
+                "innerPaddingBottom": 0,
+                "titlePaddingLeft": 0,
+                "titlePaddingRight": 0
+              },
+              "format": {
+                "titleFontBold": false,
+                "titleTransparentBackground": false,
+                "tileBorderWidth": 0,
+                "tileBorderRounding": 0,
+                "tileBorderColor": "#000000",
+                "tileBackgroundColor": "#000000",
+                "tileTransparentBackground": true,
+                "tileShadow": false
+              },
+              "FileExport": {
+                "ShowExportCsvButton": false,
+                "ShowExportExcelButton": false
+              }
+            },
+            "containerId": null,
+            "components": [],
+            "widgets": [],
+            "definitionId": "21",
+            "hasOnSettingsChange": true
+          }
+        },
+        {
+          "id": "13b60bfe-84fa-7106-cff6-8e5cb996bcd1",
+          "layout": {
+            "row": 12,
+            "column": 27,
+            "rowSpan": 11,
+            "colSpan": 9
+          },
+          "component": {
+            "id": "ff5e54d2-c5c8-6a68-ace4-4fb2d8560c81",
+            "key": "BasicComponents",
+            "options": {
+              "version": "4.5.0",
+              "Basics": {
+                "ComponentName": "label",
+                "HtmlText": "insert text here",
+                "Data": {
+                  "_dashboardsType": "data",
+                  "value": "depStats"
+                },
+                "Template": "<style>\n    .lst {\n        text-align: center;\n    }\n\n    .heading {\n        text-align: center;\n        font-weight: bold;\n        font-size: 15px;\n\n    }\n</style>\n<hr>\n\n{{#each this}}\n    {{#if propertyValue}}\n        <p class=\"lst\">{{property}}: <i>{{propertyValue}}</i></p>\n    {{else}}\n        <h2 class=\"heading\">{{property}}</h2>\n    {{/if}}\n{{/each}}",
+                "Theme": "Dark",
+                "FontSize": "13",
+                "horizontal": "Center",
+                "vertical": "Middle",
+                "tooltip": "",
+                "AllowUnsafeContent": false,
+                "version": "4.2.0s2"
+              },
+              "Style": {
+                "advanced": "",
+                "cssClasses": ""
+              },
+              "Alignment": {
+                "paddingLeft": 0,
+                "paddingRight": 0,
+                "paddingTop": 0,
+                "paddingBottom": 0,
+                "innerPaddingLeft": 0,
+                "innerPaddingRight": 0,
+                "innerPaddingTop": 0,
+                "innerPaddingBottom": 0,
+                "titlePaddingLeft": 0,
+                "titlePaddingRight": 0,
+                "titlePaddingTop": 7,
+                "titlePaddingBottom": 7
+              },
+              "format": {
+                "titleFontSize": 16,
+                "titleHorizontal": "Center",
+                "titleFontBold": false,
+                "titleShadow": false,
+                "titleTransparentBackground": false,
+                "tileBorderWidth": 0,
+                "tileBorderRounding": 0,
+                "tileBorderColor": "#000000",
+                "tileBackgroundColor": "#000000",
+                "tileTransparentBackground": true,
+                "tileShadow": false
+              }
+            },
+            "containerId": null,
+            "components": [],
+            "widgets": [],
+            "definitionId": "17",
+            "hasOnSettingsChange": true
+          }
+        },
+        {
+          "id": "0c327e24-75c6-b838-d0f8-7d2d64531207",
+          "layout": {
+            "row": 1,
+            "column": 27,
+            "rowSpan": 11,
+            "colSpan": 9
+          },
+          "component": {
+            "id": "b3ed2c77-f3f9-6abd-69b6-09807bd582bb",
+            "key": "BasicComponents",
+            "options": {
+              "version": "4.5.0",
+              "Basics": {
+                "ComponentName": "label",
+                "HtmlText": "insert text here",
+                "Data": {
+                  "_dashboardsType": "data",
+                  "value": "arivStats"
+                },
+                "Template": "<style>\n    .lst {\n        text-align: center;\n    }\n\n    .heading {\n        text-align: center;\n        font-weight: bold;\n        font-size: 15px;\n\n    }\n</style>\n\n\n{{#each this}}\n    {{#if propertyValue}}\n        <p class=\"lst\">{{property}}: <i>{{propertyValue}}</i></p>\n    {{else}}\n        <h2 class=\"heading\">{{property}}</h2>\n    {{/if}}\n{{/each}}\n",
+                "Theme": "Dark",
+                "FontSize": "13",
+                "horizontal": "Center",
+                "vertical": "Middle",
+                "tooltip": "",
+                "AllowUnsafeContent": false,
+                "version": "4.2.0s2"
+              },
+              "Style": {
+                "advanced": "",
+                "cssClasses": ""
+              },
+              "Alignment": {
+                "paddingLeft": 0,
+                "paddingRight": 0,
+                "paddingTop": 0,
+                "paddingBottom": 0,
+                "innerPaddingLeft": 0,
+                "innerPaddingRight": 0,
+                "innerPaddingTop": 0,
+                "innerPaddingBottom": 0,
+                "titlePaddingLeft": 0,
+                "titlePaddingRight": 0,
+                "titlePaddingTop": 7,
+                "titlePaddingBottom": 7
+              },
+              "format": {
+                "titleFontSize": 16,
+                "titleHorizontal": "Center",
+                "titleFontBold": false,
+                "titleShadow": false,
+                "titleTransparentBackground": false,
+                "tileBorderWidth": 0,
+                "tileBorderRounding": 0,
+                "tileBorderColor": "#000000",
+                "tileBackgroundColor": "#000000",
+                "tileTransparentBackground": true,
+                "tileShadow": false
+              }
+            },
+            "containerId": null,
+            "components": [],
+            "widgets": [],
+            "definitionId": "17",
+            "hasOnSettingsChange": true
+          }
+        },
+        {
+          "id": "b38a6574-9717-7911-5a1e-6202f066b37d",
+          "layout": {
+            "row": 17,
+            "column": 6,
+            "rowSpan": 3,
+            "colSpan": 8
+          },
+          "component": {
+            "id": "b91c1bd8-a961-90f2-fc2d-8077d7170767",
+            "key": "BasicComponents",
+            "options": {
+              "version": "4.5.0",
+              "Basics": {
+                "ComponentName": "label",
+                "HtmlText": "insert text here",
+                "Data": {
+                  "_dashboardsType": "data",
+                  "value": "airportStats"
+                },
+                "Template": "{{#each this}}\n    <p>{{property}}: {{propertyValue}}</p>\n{{/each}}",
+                "Theme": "Dark",
+                "FontSize": "13",
+                "horizontal": "Center",
+                "vertical": "Middle",
+                "tooltip": "",
+                "AllowUnsafeContent": false,
+                "version": "4.2.0s2"
+              },
+              "Style": {
+                "advanced": "",
+                "cssClasses": ""
+              },
+              "Alignment": {
+                "paddingLeft": 0,
+                "paddingRight": 0,
+                "paddingTop": 0,
+                "paddingBottom": 0,
+                "innerPaddingLeft": 0,
+                "innerPaddingRight": 0,
+                "innerPaddingTop": 0,
+                "innerPaddingBottom": 0,
+                "titlePaddingLeft": 0,
+                "titlePaddingRight": 0,
+                "titlePaddingTop": 7,
+                "titlePaddingBottom": 7
+              },
+              "format": {
+                "titleFontSize": 16,
+                "titleHorizontal": "Center",
+                "titleFontBold": false,
+                "titleShadow": false,
+                "titleTransparentBackground": false,
+                "tileBorderWidth": 0,
+                "tileBorderRounding": 0,
+                "tileBorderColor": "#000000",
+                "tileBackgroundColor": "#000000",
+                "tileTransparentBackground": true,
+                "tileShadow": false
+              }
+            },
+            "containerId": null,
+            "components": [],
+            "widgets": [],
+            "definitionId": "17",
+            "hasOnSettingsChange": true
+          }
+        },
+        {
+          "id": "7e2bc9f2-25c8-7d63-0f8f-f9584b10f0e6",
+          "layout": {
+            "row": 1,
+            "column": 0,
+            "rowSpan": 16,
+            "colSpan": 14
+          },
+          "component": {
+            "id": "7cb6a859-9a82-9bd7-6e14-b1287ff5e6c6",
+            "key": "Mapbox",
+            "options": {
+              "version": "4.5.1",
+              "MapDetails": {
+                "Bearing": 0,
+                "Latitude": 50.8119301744415,
+                "Longitude": 1.74,
+                "Pitch": 14,
+                "Selected": {
+                  "_dashboardsType": "viewstate",
+                  "value": "depAirport"
+                },
+                "SelectedCol": "depAirport",
+                "Zoom": 4
+              },
+              "Overlays": {
+                "GeoJSON": "",
+                "GeoJSONFull": "",
+                "GeoJSONLines": ""
+              },
+              "Points": {
+                "Color": "color",
+                "DataSource": {
+                  "_dashboardsType": "data",
+                  "value": "Map"
+                },
+                "Icon": "",
+                "Latitude": "latitude",
+                "Longitude": "longitude",
+                "SubTitle": "",
+                "Title": "",
+                "Tooltip": "",
+                "Type": ""
+              },
+              "possibleColumns": [
+                "",
+                "depAirport",
+                "latitude",
+                "longitude",
+                "color"
+              ],
+              "Style": {
+                "advanced": "",
+                "cssClasses": "",
+                "Theme": "Dark"
+              },
+              "Alignment": {
+                "paddingLeft": 0,
+                "paddingRight": 0,
+                "paddingTop": 0,
+                "paddingBottom": 0,
+                "innerPaddingLeft": 0,
+                "innerPaddingRight": 0,
+                "innerPaddingTop": 0,
+                "innerPaddingBottom": 0,
+                "titlePaddingLeft": 0,
+                "titlePaddingRight": 0,
+                "titlePaddingTop": 7,
+                "titlePaddingBottom": 7
+              },
+              "format": {
+                "titleFontSize": 16,
+                "titleHorizontal": "Center",
+                "titleFontBold": false,
+                "titleShadow": false,
+                "titleTransparentBackground": false,
+                "tileBorderWidth": 0,
+                "tileBorderRounding": 0,
+                "tileBorderColor": "#000000",
+                "tileBackgroundColor": "#000000",
+                "tileTransparentBackground": true,
+                "tileShadow": false
+              }
+            },
+            "containerId": null,
+            "components": [],
+            "widgets": [],
+            "definitionId": "10123",
+            "hasOnSettingsChange": true
+          }
+        },
+        {
+          "id": "c1a17bc9-7778-8950-b062-5af9a5e351a0",
+          "layout": {
+            "row": 20,
+            "column": 0,
+            "rowSpan": 3,
+            "colSpan": 14
+          },
+          "component": {
+            "id": "589660f1-fece-3ae4-a40f-2274a9ade929",
+            "key": "BasicComponents",
+            "options": {
+              "version": "4.5.0",
+              "Basics": {
+                "ComponentName": "label",
+                "HtmlText": "insert text here",
+                "Data": {
+                  "_dashboardsType": "data",
+                  "value": "airportInfo"
+                },
+                "Template": "<style>\n    .lstt {\n        text-align: center;\n        padding: 0;\n        margin: 0;\n        font-weight: bold;\n        font-size: 24px;\n    }\n\n    .heading {\n        text-align: center;\n        font-weight: bold;\n        font-size: 15px;\n\n    }\n</style>\n\n\n{{#each this}}\n    <p class=\"lstt\">{{Value}}</p>\n{{/each}}",
+                "Theme": "Dark",
+                "FontSize": "13",
+                "horizontal": "Center",
+                "vertical": "Middle",
+                "tooltip": "",
+                "AllowUnsafeContent": false,
+                "version": "4.2.0s2"
+              },
+              "Style": {
+                "advanced": "",
+                "cssClasses": ""
+              },
+              "Alignment": {
+                "paddingLeft": 0,
+                "paddingRight": 0,
+                "paddingTop": 0,
+                "paddingBottom": 0,
+                "innerPaddingLeft": 0,
+                "innerPaddingRight": 0,
+                "innerPaddingTop": 0,
+                "innerPaddingBottom": 0,
+                "titlePaddingLeft": 0,
+                "titlePaddingRight": 0,
+                "titlePaddingTop": 7,
+                "titlePaddingBottom": 7
+              },
+              "format": {
+                "titleFontSize": 16,
+                "titleHorizontal": "Center",
+                "titleFontBold": false,
+                "titleShadow": false,
+                "titleTransparentBackground": false,
+                "tileBorderWidth": 0,
+                "tileBorderRounding": 0,
+                "tileBorderColor": "#000000",
+                "tileBackgroundColor": "#000000",
+                "tileTransparentBackground": true,
+                "tileShadow": false
+              }
+            },
+            "containerId": null,
+            "components": [],
+            "widgets": [],
+            "definitionId": "17",
+            "hasOnSettingsChange": true
+          }
+        },
+        {
+          "id": "ae6db708-2f01-de78-23e0-97d0a50edc4e",
+          "layout": {
+            "row": 0,
+            "column": 0,
+            "rowSpan": 1,
+            "colSpan": 36
+          },
+          "component": {
+            "id": "f5ed16d5-6414-d26c-8f5c-34580a6d7040",
+            "key": "BasicComponents",
+            "options": {
+              "version": "4.5.0",
+              "Basics": {
+                "ComponentName": "textBox",
+                "Theme": "Dark",
+                "Text": "Airport Dashboard",
+                "Type": "text",
+                "FontSize": 16,
+                "horizontal": "Center",
+                "vertical": "Middle",
+                "fixedWidth": false,
+                "width": 100,
+                "fixedHeight": false,
+                "height": 100
+              },
+              "Actions": [],
+              "Style": {
+                "advanced": "",
+                "cssClasses": ""
+              },
+              "Alignment": {
+                "paddingLeft": 0,
+                "paddingRight": 0,
+                "paddingTop": 0,
+                "paddingBottom": 0,
+                "innerPaddingLeft": 0,
+                "innerPaddingRight": 0,
+                "innerPaddingTop": 0,
+                "innerPaddingBottom": 0,
+                "titlePaddingLeft": 0,
+                "titlePaddingRight": 0,
+                "titlePaddingTop": 7,
+                "titlePaddingBottom": 7
+              },
+              "format": {
+                "titleFontSize": 16,
+                "titleHorizontal": "Center",
+                "titleFontBold": false,
+                "titleShadow": false,
+                "titleTransparentBackground": false,
+                "tileBorderWidth": 0,
+                "tileBorderRounding": 0,
+                "tileBorderColor": "#000000",
+                "tileBackgroundColor": "#000000",
+                "tileTransparentBackground": true,
+                "tileShadow": false
+              }
+            },
+            "containerId": null,
+            "components": [],
+            "widgets": [],
+            "definitionId": "33",
+            "hasOnSettingsChange": true
+          }
+        }
+      ],
+      "relativeHeight": true,
+      "rowCount": 24,
+      "colCount": 36,
+      "floatable": false,
+      "isDefault": true
+    }
+  ],
+  "popups": [],
+  "tags": [],
+  "dashboardTheme": "Dark",
+  "themeSwitchable": true,
+  "saveTimestamp": null,
+  "relativeHeight": true,
+  "rowCount": 24,
+  "colCount": 36,
+  "floatable": false,
+  "viewState": {
+    "selected": {
+      "_viewType": true,
+      "_default": "0",
+      "value": "0",
+      "_type": "symbol"
+    },
+    ".settings": {},
+    "New node": {
+      "_viewType": true,
+      "_default": "",
+      "value": "",
+      "_type": "symbol",
+      "x": {
+        "_viewType": true,
+        "_type": "symbol",
+        "_default": "",
+        "value": ""
+      }
+    },
+    "defaultX": {
+      "_viewType": true,
+      "_type": "symbol",
+      "value": "48",
+      "_default": "48"
+    },
+    "defaultY": {
+      "_viewType": true,
+      "_type": "symbol",
+      "value": "2",
+      "_default": "2"
+    },
+    "mapBounds": {
+      "_viewType": true,
+      "_default": "",
+      "value": "",
+      "_type": "symbol"
+    },
+    "depAirport": {
+      "_viewType": true,
+      "_default": "FRA",
+      "value": "FRA",
+      "_type": "symbol"
+    },
+    "filterFlights": {
+      "sym": {
+        "_viewType": true,
+        "_type": "symbol",
+        "_default": "",
+        "value": ""
+      }
+    }
+  },
+  "data": {
+    "airports": {
+      "_pagingType": "NONE",
+      "_autoExec": true,
+      "_columns": [
+        "depAirport"
+      ],
+      "_dataType": "query",
+      "_dataSource": "kdb",
+      "_connection": "boards",
+      "_mappings": {
+        "key": "depAirport",
+        "mappings": {},
+        "value": ""
+      },
+      "_maxRows": 2000,
+      "_subscriptionType": "static",
+      "_subscriptionInterval": 30,
+      "_layout": [
+        {
+          "isExpanded": true,
+          "weight": 2
+        },
+        {
+          "isExpanded": false,
+          "weight": 1
+        },
+        {
+          "isExpanded": false,
+          "weight": 1
+        },
+        {
+          "isExpanded": true,
+          "weight": 0
+        },
+        {
+          "isExpanded": true,
+          "weight": 2
+        }
+      ],
+      "_queryString": "tab: select from coords;\r\n\r\nasc select depAirport from tab\r\n\r\n",
+      "_queryParams": [],
+      "_subscriptionKey": "",
+      "_hasUpdateQuery": false,
+      "_updateQueryString": "",
+      "_updateType": "query",
+      "_pageSize": 2000,
+      "_serverPaging": false
+    },
+    "arrivalsBoard": {
+      "_pagingType": "NONE",
+      "_autoExec": true,
+      "_columns": [
+        "sym",
+        "depAirport",
+        "depTime",
+        "arivTime",
+        "flightNumber",
+        "aircraftType",
+        "registration"
+      ],
+      "_dataType": "query",
+      "_dataSource": "kdb",
+      "_connection": "rdb",
+      "_mappings": {
+        "key": "sym",
+        "mappings": {},
+        "value": "depAirport"
+      },
+      "_maxRows": "20000",
+      "_subscriptionType": "polling",
+      "_subscriptionInterval": 30,
+      "_layout": [
+        {
+          "isExpanded": true,
+          "weight": 2
+        },
+        {
+          "isExpanded": false,
+          "weight": 1
+        },
+        {
+          "isExpanded": false,
+          "weight": 1
+        },
+        {
+          "isExpanded": true,
+          "weight": 0
+        },
+        {
+          "isExpanded": true,
+          "weight": 2
+        }
+      ],
+      "_queryString": "{[sym]\r\n  tab: `arivTime xasc ?[`flights;enlist (=;`arivAirport; enlist sym);0b;()];\r\n  distinct select sym,depAirport,\"u\"$depTime,\"u\"$arivTime,flightNumber, aircraftType, registration from tab where arivTime > .z.p\r\n  }",
+      "_queryParams": [
+        {
+          "name": "sym",
+          "index": 0,
+          "type": "symbol",
+          "value": "<%depAirport%>",
+          "IsKdbParam": true,
+          "isViewState": true
+        }
+      ],
+      "_subscriptionKey": "",
+      "_hasUpdateQuery": false,
+      "_updateQueryString": "",
+      "_updateType": "query",
+      "_pageSize": 2000,
+      "_serverPaging": false
+    },
+    "departuresBoard": {
+      "_pagingType": "NONE",
+      "_autoExec": true,
+      "_columns": [
+        "sym",
+        "arivAirport",
+        "depTime",
+        "arivTime",
+        "flightNumber",
+        "aircraftType",
+        "registration"
+      ],
+      "_dataType": "query",
+      "_dataSource": "kdb",
+      "_connection": "rdb",
+      "_mappings": {
+        "key": "sym",
+        "mappings": {},
+        "value": "arivAirport"
+      },
+      "_maxRows": "20000",
+      "_subscriptionType": "polling",
+      "_subscriptionInterval": 30,
+      "_layout": [
+        {
+          "isExpanded": true,
+          "weight": 2
+        },
+        {
+          "isExpanded": false,
+          "weight": 1
+        },
+        {
+          "isExpanded": false,
+          "weight": 1
+        },
+        {
+          "isExpanded": true,
+          "weight": 0
+        },
+        {
+          "isExpanded": true,
+          "weight": 2
+        }
+      ],
+      "_queryString": "{[sym]\r\n  tab: `depTime xasc ?[`flights;enlist (=;`depAirport; enlist sym);0b;()];\r\n  distinct select sym,arivAirport,\"u\"$depTime,\"u\"$arivTime,flightNumber, aircraftType, registration from tab where depTime > .z.p\r\n  }",
+      "_queryParams": [
+        {
+          "name": "sym",
+          "index": 0,
+          "type": "symbol",
+          "value": "<%depAirport%>",
+          "IsKdbParam": true,
+          "isViewState": true
+        }
+      ],
+      "_subscriptionKey": "",
+      "_hasUpdateQuery": false,
+      "_updateQueryString": "",
+      "_updateType": "query",
+      "_pageSize": 2000,
+      "_serverPaging": false
+    },
+    "depStats": {
+      "_pagingType": "NONE",
+      "_autoExec": true,
+      "_columns": [
+        "property",
+        "propertyValue"
+      ],
+      "_dataType": "query",
+      "_dataSource": "kdb",
+      "_connection": "rdb",
+      "_mappings": {
+        "key": "property",
+        "mappings": {},
+        "value": "propertyValue"
+      },
+      "_maxRows": 2000,
+      "_subscriptionType": "polling",
+      "_subscriptionInterval": 30,
+      "_layout": [
+        {
+          "isExpanded": true,
+          "weight": 2
+        },
+        {
+          "isExpanded": false,
+          "weight": 1
+        },
+        {
+          "isExpanded": false,
+          "weight": 1
+        },
+        {
+          "isExpanded": true,
+          "weight": 0
+        },
+        {
+          "isExpanded": true,
+          "weight": 2
+        }
+      ],
+      "_queryString": "{[airport]\r\n\r\n  beginningOfYear:(string `year$.z.d),\".01.01\";\r\n\r\n  h: hopen `:localhost:24028:admin:admin; \r\n  historical:(enlist `date) _ h\"select from flights where date > .z.d - \",beginningOfYear;\r\n\r\n  wtd: distinct select sym,depAirport,\"u\"$depTime,\"u\"$arivTime,flightNumber, aircraftType, registration from (flights,historical) where depAirport=airport, arivTime < .z.p, arivTime > .z.d-((.z.d mod 7)-2);\r\n\r\n  mtd: distinct select sym,depAirport,\"u\"$depTime,\"u\"$arivTime,flightNumber, aircraftType, registration from (flights,historical) where depAirport=airport, arivTime < .z.p, arivTime > \"d\"$(`month$.z.d);\r\n\r\n  ytd: distinct select sym,depAirport,\"u\"$depTime,\"u\"$arivTime,flightNumber, aircraftType, registration from (flights,historical) where depAirport=airport, arivTime < .z.p, arivTime > (\"D\"$(string `year$.z.d),\".01.01\");\r\n\r\n  departing: distinct select sym,arivAirport,\"u\"$depTime,\"u\"$arivTime,flightNumber,aircraftType, registration from flights where depAirport=airport;\r\n\r\n  todays: distinct select sym,arivAirport,\"u\"$depTime,\"u\"$arivTime,flightNumber, aircraftType, registration from flights where depAirport=airport, depTime < .z.p, depTime > \"d\"$.z.p;\r\n\r\n  destinations: distinct (value flip key  5# `num xdesc select num:count time by arivAirport from flights where depAirport=airport)[0];\r\n\r\n  airlines: distinct (value flip key  5# `num xdesc select num:count time by sym from flights where depAirport=airport)[0];\r\n\r\n  ([]\r\n    property: (\"Departures:\";\"Today\";\"WTD\";\"MTD\";\"YTD\";\"Most Popular:\"; \"Destination\"; \"Airlines\");\r\n    propertyValue:(\"\";count todays; count wtd; count mtd; count ytd; \"\"; destinations;airlines) \r\n    )\r\n  }",
+      "_queryParams": [
+        {
+          "name": "airport",
+          "index": 0,
+          "type": "symbol",
+          "value": "<%depAirport%>",
+          "IsKdbParam": true,
+          "isViewState": true
+        }
+      ],
+      "_subscriptionKey": "",
+      "_hasUpdateQuery": false,
+      "_updateQueryString": "",
+      "_updateType": "query",
+      "_pageSize": 2000,
+      "_serverPaging": false
+    },
+    "arivStats": {
+      "_pagingType": "NONE",
+      "_autoExec": true,
+      "_columns": [
+        "property",
+        "propertyValue"
+      ],
+      "_dataType": "query",
+      "_dataSource": "kdb",
+      "_connection": "rdb",
+      "_mappings": {
+        "key": "property",
+        "mappings": {},
+        "value": "propertyValue"
+      },
+      "_maxRows": 2000,
+      "_subscriptionType": "polling",
+      "_subscriptionInterval": 30,
+      "_layout": [
+        {
+          "isExpanded": true,
+          "weight": 2.4289405684754524
+        },
+        {
+          "isExpanded": false,
+          "weight": 1
+        },
+        {
+          "isExpanded": false,
+          "weight": 1
+        },
+        {
+          "isExpanded": true,
+          "weight": 0
+        },
+        {
+          "isExpanded": true,
+          "weight": 1.5710594315245479
+        }
+      ],
+      "_queryString": "{[airport]\r\n\r\n  beginningOfYear:(string `year$.z.d),\".01.01\";\r\n\r\n  h: hopen `:localhost:24028:admin:admin; \r\n  historical:(enlist `date) _ h\"select from flights where date > .z.d - \",beginningOfYear;\r\n\r\n  wtd: distinct select sym,depAirport,\"u\"$depTime,\"u\"$arivTime,flightNumber, aircraftType, registration from (flights,historical) where arivAirport=airport, arivTime < .z.p, arivTime > .z.d-((.z.d mod 7)-2);\r\n\r\n  mtd: distinct select sym,depAirport,\"u\"$depTime,\"u\"$arivTime,flightNumber, aircraftType, registration from (flights,historical) where arivAirport=airport, arivTime < .z.p, arivTime > \"d\"$(`month$.z.d);\r\n\r\n  ytd: distinct select sym,depAirport,\"u\"$depTime,\"u\"$arivTime,flightNumber, aircraftType, registration from (flights,historical) where arivAirport=airport, arivTime < .z.p, arivTime > (\"D\"$(string `year$.z.d),\".01.01\");\r\n\r\n  departing: distinct select sym,depAirport,\"u\"$depTime,\"u\"$arivTime,flightNumber, aircraftType, registration from flights where arivAirport=airport;\r\n\r\n  todays: distinct select sym,depAirport,\"u\"$depTime,\"u\"$arivTime,flightNumber, aircraftType, registration from flights where arivAirport=airport, arivTime < .z.p, arivTime > \"d\"$.z.p;\r\n\r\n  destinations: distinct (value flip key  5# `num xdesc select num:count time by depAirport from flights where arivAirport=airport)[0];\r\n\r\n  airlines: distinct (value flip key  5# `num xdesc select num:count time by sym from flights where arivAirport=airport)[0];\r\n\r\n  ([]\r\n   property: (\"Arrivals:\";\"Today\";\"WTD\";\"MTD\";\"YTD\";\"Most Popular:\";\"Origin\"; \"Airline\");\r\n    propertyValue:(\"\";count todays; count wtd; count mtd; count ytd;\"\" ;destinations; airlines) \r\n    )\r\n  }",
+      "_queryParams": [
+        {
+          "name": "airport",
+          "index": 0,
+          "type": "symbol",
+          "value": "<%depAirport%>",
+          "IsKdbParam": true,
+          "isViewState": true
+        }
+      ],
+      "_subscriptionKey": "",
+      "_hasUpdateQuery": false,
+      "_updateQueryString": "",
+      "_updateType": "query",
+      "_pageSize": 2000,
+      "_serverPaging": false
+    },
+    "airportStats": {
+      "_pagingType": "NONE",
+      "_autoExec": true,
+      "_columns": [
+        "property",
+        "propertyValue"
+      ],
+      "_dataType": "query",
+      "_dataSource": "kdb",
+      "_connection": "rdb",
+      "_mappings": {
+        "key": "property",
+        "mappings": {},
+        "value": "propertyValue"
+      },
+      "_maxRows": 2000,
+      "_subscriptionType": "polling",
+      "_subscriptionInterval": 300,
+      "_layout": [
+        {
+          "isExpanded": true,
+          "weight": 2.6770025839793283
+        },
+        {
+          "isExpanded": false,
+          "weight": 1
+        },
+        {
+          "isExpanded": false,
+          "weight": 1
+        },
+        {
+          "isExpanded": true,
+          "weight": 0
+        },
+        {
+          "isExpanded": true,
+          "weight": 1.322997416020672
+        }
+      ],
+      "_queryString": "{[airport]\r\n \r\n  toAirport:count distinct select sym,depAirport,\"u\"$depTime,\"u\"$arivTime,flightNumber, aircraftType, registration from flights where arivAirport=airport, depTime < .z.p, depTime > \"d\"$.z.p;\r\n\r\n  fromAirport:count distinct select sym,depAirport,\"u\"$depTime,\"u\"$arivTime,flightNumber, aircraftType, registration from flights where depAirport=airport, depTime < .z.p, depTime > \"d\"$.z.p;\r\n\r\n  totalFlights: count distinct select sym,depAirport,\"u\"$depTime,\"u\"$arivTime,flightNumber, aircraftType, registration from flights where depTime < .z.p, depTime > \"d\"$.z.p;\r\n\r\n  percentage: (enlist (fromAirport+toAirport))%totalFlights;\r\n\r\n  ([]\r\n    property: enlist (\"% of all flights (so far today)\");\r\n    propertyValue: enlist  (.Q.fmt[6;1;100*percentage[0]]),\"%\"\r\n    )\r\n  \r\n  }",
+      "_queryParams": [
+        {
+          "name": "airport",
+          "index": 0,
+          "type": "symbol",
+          "value": "<%depAirport%>",
+          "IsKdbParam": true,
+          "isViewState": true
+        }
+      ],
+      "_subscriptionKey": "",
+      "_hasUpdateQuery": false,
+      "_updateQueryString": "",
+      "_updateType": "query",
+      "_pageSize": 2000,
+      "_serverPaging": false
+    },
+    "airportInfo": {
+      "_pagingType": "NONE",
+      "_autoExec": true,
+      "_columns": [
+        "Property",
+        "Value"
+      ],
+      "_dataType": "query",
+      "_dataSource": "kdb",
+      "_connection": "boards",
+      "_mappings": {
+        "key": "Property",
+        "mappings": {},
+        "value": "Value"
+      },
+      "_maxRows": 2000,
+      "_subscriptionType": "static",
+      "_subscriptionInterval": 3,
+      "_layout": [
+        {
+          "isExpanded": true,
+          "weight": 2
+        },
+        {
+          "isExpanded": false,
+          "weight": 1
+        },
+        {
+          "isExpanded": false,
+          "weight": 1
+        },
+        {
+          "isExpanded": true,
+          "weight": 0
+        },
+        {
+          "isExpanded": true,
+          "weight": 2
+        }
+      ],
+      "_queryString": "{[port]\r\n  tab:select from airportData;\r\n  \r\n  (select airport, country from tab where airportCode = port)[0]\r\n  \r\n  }",
+      "_queryParams": [
+        {
+          "name": "port",
+          "index": 0,
+          "type": "symbol",
+          "value": "<%depAirport%>",
+          "IsKdbParam": true,
+          "isViewState": true
+        }
+      ],
+      "_subscriptionKey": "",
+      "_hasUpdateQuery": false,
+      "_updateQueryString": "",
+      "_updateType": "query",
+      "_pageSize": 2000,
+      "_serverPaging": false
+    },
+    "Map": {
+      "_pagingType": "NONE",
+      "_autoExec": true,
+      "_columns": [
+        "depAirport",
+        "latitude",
+        "longitude",
+        "color"
+      ],
+      "_dataType": "query",
+      "_dataSource": "kdb",
+      "_connection": "boards",
+      "_mappings": {
+        "key": "depAirport",
+        "mappings": {},
+        "value": "latitude"
+      },
+      "_maxRows": 2000,
+      "_subscriptionType": "polling",
+      "_subscriptionInterval": 300,
+      "_layout": [
+        {
+          "isExpanded": true,
+          "weight": 1.4987080103359174
+        },
+        {
+          "isExpanded": false,
+          "weight": 1
+        },
+        {
+          "isExpanded": false,
+          "weight": 1
+        },
+        {
+          "isExpanded": true,
+          "weight": 0
+        },
+        {
+          "isExpanded": true,
+          "weight": 2.501291989664083
+        }
+      ],
+      "_queryString": "tab: select from coords;\r\n\r\nallCodes: exec depAirport from tab;\r\n\r\nunique :distinct select sym,depAirport,arivAirport,\"u\"$depTime,\"u\"$arivTime,flightNumber, aircraftType, registration from flights where depTime < .z.p, depTime > \"d\"$.z.p;\r\n\r\ntotFlights:{ count (select from y where depAirport = x), (select from y where arivAirport = x) }[;unique]'[allCodes];\r\n\r\nc:`s#0 4 10!`$(\"#39a105\";\"#d48c19\";\"#ff0000\");\r\n\r\nupdate color:c[totFlights] from tab",
+      "_queryParams": [],
+      "_subscriptionKey": "",
+      "_hasUpdateQuery": false,
+      "_updateQueryString": "",
+      "_updateType": "query",
+      "_pageSize": 2000,
+      "_serverPaging": false
+    }
+  },
+  "permissionEntity": null,
+  "worksheetPadding": 10,
+  "widgetsSpacing": 0,
+  "borderColor": "000000",
+  "borderBackground": "000000",
+  "transparentBackground": true,
+  "borderWidth": 0,
+  "borderRounding": 0,
+  "borderSpacing": 0,
+  "borderShadow": false,
+  "enableSaveViewState": true,
+  "enableShareDashboard": false,
+  "notifications": null,
+  "showLoadingIndicators": true,
+  "unsavedViewerPrompt": false,
+  "advancedCss": "",
+  "cssClasses": "",
+  "viewStateBinding": false,
+  "wasChanged": false,
+  "version": "4.4.0p7"
+}
