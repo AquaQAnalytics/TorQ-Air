@@ -16,7 +16,7 @@ wget https://raw.githubusercontent.com/AquaQAnalytics/TorQ-Air/master/installlat
 bash installatest.sh
 ```
 Otherwise, you may install TorQ-Air by
-1. Downloading the [main TorQ codebase](https://github.com/AquaQAnalytics/TorQ/tree/master)
+1. Downloading the [main TorQ codebase](https://github.com/AquaQAnalytics/TorQ/releases)
 2. Downloading the [latest TorQ-Air release](https://github.com/AquaQAnalytics/TorQ-Air/releases)
 3. Extract the contents of the TorQ folder into your deploy folder, then likewise with TorQ-Air.
 
