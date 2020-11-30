@@ -1,0 +1,56 @@
+aircraftCode,aircraftName,aircraftInfo,approximateCapacity
+343,Airbus A340-300,Long range widebody airliner,303-335
+74H,Boeing 747-8 Passenger,Long range high capacity widebody airliner,366
+77W,Boeing 777-300ER,Long range high capacity widebody airliner,386-550
+781,N/A,N/A,N/A
+333,Airbus A330-300,Large capacity medium to long range airliner,295-440
+E95,Embraer 195 and Legacy 1000,Short- to medium-range jet airliners,118
+DH4,De Havilland (Bombardier) DHC-8-400 Dash 8Q,70 seat regional turboprop airliner,70
+32G,N/A,N/A,N/A
+321,Airbus A321,Short to medium range narrowbody airliner,220
+221,N/A,N/A,N/A
+290,N/A,N/A,N/A
+E70,Embraer 170,70 seat regional airliner,70
+787,Boeing 787,N/A,N/A
+73H,Boeing 737-800 (winglets) Passenger/BBJ2,Short to medium range airliners,162-189
+76W,Boeing 767-300 (winglets) Passenger,Medium to long range widebody airliner,210-350
+738,"Boeing 737-800 Passenger""",Short to medium range airliners,162-189
+351,Airbus A350-1000," Long-range, wide-body airliners",350-410
+223,N/A,N/A,N/A
+32B,Airbus A321 (sharklets),Short to medium range narrowbody airliner,220
+32S,N/A,N/A,N/A
+AT7,ATR 72,70 seat turboprop regional airliner,70
+E75,Embraer 175,78 seat turboprop regional airliner,78
+77L,Boeing 777-200LR,Long and ultra long range widebody airliners,305-440
+CRJ,N/A,N/A,N/A
+33W,N/A,N/A,N/A
+7S8,N/A,N/A,N/A
+380,N/A,N/A,N/A
+773,Boeing 777-300,Long range high capacity widebody airliner,386-550
+772,Boeing 777-200/ 200ER,Long and ultra long range widebody airliners,305-440
+737,Boeing 737,N/A,N/A
+73J,Boeing 737-900 (winglets) Passenger/BBJ3,Short to medium range airliners,177-189
+32V,N/A,N/A,N/A
+767,Boeing 767,N/A,N/A
+73G,Boeing 737-700 Passenger,Short to medium range airliners,126-149
+332,Airbus A330-200,Long range widebody airliner,256-293
+32R,N/A,N/A,N/A
+E91,N/A,N/A,N/A
+100,Fokker 100,100 seat regional jet,100
+20N,N/A,N/A,N/A
+78X,N/A,N/A,N/A
+E90,Embraer 190 ,Regional Airliner,98
+32A,Airbus A320,Short to medium Range Airliner,279
+CNJ,Cessna Citation,Corporate Jet,12
+319,Airbus A319,Medium Range Airliner,124-142
+788,Boeing 787-8,Long range widebody airliner,210-240
+320, Airbus 320,Short to medium range airliner,179
+31B,Airbus A319 (Sharklets),Airbus A319 (Sharklets),124-142
+763,Boeing 767-300 Passenger,Medium to long range widebody airliner ,350
+CR9 ,Canadair (Bombardier) Regional Jet 900 and Challenger 890,Corporate shuttle ,90
+32N,Airbus A320neo,Short to medium range airliner,156
+789,Boeing 787-9,Long range widebody airliner,290
+359,Airbus A350-900,Long range widebody airliner,300-350
+32Q,Airbus A321neo,Short to medium range narrowbody airliner ,244
+31D,N/A,N/A,N/A
+31H,N/A,N/A,N/A

@@ -80,6 +80,12 @@ prevdata:([airport:`$()]; departures:([] sym:`symbol$(); depAirport:`symbol$(); 
   flightNumber:`long$(); aircraftType:`symbol$(); registration:(); status:`symbol$()); arrivals:([] sym:`symbol$(); depAirport:`symbol$();
   depTime:`datetime$(); arivTime:`datetime$(); arivAirport:`symbol$(); flightNumber:`long$();aircraftType:`symbol$(); registration:(); status:`symbol$()));
 
+aircraftReferenceData:.[0:;(("S***";enlist ",");hsym first .proc.getconfigfile["aircraftReferenceData.csv"]);{.lg.e[`getAircraftInfo;"Error loading aircraft information from disk: ",x]}];
+getAircraftInfo:{[aircraft]
+  select from aircraftReferenceData where aircraftCode=aircraft
+ };
+
+
 setKey[];
 .servers.CONNECTIONS:`tickerplant;
 .servers.startupdependent[`tickerplant;10];
