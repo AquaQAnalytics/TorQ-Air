@@ -65,7 +65,7 @@ else
 fi
 
 
-wget --content-disposition https://github.com/AquaQAnalytics/TorQ-Air/archive/$torq_crypto_latest.tar.gz
+wget --content-disposition https://github.com/AquaQAnalytics/TorQ-Air/archive/$torq_air_latest.tar.gz
 
 echo $torq_air_latest
 
