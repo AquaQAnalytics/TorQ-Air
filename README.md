@@ -13,7 +13,7 @@ This package includes:
 Requires kdb+. For Linux users, TorQ-Air can be very quickly installed with our [installation script](https://www.aquaq.co.uk/q/torq-installation-script/) by running
 ```
 wget https://raw.githubusercontent.com/AquaQAnalytics/TorQ-Air/master/installlatest.sh
-bash installatest.sh
+bash installlatest.sh
 ```
 Otherwise, you may install TorQ-Air by
 1. Downloading the [main TorQ codebase](https://github.com/AquaQAnalytics/TorQ/releases)
